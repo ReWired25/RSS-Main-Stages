@@ -19,13 +19,17 @@
 
 .wrapper {
     max-width: 1280px;
-    padding: 0 40px;
     margin: 0 auto;
     background: linear-gradient(90deg, #5b483a 0%, #211f20 100%);
 }
 
 .header {
-    padding-top: 60px;
+    position: absolute;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 60px 40px 0px 40px;
+    left: 0;
+    right: 0;
     height: 180px;
     display: flex;
 }
@@ -119,9 +123,10 @@
 
 /* ////////// section welcome (not only) ////////// */
 
-.not-only {
+.welcome {
     display: flex;
     gap: 42px;
+    padding: 180px 40px 0px 40px;
     background-image: url(../../assets/img/noise_transparent@2x.png);
 }
 
