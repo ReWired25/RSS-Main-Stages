@@ -19,10 +19,9 @@
 
 .wrapper {
     max-width: 1280px;
-    height: 100vh;
     padding: 0 40px;
     margin: 0 auto;
-    background: rgba(91, 72, 58, 1);
+    background: linear-gradient(90deg, #5b483a 0%, #211f20 100%);
 }
 
 .header {
@@ -117,3 +116,60 @@
 //         transition: 0.5s;
 //     }
 // }
+
+/* ////////// section welcome (not only) ////////// */
+
+.not-only {
+    display: flex;
+    gap: 42px;
+    background-image: url(../../assets/img/noise_transparent@2x.png);
+}
+
+.welcome-description {
+    margin-top: 163px;
+}
+
+.welcome__title {
+    font-family: Georgia;
+    width: 310px;
+    font-weight: 400;
+    font-size: 44px;
+    line-height: 57px;
+    color: #FFFFFF;
+}
+
+.welcome__text {
+    margin-top: 42px;
+}
+
+.paragraph__text {
+    font-family: Arial;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 24px;
+    color: #CDCDCD;
+}
+
+.welcome__button {
+    margin-top: 42px;
+}
+
+.button {
+    width: 207px;
+    height: 52px;
+    border-radius: 100px;
+    border-style: none;
+    background-color: #F1CDB3;
+    font-family: Georgia;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 22px;
+    letter-spacing: 0.06em;
+    color: #292929;
+    cursor: pointer;
+    transition: 0.8s;
+    &:hover {
+        background-color: #FDDCC4;
+        transition: 0.8s;
+    }
+}
