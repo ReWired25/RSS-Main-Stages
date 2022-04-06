@@ -1,0 +1,119 @@
+@font-face {
+    font-family: Arial;
+    src: url(../../assets/fonts/arial-regular.ttf);
+}
+@font-face {
+    font-family: Georgia;
+    src: url(../../assets/fonts/georgia-regular.ttf);
+}
+
+/* ////////// basic normalize ////////// */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ////////// wrapper, header ////////// */
+
+.wrapper {
+    max-width: 1280px;
+    height: 100vh;
+    padding: 0 40px;
+    margin: 0 auto;
+    background: rgba(91, 72, 58, 1);
+}
+
+.header {
+    padding-top: 60px;
+    height: 180px;
+    display: flex;
+}
+
+.logo {
+    display: block;
+    width: 190px;
+    // width: 184px;
+    text-decoration: none;
+}
+
+.logo__title {
+    font-family: Georgia;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 35px;
+    letter-spacing: 0.07em;
+    // letter-spacing: 0.06em;
+    color: #F1CDB3;
+}
+
+.logo__description {
+    padding-top: 10px;
+    font-family: Arial;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 15px;
+    letter-spacing: 0.1em;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.main-menu {
+    margin-left: auto;
+}
+
+.menu__container {
+    display: flex;
+    padding-top: 16px;
+    gap: 35px;
+    list-style: none;
+}
+
+.menu__link {
+    text-decoration: none;
+    font-family: Arial;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 24px;
+    color: #CDCDCD;
+    transition: 0.8s;
+    cursor: pointer;
+    &:hover{
+        color: #FAFAFA;
+        transition: 0.8s;
+    }
+}
+
+.main-page.active {
+    position: relative;
+    color: #FAFAFA;
+    &::before {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        width: 100%;
+        right: 0;
+        height: 3px;
+        background-color: #F1CDB3;
+    }
+}
+
+// .pets-page {
+//     position: relative;
+//     &::before {
+//         content: "";
+//         position: absolute;
+//         bottom: -10px;
+//         width: 0;
+//         right: 0;
+//         height: 3px;
+//         background-color: #F1CDB3;
+//         transition: 0.8s;
+//     }
+//     &:hover::before {
+//         width: 100%;
+//         left: 0;
+//         transition: 0.5s;
+//     }
+// }
