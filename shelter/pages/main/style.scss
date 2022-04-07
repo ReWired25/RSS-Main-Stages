@@ -7,6 +7,8 @@
     src: url(../../assets/fonts/georgia-regular.ttf);
 }
 
+/* Attention for students! Relative values are commented out for task's adaptive part. */
+
 /* ////////// basic normalize ////////// */
 
 * {
@@ -18,9 +20,9 @@
 /* ////////// wrapper, header ////////// */
 
 .wrapper {
-    max-width: 1280px;
+    width: 1280px;
+    // max-width: 1280px;
     margin: 0 auto;
-    background: linear-gradient(90deg, #5b483a 0%, #211f20 100%);
 }
 
 .header {
@@ -37,7 +39,6 @@
 .logo {
     display: block;
     width: 190px;
-    // width: 184px;
     text-decoration: none;
 }
 
@@ -46,8 +47,7 @@
     font-weight: 400;
     font-size: 32px;
     line-height: 35px;
-    letter-spacing: 0.07em;
-    // letter-spacing: 0.06em;
+    letter-spacing: 2px;
     color: #F1CDB3;
 }
 
@@ -69,7 +69,8 @@
 .menu__container {
     display: flex;
     padding-top: 16px;
-    gap: 35px;
+    // gap: 36px;
+    gap: 2.25em;
     list-style: none;
 }
 
@@ -94,7 +95,7 @@
     &::before {
         content: "";
         position: absolute;
-        bottom: -10px;
+        bottom: -7px;
         width: 100%;
         right: 0;
         height: 3px;
@@ -126,16 +127,21 @@
 .welcome {
     display: flex;
     gap: 42px;
+    // gap: 3%;
+    // gap: 2em;
     padding: 180px 40px 0px 40px;
-    background-image: url(../../assets/img/noise_transparent@2x.png);
+    background:  url(../../assets/img/noise_transparent@2x.png), linear-gradient(120deg, #5b483a 0%, #262425 70%, #211f20 100%);
 }
 
 .welcome-description {
+    // margin-top: 13.6%;
+    // margin-top: 10.2em;
     margin-top: 163px;
 }
 
 .welcome__title {
     font-family: Georgia;
+    // width: 70%;
     width: 310px;
     font-weight: 400;
     font-size: 44px;
@@ -144,6 +150,12 @@
 }
 
 .welcome__text {
+    // margin-top: 9%;
+    margin-top: 41px;
+}
+
+.welcome__button {
+    // margin-top: 9%;
     margin-top: 42px;
 }
 
@@ -153,10 +165,6 @@
     font-size: 15px;
     line-height: 24px;
     color: #CDCDCD;
-}
-
-.welcome__button {
-    margin-top: 42px;
 }
 
 .button {
@@ -178,3 +186,5 @@
         transition: 0.8s;
     }
 }
+
+/* ////////// section welcome (not only) ////////// */
