@@ -130,7 +130,7 @@
   margin-top: 42px;
 }
 
-.paragraph__text {
+.paragraph__text, .about-description__text {
   font-family: Arial;
   font-weight: 400;
   font-size: 15px;
@@ -159,4 +159,32 @@
   transition: 0.8s;
 }
 
-/* ////////// section welcome (not only) ////////// */
+/* ////////// section about ////////// */
+.about {
+  padding: 80px 40px 100px 40px;
+  display: flex;
+  justify-content: center;
+  gap: 120px;
+}
+
+.section-title {
+  width: 370px;
+  font-family: Georgia;
+  font-weight: 400;
+  font-size: 35px;
+  line-height: 45px;
+  letter-spacing: 2.1px;
+  color: #545454;
+}
+
+.about-description {
+  width: 430px;
+  padding-top: 14px;
+}
+
+.about-description__text {
+  padding-top: 25px;
+  color: #4C4C4C;
+}
+
+/* ////////// section about ////////// */
