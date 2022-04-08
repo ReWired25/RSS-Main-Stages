@@ -345,3 +345,52 @@
 }
 
 /* ////////// section in addition ////////// */
+
+.in-addition {
+    padding: 80px 40px 100px 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    background-color: #F6F6F6;
+}
+
+.addition-info {
+    max-width: 380px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.addition-description-title {
+    font-family: Georgia;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 17px;
+    letter-spacing: 0.06em;
+    color: #545454;
+}
+
+.addition-link {
+    text-decoration: none;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    max-width: 349px;
+    height: 43px;
+    background-color: #F1CDB3;
+    border-radius: 9px;
+    cursor: pointer;
+}
+
+.addition-text {
+    font-family: Arial;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    color: #B2B2B2;
+}
+
+/* ////////// section in addition ////////// */
+
