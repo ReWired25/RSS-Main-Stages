@@ -356,4 +356,41 @@
   color: #B2B2B2;
 }
 
-/* ////////// section in addition ////////// */
+/* ////////// section footer ////////// */
+.footer {
+  padding: 40px 40px 0 40px;
+  display: flex;
+  gap: 140px;
+  background: url(../../assets/img/noise_transparent@2x.png), linear-gradient(120deg, #5b483a 0%, #262425 70%, #211f20 100%);
+}
+
+.footer-link {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.contacts-title,
+.address-title {
+  padding-top: 16px;
+  width: 300px;
+  color: #FFFFFF;
+}
+
+.footer-item-title {
+  color: #F1CDB3;
+}
+
+.contacts-info,
+.address-info {
+  width: 300px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.address-info {
+  width: 320px;
+}
