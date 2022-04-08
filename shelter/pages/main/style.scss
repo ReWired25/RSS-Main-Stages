@@ -19,6 +19,14 @@
 
 /* ////////// wrapper, header ////////// */
 
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: url(../../assets/img/noise_transparent@2x.png), #F1CDB3;
+}
+
 .wrapper {
     width: 1280px;
     // max-width: 1280px;
@@ -75,6 +83,7 @@
 }
 
 .menu__link {
+    // display: block;
     text-decoration: none;
     font-family: Arial;
     font-weight: 400;
@@ -85,6 +94,7 @@
     cursor: pointer;
     &:hover{
         color: #FAFAFA;
+        // transform: scale(1.1);
         transition: 0.8s;
     }
 }
@@ -102,25 +112,6 @@
         background-color: #F1CDB3;
     }
 }
-
-// .pets-page {
-//     position: relative;
-//     &::before {
-//         content: "";
-//         position: absolute;
-//         bottom: -10px;
-//         width: 0;
-//         right: 0;
-//         height: 3px;
-//         background-color: #F1CDB3;
-//         transition: 0.8s;
-//     }
-//     &:hover::before {
-//         width: 100%;
-//         left: 0;
-//         transition: 0.5s;
-//     }
-// }
 
 /* ////////// section welcome (not only) ////////// */
 
@@ -180,10 +171,11 @@
     letter-spacing: 0.06em;
     color: #292929;
     cursor: pointer;
-    transition: 0.8s;
+    transition: 0.5s;
     &:hover {
         background-color: #FDDCC4;
-        transition: 0.8s;
+        // transform: scale(1.1);
+        transition: 0.5s;
     }
 }
 
@@ -194,6 +186,7 @@
     display: flex;
     justify-content: center;
     gap: 120px;
+    background-color: #FFFFFF;
 }
 
 .section-title {
@@ -225,7 +218,7 @@
 
 .our-friends {
     padding: 80px 40px 100px 40px;
-    background-color: #F6F6F6;
+    background-color: #F5F5F5;
     text-align: center;
 }
 
@@ -250,7 +243,7 @@
     width: 52px;
     height: 52px;
     border-radius: 100px;
-    background-color: #F6F6F6;
+    background-color: #F5F5F5;
     cursor: pointer;
     transition: 0.5s;
     &:hover {
@@ -321,6 +314,7 @@
     justify-content: space-between;
     align-items: center;
     gap: 60px;
+    background-color: #FFFFFF;
 }
 
 .help-title {
@@ -352,7 +346,7 @@
     justify-content: center;
     align-items: center;
     gap: 30px;
-    background-color: #F6F6F6;
+    background-color: #F5F5F5;
 }
 
 .addition-info {
@@ -381,6 +375,11 @@
     background-color: #F1CDB3;
     border-radius: 9px;
     cursor: pointer;
+    transition: 0.8s;
+    &:hover {
+        background-color: #FDDCC4;
+        transition: 0.8s;
+    }
 }
 
 .addition-text {

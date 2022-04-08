@@ -16,6 +16,14 @@
 }
 
 /* ////////// wrapper, header ////////// */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: url(../../assets/img/noise_transparent@2x.png), #F1CDB3;
+}
+
 .wrapper {
   width: 1280px;
   margin: 0 auto;
@@ -150,12 +158,12 @@
   letter-spacing: 0.06em;
   color: #292929;
   cursor: pointer;
-  transition: 0.8s;
+  transition: 0.5s;
 }
 
 .button:hover {
   background-color: #FDDCC4;
-  transition: 0.8s;
+  transition: 0.5s;
 }
 
 /* ////////// section about ////////// */
@@ -164,6 +172,7 @@
   display: flex;
   justify-content: center;
   gap: 120px;
+  background-color: #FFFFFF;
 }
 
 .section-title {
@@ -189,7 +198,7 @@
 /* ////////// section our friends ////////// */
 .our-friends {
   padding: 80px 40px 100px 40px;
-  background-color: #F6F6F6;
+  background-color: #F5F5F5;
   text-align: center;
 }
 
@@ -214,7 +223,7 @@
   width: 52px;
   height: 52px;
   border-radius: 100px;
-  background-color: #F6F6F6;
+  background-color: #F5F5F5;
   cursor: pointer;
   transition: 0.5s;
 }
@@ -286,6 +295,7 @@
   justify-content: space-between;
   align-items: center;
   gap: 60px;
+  background-color: #FFFFFF;
 }
 
 .help-title {
@@ -316,7 +326,7 @@
   justify-content: center;
   align-items: center;
   gap: 30px;
-  background-color: #F6F6F6;
+  background-color: #F5F5F5;
 }
 
 .addition-info {
@@ -345,6 +355,12 @@
   background-color: #F1CDB3;
   border-radius: 9px;
   cursor: pointer;
+  transition: 0.8s;
+}
+
+.addition-link:hover {
+  background-color: #FDDCC4;
+  transition: 0.8s;
 }
 
 .addition-text {
