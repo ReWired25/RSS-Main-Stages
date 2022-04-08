@@ -8,7 +8,6 @@
   src: url(../../assets/fonts/georgia-regular.ttf);
 }
 
-/* Attention for students! Relative values are commented out for task's adaptive part. */
 /* ////////// basic normalize ////////// */
 * {
   margin: 0;
@@ -280,3 +279,34 @@
 }
 
 /* ////////// section help ////////// */
+.help {
+  padding: 80px 40px 100px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 60px;
+}
+
+.help-title {
+  text-align: center;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  height: 113px;
+}
+
+.help-items {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 120px;
+  row-gap: 55px;
+  justify-content: center;
+}
+
+/* ////////// section in addition ////////// */
