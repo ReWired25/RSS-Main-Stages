@@ -1,0 +1,116 @@
+@font-face {
+  font-family: Arial;
+  src: url(../../assets/fonts/arial-regular.ttf);
+}
+
+@font-face {
+  font-family: Georgia;
+  src: url(../../assets/fonts/georgia-regular.ttf);
+}
+
+/* ////////// basic normalize ////////// */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ////////// wrapper, header ////////// */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: url(../../assets/img/noise_transparent@2x.png), #F1CDB3;
+}
+
+.wrapper {
+  width: 1280px;
+  margin: 0 auto;
+}
+
+.header {
+  position: sticky;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 30px 40px 30px 40px;
+  left: 0;
+  right: 0;
+  height: 120px;
+  display: flex;
+  background: #FFF;
+}
+
+.logo {
+  display: block;
+  width: 190px;
+  text-decoration: none;
+}
+
+.logo__title {
+  font-family: Georgia;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 35px;
+  letter-spacing: 2px;
+  color: #545454;
+}
+
+.logo__description {
+  padding-top: 10px;
+  font-family: Arial;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 15px;
+  letter-spacing: 0.1em;
+  text-align: center;
+  color: #292929;
+}
+
+.main-menu {
+  margin-left: auto;
+}
+
+.menu__container {
+  display: flex;
+  padding-top: 16px;
+  gap: 2.25em;
+  list-style: none;
+}
+
+.menu__link {
+  position: relative;
+  text-decoration: none;
+  font-family: Arial;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 24px;
+  color: #545454;
+  transition: 0.8s;
+  cursor: pointer;
+}
+
+.menu__link:hover {
+  color: #292929;
+  text-shadow: 0 0 5px #545454;
+  transition: 0.8s;
+}
+
+.menu__link:hover.active {
+  text-shadow: 0 0 0 #292929;
+}
+
+.active {
+  position: relative;
+  color: #292929;
+}
+
+.active::before {
+  content: "";
+  position: absolute;
+  bottom: -7px;
+  width: 100%;
+  right: 0;
+  height: 3px;
+  background-color: #F1CDB3;
+}

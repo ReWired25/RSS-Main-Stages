@@ -83,7 +83,6 @@ body {
 }
 
 .menu__link {
-    // display: block;
     position: relative;
     text-decoration: none;
     font-family: Arial;
@@ -95,10 +94,9 @@ body {
     cursor: pointer;
     &:hover{
         color: #FAFAFA;
-        // transform: scale(1.1);
         text-shadow: 0 0 5px #FAFAFA;
         transition: 0.8s;
-        &.main-page.active {
+        &.active {
             text-shadow: 0 0 0 #FAFAFA;
         }
     }
@@ -119,7 +117,7 @@ body {
     // }
 }
 
-.main-page.active {
+.active {
     position: relative;
     color: #FAFAFA;
     &::before {

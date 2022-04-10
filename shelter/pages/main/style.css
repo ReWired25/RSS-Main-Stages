@@ -95,16 +95,16 @@ body {
   transition: 0.8s;
 }
 
-.menu__link:hover.main-page.active {
+.menu__link:hover.active {
   text-shadow: 0 0 0 #FAFAFA;
 }
 
-.main-page.active {
+.active {
   position: relative;
   color: #FAFAFA;
 }
 
-.main-page.active::before {
+.active::before {
   content: "";
   position: absolute;
   bottom: -7px;
