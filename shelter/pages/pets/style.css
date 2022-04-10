@@ -89,12 +89,29 @@ body {
 
 .menu__link:hover {
   color: #292929;
-  text-shadow: 0 0 5px #545454;
+  text-shadow: 0 0 0 #292929;
   transition: 0.8s;
 }
 
 .menu__link:hover.active {
   text-shadow: 0 0 0 #292929;
+}
+
+.menu__link::before {
+  content: "";
+  position: absolute;
+  bottom: -7px;
+  width: 0;
+  right: 0;
+  height: 3px;
+  background-color: #F1CDB3;
+  transition: 0.5s;
+}
+
+.menu__link:hover::before {
+  width: 100%;
+  left: 0;
+  transition: 0.5s;
 }
 
 .active {
@@ -255,3 +272,46 @@ body {
 }
 
 /* ////////// section footer ////////// */
+.footer {
+  padding: 40px 40px 0 40px;
+  display: flex;
+  gap: 140px;
+  background: url(../../assets/img/noise_transparent@2x.png), linear-gradient(120deg, #5b483a 0%, #262425 70%, #211f20 100%);
+}
+
+.footer-link {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  transition: 0.5s;
+}
+
+.footer-link:hover {
+  text-shadow: 0 0 5px #F1CDB3;
+  transition: 0.5s;
+}
+
+.contacts-title,
+.address-title {
+  padding-top: 16px;
+  width: 300px;
+  color: #FFFFFF;
+}
+
+.footer-item-title {
+  color: #F1CDB3;
+}
+
+.contacts-info,
+.address-info {
+  width: 300px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.address-info {
+  width: 320px;
+}

@@ -99,6 +99,23 @@ body {
   text-shadow: 0 0 0 #FAFAFA;
 }
 
+.menu__link::before {
+  content: "";
+  position: absolute;
+  bottom: -7px;
+  width: 0;
+  right: 0;
+  height: 3px;
+  background-color: #F1CDB3;
+  transition: 0.5s;
+}
+
+.menu__link:hover::before {
+  width: 100%;
+  left: 0;
+  transition: 0.5s;
+}
+
 .active {
   position: relative;
   color: #FAFAFA;
