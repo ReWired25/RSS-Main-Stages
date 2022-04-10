@@ -31,11 +31,8 @@ body {
 
 .header {
   position: sticky;
-  max-width: 1280px;
-  margin: 0 auto;
+  top: 0;
   padding: 30px 40px 30px 40px;
-  left: 0;
-  right: 0;
   height: 120px;
   display: flex;
   background: #FFF;
@@ -114,3 +111,147 @@ body {
   height: 3px;
   background-color: #F1CDB3;
 }
+
+/* ////////// section our friends ////////// */
+.our-friends {
+  padding: 80px 40px 100px 40px;
+  background-color: #F5F5F5;
+  text-align: center;
+}
+
+.section-title {
+  width: 370px;
+  font-family: Georgia;
+  font-weight: 400;
+  font-size: 35px;
+  line-height: 45px;
+  letter-spacing: 2.1px;
+  color: #545454;
+}
+
+.our-friends-title {
+  margin: 0 auto;
+  width: 400px;
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.our-friends__slider {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 40px;
+  row-gap: 30px;
+}
+
+.card {
+  text-align: center;
+  width: 270px;
+  height: 435px;
+  background-color: #FAFAFA;
+  transition: 0.5s;
+}
+
+.card:hover {
+  background-color: #FFFFFF;
+  cursor: pointer;
+}
+
+.card:hover .card-button {
+  border: 2px solid transparent;
+  background-color: #FDDCC4;
+  transition: 0.5s;
+}
+
+.item-title {
+  font-family: Georgia;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 23px;
+  letter-spacing: 0.06em;
+  color: #545454;
+}
+
+.button {
+  width: 207px;
+  height: 52px;
+  border-radius: 100px;
+  border-style: none;
+  background-color: #F1CDB3;
+  font-family: Georgia;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 22px;
+  letter-spacing: 0.06em;
+  color: #292929;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.button:hover {
+  background-color: #FDDCC4;
+  box-shadow: 0 0 5px 2.5px #F1CDB3;
+  transition: 0.5s;
+}
+
+.card-button {
+  margin-top: 30px;
+  width: 187px;
+  background-color: #FAFAFA;
+  border: 2px solid #F1CDB3;
+}
+
+.card-title {
+  margin-top: 25px;
+}
+
+.slider-buttons {
+  margin-top: 59px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.slider__button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #F1CDB3;
+  width: 52px;
+  height: 52px;
+  border-radius: 100px;
+  background-color: #F5F5F5;
+  color: #292929;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.slider__button:hover {
+  border: 2px solid transparent;
+  background-color: #FDDCC4;
+  transition: 0.5s;
+}
+
+.slider-page-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #F1CDB3;
+  width: 52px;
+  height: 52px;
+  border-radius: 100px;
+  background-color: #F1CDB3;
+  color: #292929;
+}
+
+.disabled {
+  cursor: auto;
+  border-color: #CDCDCD;
+  color: #CDCDCD;
+}
+
+.disabled:hover {
+  border: 2px solid #CDCDCD;
+  background-color: transparent;
+}
+
+/* ////////// section footer ////////// */
