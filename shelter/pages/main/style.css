@@ -271,6 +271,7 @@ body {
   text-align: center;
   width: 270px;
   height: 435px;
+  border-radius: 9px;
   background-color: #FAFAFA;
   transition: 0.5s;
 }
