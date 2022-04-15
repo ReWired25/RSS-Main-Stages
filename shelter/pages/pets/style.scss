@@ -35,6 +35,7 @@ body {
 
 .header {
     position: sticky;
+    display: flex;
     top: 0;
     // max-width: 1280px;
     // margin: 0 auto;
@@ -42,7 +43,6 @@ body {
     // left: 0;
     // right: 0;
     height: 120px;
-    display: flex;
     background: #FFF;
 }
 
