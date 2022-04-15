@@ -28,21 +28,25 @@ body {
 }
 
 .wrapper {
-    width: 1280px;
-    // max-width: 1280px;
+    max-width: 1280px;
     margin: 0 auto;
 }
 
 .header {
     position: absolute;
-    width: 1280px;
-    // max-width: 1280px;
+    max-width: 1280px;
     margin: 0 auto;
     padding: 60px 40px 0px 40px;
     left: 0;
     right: 0;
     height: 180px;
     display: flex;
+    transition: 0.5s;
+    @media (max-width: 1279px) {
+        padding: 30px 30px 0 30px;
+        height: 150px;
+        transition: 0.5s;
+    }
 }
 
 .logo {
@@ -141,12 +145,29 @@ body {
     // gap: 2em;
     padding: 180px 40px 0px 40px;
     background:  url(../../assets/img/noise_transparent@2x.png), linear-gradient(120deg, #5b483a 0%, #262425 70%, #211f20 100%);
+    transition: 0.5s;
+    @media (max-width: 1279px) {
+        padding: 150px 30px 0 30px;
+        flex-direction: column;
+        align-items: center;
+        gap: 100px;
+        transition: 0.5s;
+    }
 }
 
 .welcome-description {
     // margin-top: 13.6%;
     // margin-top: 10.2em;
     margin-top: 163px;
+    transition: 0.5s;
+    @media (max-width: 1279px) {
+        margin-top: 0;
+        max-width: 60vw;
+        transition: 0.5s;
+        .welcome__form {
+            text-align: center;
+        }
+    }
 }
 
 .welcome__title {
@@ -198,6 +219,17 @@ body {
     }
 }
 
+.welcome-puppy {
+    transition: 0.5s;
+    @media (max-width: 1279px) {
+        width: 569px;
+        height: 593px;
+    }
+    @media (max-width: 800px) {
+        align-self: flex-end;
+    }
+}
+
 /* ////////// section about ////////// */
 
 .about {
@@ -206,6 +238,12 @@ body {
     justify-content: center;
     gap: 120px;
     background-color: #FFFFFF;
+    transition: 0.5s;
+    @media (max-width: 1279px) {
+        flex-direction: column;
+        align-items: center;
+        transition: 0.5s;
+    }
 }
 
 .section-title {
@@ -220,6 +258,7 @@ body {
 }
 
 .about-description {
+    order: -1;
     width: 430px;
     padding-top: 14px;
     // display: flex;

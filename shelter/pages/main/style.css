@@ -25,19 +25,28 @@ body {
 }
 
 .wrapper {
-  width: 1280px;
+  max-width: 1280px;
   margin: 0 auto;
 }
 
 .header {
   position: absolute;
-  width: 1280px;
+  max-width: 1280px;
   margin: 0 auto;
   padding: 60px 40px 0px 40px;
   left: 0;
   right: 0;
   height: 180px;
   display: flex;
+  transition: 0.5s;
+}
+
+@media (max-width: 1279px) {
+  .header {
+    padding: 30px 30px 0 30px;
+    height: 150px;
+    transition: 0.5s;
+  }
 }
 
 .logo {
@@ -137,10 +146,33 @@ body {
   gap: 42px;
   padding: 180px 40px 0px 40px;
   background: url(../../assets/img/noise_transparent@2x.png), linear-gradient(120deg, #5b483a 0%, #262425 70%, #211f20 100%);
+  transition: 0.5s;
+}
+
+@media (max-width: 1279px) {
+  .welcome {
+    padding: 150px 30px 0 30px;
+    flex-direction: column;
+    align-items: center;
+    gap: 100px;
+    transition: 0.5s;
+  }
 }
 
 .welcome-description {
   margin-top: 163px;
+  transition: 0.5s;
+}
+
+@media (max-width: 1279px) {
+  .welcome-description {
+    margin-top: 0;
+    max-width: 60vw;
+    transition: 0.5s;
+  }
+  .welcome-description .welcome__form {
+    text-align: center;
+  }
 }
 
 .welcome__title {
@@ -190,6 +222,23 @@ body {
   transition: 0.5s;
 }
 
+.welcome-puppy {
+  transition: 0.5s;
+}
+
+@media (max-width: 1279px) {
+  .welcome-puppy {
+    width: 569px;
+    height: 593px;
+  }
+}
+
+@media (max-width: 800px) {
+  .welcome-puppy {
+    align-self: flex-end;
+  }
+}
+
 /* ////////// section about ////////// */
 .about {
   padding: 80px 40px 100px 40px;
@@ -197,6 +246,15 @@ body {
   justify-content: center;
   gap: 120px;
   background-color: #FFFFFF;
+  transition: 0.5s;
+}
+
+@media (max-width: 1279px) {
+  .about {
+    flex-direction: column;
+    align-items: center;
+    transition: 0.5s;
+  }
 }
 
 .section-title {
@@ -210,6 +268,7 @@ body {
 }
 
 .about-description {
+  order: -1;
   width: 430px;
   padding-top: 14px;
 }
@@ -271,7 +330,6 @@ body {
   text-align: center;
   width: 270px;
   height: 435px;
-  border-radius: 9px;
   background-color: #FAFAFA;
   transition: 0.5s;
 }
