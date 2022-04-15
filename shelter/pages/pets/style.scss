@@ -28,8 +28,7 @@ body {
 }
 
 .wrapper {
-    width: 1280px;
-    // max-width: 1280px;
+    max-width: 1280px;
     margin: 0 auto;
 }
 
@@ -44,6 +43,12 @@ body {
     // right: 0;
     height: 120px;
     background: #FFF;
+    transition: 0.5s;
+    @media (max-width: 1279px) {
+        // padding: 31px 30px 0 30px;
+        padding: 30px 30px 30px 30px;
+        transition: 0.5s;
+    }
 }
 
 .logo {
@@ -139,6 +144,10 @@ body {
     padding: 80px 40px 100px 40px;
     background-color: #F5F5F5;
     text-align: center;
+    transition: 0.5s;
+    @media (max-width: 1279px) {
+        padding-bottom: 76px;
+    }
 }
 
 .section-title {
@@ -157,6 +166,10 @@ body {
     width: 400px;
     text-align: center;
     margin-bottom: 60px;
+    transition: 0.5s;
+    @media (max-width: 1279px) {
+        margin-bottom: 30px;
+    }
 }
 
 .our-friends__slider {
@@ -166,6 +179,15 @@ body {
     // align-items: center;
     column-gap: 40px;
     row-gap: 30px;
+    transition: 0.5s;
+    @media (max-width: 1279px) {
+        column-gap: 20%;
+        justify-content: center;
+    }
+    @media (max-width: 900px) {
+        column-gap: 40px;
+        justify-content: center;
+    }
 }
 
 .card {
@@ -185,6 +207,13 @@ body {
             background-color: #FDDCC4;
             transition: 0.5s;
         }
+    }
+}
+
+.card-seven,
+.card-eight {
+    @media (max-width: 1279px) {
+        display: none;
     }
 }
 
@@ -234,6 +263,9 @@ body {
     display: flex;
     justify-content: center;
     gap: 20px;
+    @media (max-width: 1279px) {
+        margin-top: 40px;
+    }
 }
 
 .slider__button {
@@ -284,6 +316,18 @@ body {
     display: flex;
     gap: 140px;
     background:  url(../../assets/img/noise_transparent@2x.png), linear-gradient(120deg, #5b483a 0%, #262425 70%, #211f20 100%);
+    @media (max-width: 1279px) {
+        flex-wrap: wrap;
+        justify-content: center;
+        column-gap: 20%;
+    }
+    @media (max-width: 900px) {
+        justify-content: center;
+        padding: 30px 30px 0 30px;
+        flex-wrap: wrap;
+        column-gap: 50px;
+        row-gap: 65px;
+    }
 }
 
 .footer-link {
@@ -305,6 +349,9 @@ body {
     padding-top: 16px;
     width: 300px;
     color: #FFFFFF;
+    @media (max-width: 1279px) {
+        padding-top: 0;
+    }
 }
 
 .footer-item-title {
@@ -319,9 +366,16 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    @media (max-width: 1279px) {
+        width: 290px;
+        height: 235px;
+    }
 }
 
 .address-info {
     // width: 30%;
     width: 320px;
+    @media (max-width: 1279px) {
+        width: 300px;
+    }
 }

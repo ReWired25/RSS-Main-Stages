@@ -382,7 +382,7 @@ body {
 }
 
 @media (max-width: 1279px) {
-  .card-woody {
+  .card-three {
     display: none;
   }
 }
@@ -535,6 +535,14 @@ body {
   display: flex;
   gap: 140px;
   background: url(../../assets/img/noise_transparent@2x.png), linear-gradient(120deg, #5b483a 0%, #262425 70%, #211f20 100%);
+}
+
+@media (max-width: 1279px) {
+  .footer {
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: 20%;
+  }
 }
 
 @media (max-width: 900px) {
