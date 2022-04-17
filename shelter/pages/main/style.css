@@ -358,7 +358,7 @@ body {
   .section-title {
     font-size: 25px;
     line-height: 32px;
-    width: 300px;
+    width: 287px;
   }
 }
 
@@ -444,7 +444,7 @@ body {
 
 @media (max-width: 767px) {
   .our-friends-title {
-    width: 300px;
+    width: 287px;
     margin-bottom: 42px;
   }
 }
@@ -631,9 +631,11 @@ body {
   }
 }
 
-.item-image {
-  width: 50px;
-  height: 50px;
+@media (max-width: 767px) {
+  .item-image {
+    width: 50px;
+    height: 50px;
+  }
 }
 
 .help-items {
@@ -682,9 +684,11 @@ body {
   }
 }
 
-.help-item-title {
-  font-size: 15px;
-  line-height: 17px;
+@media (max-width: 767px) {
+  .help-item-title {
+    font-size: 15px;
+    line-height: 17px;
+  }
 }
 
 /* ////////// section in addition ////////// */
@@ -933,7 +937,9 @@ body {
   }
 }
 
-.footer-pet {
-  width: 260px;
-  height: 269px;
+@media (max-width: 767px) {
+  .footer-pet {
+    width: 260px;
+    height: 269px;
+  }
 }
