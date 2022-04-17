@@ -43,7 +43,7 @@ body {
 
 @media (max-width: 1279px) {
   .header {
-    padding: 30px 30px 0 30px;
+    padding: 31px 30px 0 30px;
     height: 150px;
     transition: 0.5s;
   }
@@ -145,23 +145,6 @@ body {
   text-shadow: 0 0 0 #FAFAFA;
 }
 
-.menu__link::before {
-  content: "";
-  position: absolute;
-  bottom: -7px;
-  width: 0;
-  right: 0;
-  height: 3px;
-  background-color: #F1CDB3;
-  transition: 0.5s;
-}
-
-.menu__link:hover::before {
-  width: 100%;
-  left: 0;
-  transition: 0.5s;
-}
-
 .active {
   position: relative;
   color: #FAFAFA;
@@ -188,7 +171,7 @@ body {
 
 @media (max-width: 1279px) {
   .welcome {
-    padding: 150px 30px 0 30px;
+    padding: 152px 30px 0 30px;
     flex-direction: column;
     align-items: center;
     gap: 100px;
@@ -225,7 +208,7 @@ body {
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 350px) {
   .welcome-description {
     max-width: 100vh;
   }
@@ -284,7 +267,6 @@ body {
 
 .button:hover {
   background-color: #FDDCC4;
-  box-shadow: 0 0 5px 2.5px #F1CDB3;
   transition: 0.5s;
 }
 
@@ -424,14 +406,14 @@ body {
 
 @media (max-width: 1279px) {
   .our-friends {
-    padding: 80px 30px 100px 30px;
+    padding: 80px 10px 100px 10px;
     transition: 0.5s;
   }
 }
 
 @media (max-width: 767px) {
   .our-friends {
-    padding: 42px 10px 42px 10px;
+    padding: 42px 8px 42px 8px;
   }
 }
 
@@ -494,10 +476,10 @@ body {
 
 @media (max-width: 1279px) {
   .slider__button.left {
-    margin-right: -12px;
+    margin-right: -8px;
   }
   .slider__button.right {
-    margin-left: -12px;
+    margin-left: -8px;
   }
 }
 
@@ -866,7 +848,7 @@ body {
 
 .contacts-title,
 .address-title {
-  padding-top: 16px;
+  padding-top: 18px;
   width: 300px;
   color: #FFFFFF;
 }
@@ -874,7 +856,7 @@ body {
 @media (max-width: 1279px) {
   .contacts-title,
   .address-title {
-    padding-top: 3px;
+    padding-top: 0px;
   }
 }
 
@@ -882,7 +864,6 @@ body {
   .contacts-title,
   .address-title {
     text-align: center;
-    padding-top: 0;
   }
 }
 

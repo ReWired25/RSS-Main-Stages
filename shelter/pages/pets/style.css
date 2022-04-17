@@ -142,23 +142,6 @@ body {
   text-shadow: 0 0 0 #292929;
 }
 
-.menu__link::before {
-  content: "";
-  position: absolute;
-  bottom: -7px;
-  width: 0;
-  right: 0;
-  height: 3px;
-  background-color: #F1CDB3;
-  transition: 0.5s;
-}
-
-.menu__link:hover::before {
-  width: 100%;
-  left: 0;
-  transition: 0.5s;
-}
-
 .active {
   position: relative;
   color: #292929;
@@ -328,7 +311,6 @@ body {
 
 .button:hover {
   background-color: #FDDCC4;
-  box-shadow: 0 0 5px 2.5px #F1CDB3;
   transition: 0.5s;
 }
 
@@ -460,7 +442,7 @@ body {
 
 .contacts-title,
 .address-title {
-  padding-top: 16px;
+  padding-top: 18px;
   width: 300px;
   color: #FFFFFF;
 }
