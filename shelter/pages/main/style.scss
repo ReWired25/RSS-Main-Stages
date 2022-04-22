@@ -25,6 +25,9 @@ html {
 
 body {
     background: url(../../assets/img/noise_transparent@2x.png), #F1CDB3;
+    &.open {
+        overflow: hidden;
+    }
 }
 
 .wrapper {
@@ -84,7 +87,9 @@ body {
     width: 30px;
     height: 22px;
     display: none;
-    transition: 0.5s;
+    transition: 0.4s;
+    z-index: 2;
+    cursor: pointer;
     @media (max-width: 767px) {
         display: flex;
         flex-direction: column;
@@ -92,6 +97,9 @@ body {
         margin-left: auto;
         margin-top: 19px;
         margin-right: 43px;
+        &.open {
+            transform: rotate(90deg);
+        }
     }
 }
 
@@ -103,8 +111,51 @@ body {
 
 .main-menu {
     margin-left: auto;
+    transition: 0.4s;
     @media (max-width: 767px) {
-        display: none;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        right: -320px;
+        padding: 30px 10px;
+        width: 320px;
+        height: 100vh;
+        background-color: #292929;
+        &.open {
+            right: 0;
+        }
+    }
+}
+
+.menu-logo {
+    display: none;
+    transition: 0.4s;
+    @media (max-width: 767px) {
+        display: block;
+        opacity: 0;
+        &.open {
+            opacity: 1;
+        }
+    }
+}
+
+.overlay {
+    display: none;
+    @media (max-width: 767px) {
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: rgba(#292929, 0.7);
+        display: block;
+        opacity: 0;
+        visibility: hidden;
+        transition: 0.4s;
+        &.open {
+            opacity: 1;
+            visibility: visible;
+        }
     }
 }
 
@@ -114,6 +165,12 @@ body {
     // gap: 36px;
     gap: 2.25em;
     list-style: none;
+    @media (max-width: 767px) {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 144px;
+        gap: 41px;
+    }
 }
 
 .menu__link {
@@ -133,6 +190,10 @@ body {
         &.active {
             text-shadow: 0 0 0 #FAFAFA;
         }
+    }
+    @media (max-width: 767px) {
+        font-size: 32px;
+        line-height: 51px;
     }
     // &::before {
     //     content: "";
