@@ -123,6 +123,7 @@ body {
         background-color: #292929;
         &.open {
             right: 0;
+            overflow: auto;
         }
     }
 }
@@ -465,6 +466,11 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    column-gap: 53px;
+    transition: 0.5s;
+    @media (max-width: 900px) {
+        column-gap: 12px;
+    }
     @media (max-width: 767px) {
         width: 270px;
         margin: 0 auto;
@@ -490,36 +496,44 @@ body {
         background-color: #FDDCC4;
         transition: 0.5s;
     }
-    &.left {
-        margin-right: 8px;
-    }
-    &.right {
-        margin-left: 8px;
-    }
-    @media (max-width: 1279px) {
-        &.left {
-            margin-right: -8px;
-        }
-        &.right {
-            margin-left: -8px;
-        }
-    }
     @media (max-width: 767px) {
         &.left {
             order: 1;
-            margin-right: 0;
         }
         &.right {
             order: 2;
-            margin-left: 0;
         }
     }
 }
 
+.slider-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.cards-container {
+    position: relative;
+    top: 0;
+    left: 0;
+    display: flex;
+    gap: 90px;
+    transition: 0.7s;
+    @media (max-width: 1279px) {
+        gap: 40px;
+    }
+    &.prev {
+        position: absolute;
+        top: 0;
+        left: -1150px;
+    }
+    &.next {
+        position: absolute;
+        top: 0;
+        left: 1150px;
+    }
+}
+
 .card {
-    // margin: 0 3.7%;
-    // margin: 0 2.8em;
-    margin: 0 45px;
     text-align: center;
     width: 270px;
     height: 435px;
@@ -534,25 +548,29 @@ body {
             transition: 0.5s;
         }
     }
-    @media (max-width: 1279px) {
-        margin: 0 3.7%;
+    &:nth-child(2) {
+        @media (max-width: 767px) {
+            display: none;
+        }
     }
-    @media (max-width: 800px) {
-        margin: 0 20px;
-    }
-}
-
-.card-two {
-    @media (max-width: 767px) {
-        display: none;
+    &:nth-child(3) {
+        @media (max-width: 1279px) {
+            display: none;
+        }
     }
 }
 
-.card-three {
-    @media (max-width: 1279px) {
-        display: none;
-    }
-}
+// .card-two {
+//     @media (max-width: 767px) {
+//         display: none;
+//     }
+// }
+
+// .card-three {
+//     @media (max-width: 1279px) {
+//         display: none;
+//     }
+// }
 
 .item-title {
     font-family: Georgia;

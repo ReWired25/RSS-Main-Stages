@@ -1,9 +1,20 @@
+// *************** imports *************** //
+
+import {selfCheck} from '../../assets/js/selfcheckInfo.js';
+import {petsArr} from '../../assets/js/pets.js';
+
 // *************** selectors, variables *************** //
 
 const burgerMenu = document.querySelector('.burger-menu');
 const mainMenu = document.querySelector('.main-menu');
 const menuLogo = document.querySelector('.menu-logo');
 const overlay = document.querySelector('.overlay');
+
+const sliderContainer = document.querySelector('.slider-container');
+const buttonLeft = document.querySelector('.left');
+const buttonRight = document.querySelector('.right');
+
+// *************** burger menu functional *************** //
 
 function toggleMenu() {
     let arr = [burgerMenu, mainMenu, menuLogo, overlay, document.body];
@@ -26,93 +37,204 @@ overlay.addEventListener('click', () => {
     toggleMenu();
 })
 
+// *************** general functions *************** //
 
+let currWidth = document.documentElement.clientWidth;
 
+// ~~ Make randoms nums and pets objects ~~ //
 
+function randomNums() {
+    let arr = [];
+    for (let i = 0; arr.length < 8; i++) {
+      let num = Math.floor(Math.random() * 8);
 
+      if (!arr.includes(num)) arr.push(num);
+    }
+    return arr;
+}
 
+function randomObjs(arr) {
+    let numArr = randomNums();
+    let finalArr = [];
 
+    for (let i = 0; i < arr.length; i++) {
+        finalArr.push(arr[numArr[i]]);
+    }
+    
+    return finalArr;
+}
 
+// ~~ Make cards and fill cards with information ~~ //
 
+function cardCreater() {
+    let card = document.createElement('div');
+    card.classList.add('card');
 
+    let img = document.createElement('img');
+    img.classList.add('card-image');
+    img.src = '#';
+    img.alt = 'pet-photo';
 
+    let title = document.createElement('h4');
+    title.classList.add('item-title', 'card-title');
 
+    let button = document.createElement('button');
+    button.classList.add('button', 'card-button');
+    button.innerHTML = 'Learn more';
 
+    card.append(img, title, button);
+    return card;
+}
 
+function fillCard(petObj) {
+    let currentCard = cardCreater();
 
+    currentCard.querySelector('.card-title').innerHTML = petObj.name;
+    currentCard.querySelector('.card-image').src = petObj.img;
 
+    return currentCard;
+}
 
+// ~~ Make objects for containers ~~ //
 
+function containerObjs(currObjs) {
+    let pets = randomObjs(petsArr);
+    let newObjs = [];
 
+    if (currObjs) {
+        for (let i = 0; newObjs.length < 3; i++) {
+            if (!currObjs.includes(pets[i])) {
+                newObjs.push(pets[i]);
+            }
+        }
+    } else {
+        for (let i = 0; newObjs.length < 3; i++) {
+            newObjs.push(pets[i]);
+        }
+    }
 
+    return newObjs;
+}
 
+function finalObjs(forwardObjs) {
+    let currObjs;
 
+    if (forwardObjs) {
+        currObjs = forwardObjs;
+    } else {
+        currObjs = containerObjs(null);
+    }
 
+    let prevObjs = containerObjs(currObjs);
+    let nextObjs = containerObjs(currObjs);
 
+    let arrObjs = [prevObjs, currObjs, nextObjs];
+    return arrObjs;
+}
 
+// ~~ Make containers and fill them ~~ //
+// ~~ Consider current object case ~~ //
 
+function fillContainer(objs) {
+    let finalContainer = [];
 
+    for (let i = 0; i < objs.length; i++) {
+        finalContainer.push(fillCard(objs[i]));
+    }
 
+    return finalContainer;
+}
 
-console.log(`Выполненная самопроверка второй части задания "Shelter":
-Общая проверка поведения приложения при изменении ширины окна:
+function finalContainers(forwardObjs) {
+    let objs = finalObjs(forwardObjs);
 
-    + Что в chrome, что в firefox горизонтальный срок не появляется на всех разрешениях вплоть до 320 (в chrome таковой возникает на 317px, в firefox скролл отсутствует и на 300px).
-    + Целостность вёрстки сохраняется в обоих вышеуказанных браузерах, элементы за края не выходят.
+    let prevCards = fillContainer(objs[0]);
+    let currCards = fillContainer(objs[1]);
+    let nextCards = fillContainer(objs[2]);
 
+    let prevContainer = document.createElement('div');
+    prevContainer.classList.add('cards-container', 'prev');
 
-1280px <= width:
+    let currContainer = document.createElement('div');
+    currContainer.classList.add('cards-container');
 
-    + Верстка занимает максимальную ширину 1280px, центрируется с равными отступами слева и справа, свободное пространство заполнено фоновым цветом на обеих страницах.
-    + Верстка полностью соответствует макету 1280px на обеих страницах.
+    let nextContainer = document.createElement('div');
+    nextContainer.classList.add('cards-container', 'next');
 
-768px <= width < 1280px
+    prevContainer.append(...prevCards);
+    currContainer.append(...currCards);
+    nextContainer.append(...nextCards);
 
-    Main Page:
-    + Фон растянут на Header и блок Not only.
-    + Все параграфы с текстом выравнены по левому краю в блоке Not only. Сами блоки центрированы.
-    + Кнопка "Make a friend" центрирована.
-    + Все параграфы с текстом выравнены по левому краю в блоке About the shelter. Сами блоки центрированы.
-    + В блоке Our friends текст, слайдер и кнопка снизу центрированы.
-    + В блоке Our friends в слайдере 2 карточки питомцев.
-    + Все параграфы с текстом, а также ссылка с номером карты, выравнены по левому краю в блоке In addition. Сами блоки центрированы.
-    + Иконки и текст в обеих колонках выравнены по левому краю своих колонок в блоке Footer.
-    + Картинка собаки снизу в блоке Footer не пересекается с текстом.
+    let containers = [prevContainer, currContainer, nextContainer];
 
-    Pets Page:
-    + Header всегда видимый, находится сверху страницы, в том числе при скролле.
-    + В блоке Our friends карточки расположены в 3 ряда по 2 элемента.
-    + В блоке Our friends все элементы и блоки с элементами центрированы.
-    + Пагинация распологается по центру. В пагинации число "1", активны только кнопки справа.
-    + Картинка собаки снизу в блоке Footer не пересекается с текстом.
+    return containers;
+}
 
-! На разрешении 768px вёрстка полностью соответствует макету на обеих страницах!
+function forwardCurrObjs(card) {
+    let currCardsTitle = card.querySelectorAll('.card-title');
+    let currObjs = [];
 
-320px <= width < 768px
+    for (let i = 0; i < petsArr.length; i++) {
+        if (currCardsTitle[0].innerHTML === petsArr[i].name ||
+            currCardsTitle[1].innerHTML === petsArr[i].name ||
+            currCardsTitle[2].innerHTML === petsArr[i].name) {
+                currObjs.push(petsArr[i]);
+            }
+    }
 
-    Main Page:
-    + Фон растянут на Header и блок Not only.
-    + Меню в Header скрывается (становится бургер меню), в Header появляется бургер-иконка.
-    + Все параграфы с текстом и кнопка центрированы в блоке Not only.
-    + Картинка собаки снизу в блоке Not only не пересекается с текстом.
-    + Все параграфы с текстом центрированы в блоке About the shelter. Текст в параграфах выровнен по ширине параграфа.
-    + В блоке Our friends текст, карточка в слайдере, блок с кнопками слайдера и кнопка снизу центрированы.
-    + В блоке Our friends в слайдере 1 карточка питомца.
-    + Все параграфы с текстом, а также ссылка с номером карты, центрированы в блоке In addition. Текст в параграфах выровнен по ширине параграфа.
-    + Заголовки с текстом, иконка и адрес email, иконка и номер телефона и картинка собаки в самом низу центрированы в блоке Footer.
-    + Блоки центрированы, элементы расположены по макету.
+    return currObjs;
+}
 
-    Pets Page:
-    + Header всегда видимый, и находится сверху страницы, в том числе при скролле.
-    + Меню в Header скрывается (становится бургер меню), в Header появляется бургер-иконка.
-    + В блоке Our friends находится 3 карточки питомцев, 1 колонка с 3 элементами.
-    + В блоке Our friends все элементы и блоки с элементами центрированы.
-    + Пагинация распологается по центру. В пагинации число "1", активны только кнопки справа.
-    + Заголовки с текстом, иконка и адрес email, иконка и номер телефона и картинка собаки в самом низу центрированы в блоке Footer.
-    + Блоки центрированы, элементы расположены по макету.
+function containerCreater(forwardObjs) {
+    let containers = finalContainers(forwardObjs);
 
-! На разрешении 320px вёрстка полностью соответствует макету на обеих страницах!
+    if (forwardObjs) {
+        let replaceItems = sliderContainer.querySelectorAll('.prev');
+        for (let item of replaceItems) {
+            item.remove();
+        }
+        sliderContainer.prepend(containers[0]);
+        sliderContainer.append(containers[2]);
+    } else {
+        sliderContainer.append(...containers);
+    }
+}
 
-Вёрстка, ссылки и интерактивность проверялись в двух браузерах (Chrome, Firefox).
-Вёрстка должна полностью соответстовать макету, максимальные возможные расхождения составляют 1-2 пикселя.
-Спасибо за проверку работы!`);
+// *************** slider *************** //
+
+// ~~ Make cards with project load ~~ //
+// ~~ And then buttons functionals ~~ //
+
+containerCreater();
+
+buttonLeft.addEventListener('click', function leftListener() {
+    let cards = sliderContainer.querySelectorAll('.cards-container');
+
+    cards[1].classList.add('prev');
+    cards[2].classList.remove('next');
+
+    buttonLeft.removeEventListener('click', leftListener);
+
+    setTimeout(() => {
+        let currObjs = forwardCurrObjs(cards[2]);
+        containerCreater(currObjs);
+
+        buttonLeft.addEventListener('click', leftListener);
+    }, 700);
+})
+
+buttonRight.addEventListener('click', function rightListener() {
+    let cards = sliderContainer.querySelectorAll('.cards-container');
+
+    cards[0].classList.remove('prev');
+    cards[1].classList.add('next');
+
+    buttonRight.removeEventListener('click', rightListener);
+
+    setTimeout(() => {
+        let currObjs = forwardCurrObjs(cards[0]);
+        containerCreater(currObjs);
+
+        buttonRight.addEventListener('click', rightListener);
+    }, 700);
+})
