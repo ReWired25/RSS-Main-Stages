@@ -238,3 +238,114 @@ buttonRight.addEventListener('click', function rightListener() {
         buttonRight.addEventListener('click', rightListener);
     }, 700);
 })
+
+// *************** modal window functional *************** //
+
+function modalCreator(currObj) {
+    let obj = currObj;
+
+    let modalContainer = document.createElement('div');
+    modalContainer.classList.add('modal-container');
+
+    let genBlock = document.createElement('div');
+    genBlock.classList.add('modal');
+
+    let modalButton = document.createElement('button');
+    modalButton.classList.add('slider__button', 'modal-button');
+
+    let buttonIcon = document.createElement('img');
+    buttonIcon.classList.add('modal-button-icon');
+    buttonIcon.src = '../../assets/svg/modal-button.svg';
+    buttonIcon.alt = 'modal-button-icon'
+
+    modalButton.append(buttonIcon);
+
+    let petImg = document.createElement('img');
+    petImg.classList.add('modal-pet');
+    petImg.src = obj.img;
+    petImg.alt = 'modal-pet';
+
+    let infoBlock = document.createElement('div');
+    infoBlock.classList.add('modal-info');
+
+    let infoTitle = document.createElement('h3');
+    infoTitle.classList.add('section-title', 'modal-title');
+    infoTitle.innerHTML = obj.name;
+
+    let breedTitle = document.createElement('h4');
+    breedTitle.classList.add('item-title', 'modal-breed-title');
+    breedTitle.innerHTML = `${obj.type} - ${obj.breed}`;
+
+    let infoText = document.createElement('p');
+    infoText.classList.add('modal-text');
+    infoText.innerHTML = obj.description;
+
+    let ulBlock = document.createElement('ul');
+    ulBlock.classList.add('modal-list');
+
+    let liArr = [];
+    for (let i = 0; i < 4; i++) {
+        let liBlock = document.createElement('li');
+        liBlock.classList.add('modal-li');
+        liArr.push(liBlock);
+    }
+
+    liArr[0].innerHTML = `Age: ${obj.age}`;
+    liArr[1].innerHTML = `Inoculations: ${obj.inoculations}`;
+    liArr[2].innerHTML = `Diseases: ${obj.diseases}`;
+    liArr[3].innerHTML = `Parasites: ${obj.parasites}`;
+
+    for (let i = 0; i < liArr.length; i++) {
+        ulBlock.append(liArr[i]);
+    }
+
+    infoBlock.append(infoTitle, breedTitle, infoText, ulBlock);
+    genBlock.append(modalButton, petImg, infoBlock);
+    modalContainer.append(genBlock);
+
+    return modalContainer;
+}
+
+sliderContainer.addEventListener('click', function sliderListener(event) {
+    let currCard;
+
+    if (!event.target.parentElement) {
+        return;
+    }
+
+    if (event.target.classList.contains('card')) {
+        currCard = event.target;
+    } else if (event.target.parentElement.classList.contains('card')) {
+        currCard = event.target.parentElement;
+    }
+
+    if (currCard) {
+        let name = currCard.querySelector('.card-title').innerHTML;
+        let obj;
+
+        for (let i = 0; i < petsArr.length; i++) {
+            if (name === petsArr[i].name) {
+                obj = petsArr[i];
+            }
+        }
+
+        let newModal = modalCreator(obj);
+        sliderContainer.append(newModal);
+        document.body.classList.add('open');
+
+        currModalListener();
+    }
+})
+
+function currModalListener() {
+    let modal = sliderContainer.querySelector('.modal-container');
+
+    modal.addEventListener('click', (event) => {
+        if (event.target.classList.contains('modal-container') ||
+            event.target.classList.contains('modal-button') ||
+            event.target.classList.contains('modal-button-icon')) {
+                modal.remove();
+                document.body.classList.remove('open');
+            }
+    })
+}
