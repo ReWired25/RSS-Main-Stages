@@ -21,6 +21,10 @@
                 <div class="burger-line"></div>
             </div>
             <nav class="main-menu">
+                <a class="logo menu-logo" href="#">
+                    <h1 class="logo__title">Cozy House</h1>
+                    <div class="logo__description">Shelter for pets in Boston</div>
+                </a>
                 <ul class="menu__container">
                     <li class="menu__item"><a class="menu__link main-page active" href="#">About the shelter</a></li>
                     <li class="menu__item"><a class="menu__link pets-page" href="../pets/index.html">Our pets</a></li>
@@ -28,6 +32,7 @@
                     <li class="menu__item"><a class="menu__link" href="#footer-anchor">Contacts</a></li>
                 </ul>
             </nav>
+            <div class="overlay"></div>
         </header>
         <section class="not-only welcome">
             <div class="welcome-description">
@@ -51,26 +56,48 @@
             <h3 class="section-title our-friends-title">Our friends who<br>are looking for a house</h3>
             <div class="our-friends__slider">
                 <button class="slider__button left"><img src="../../assets/svg/arrow-left.svg" alt="arrow-left"></button>
-                <div class="card card-one">
-                    <img class="card-image" src="../../assets/img/pets-katrine.png" alt="pet-photo">
-                    <h4 class="item-title card-title">Katrine</h4>
-                    <button class="button card-button">Learn more</button>
-                </div>
-                <div class="card card-two">
-                    <img class="card-image" src="../../assets/img/pets-jennifer.png" alt="pet-photo">
-                    <h4 class="item-title card-title">Jennifer</h4>
-                    <button class="button card-button">Learn more</button>
-                </div>
-                <div class="card card-three">
-                    <img class="card-image" src="../../assets/img/pets-woody.png" alt="pet-photo">
-                    <h4 class="item-title card-title">Woody</h4>
-                    <button class="button card-button">Learn more</button>
+                <div class="slider-container">
+                    <!-- <div class="cards-container">
+                        <div class="card card-one">
+                            <img class="card-image" src="../../assets/img/pets-katrine.png" alt="pet-photo">
+                            <h4 class="item-title card-title">Katrine</h4>
+                            <button class="button card-button">Learn more</button>
+                        </div>
+                        <div class="card card-two">
+                            <img class="card-image" src="../../assets/img/pets-jennifer.png" alt="pet-photo">
+                            <h4 class="item-title card-title">Jennifer</h4>
+                            <button class="button card-button">Learn more</button>
+                        </div>
+                        <div class="card card-three">
+                            <img class="card-image" src="../../assets/img/pets-woody.png" alt="pet-photo">
+                            <h4 class="item-title card-title">Woody</h4>
+                            <button class="button card-button">Learn more</button>
+                        </div>
+                    </div> -->
                 </div>
                 <button class="slider__button right"><img src="../../assets/svg/arrow-right.svg" alt="arrow-rigth"></button>
             </div>
             <form class="our-friends__form" action="../pets/index.html">
                 <button class="button our-friends__button">Get to know the rest</button>
             </form>
+            <!-- <div class="modal-container"> -->
+                <!-- <button class="slider__button modal-button"><img src="../../assets/svg/modal-button.svg" alt="modal-button-icon"></button> -->
+                <!-- <div class="modal">
+                    <button class="slider__button modal-button"><img src="../../assets/svg/modal-button.svg" alt="modal-button-icon"></button>
+                    <img src="../../assets/img/pets-jennifer.png" alt="modal-pet" class="modal-pet">
+                    <div class="modal-info">
+                        <h3 class="section-title modal-title">Jennifer</h3>
+                        <h4 class="item-title modal-breed-title"><span class="species">Dog</span> - <span class="breed">Labrador</span></h4>
+                        <p class="modal-text">Jennifer is a sweet 2 months old Labrador that is patiently waiting to find a new forever home. This girl really enjoys being able to go outside to run and play, but won't hesitate to play up a storm in the house if she has all of her favorite toys.</p>
+                        <ul class="modal-list">
+                            <li class="modal-li"><span class="modal-li-span">Age:</span> 2 months</li>
+                            <li class="modal-li"><span class="modal-li-span">Inoculations:</span> none</li>
+                            <li class="modal-li"><span class="modal-li-span">Diseases:</span> none</li>
+                            <li class="modal-li"><span class="modal-li-span">Parasites:</span> none</li>
+                        </ul>
+                    </div>
+                </div>
+            </div> -->
         </section>
         <section class="help" id="help-anchor">
             <h3 class="section-title help-title">How you can help<br>our shelter</h3>
@@ -136,6 +163,6 @@
             <img class="footer-pet" src="../../assets/img/footer-puppy.png" alt="footer-pet">
         </footer>
     </div>
-    <script src="script.js"></script>
+    <script type="module" src="script.js"></script>
 </body>
 </html>
