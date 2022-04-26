@@ -165,9 +165,10 @@ body {
     gap: 2.25em;
     list-style: none;
     @media (max-width: 767px) {
+        height: 80vh;
         flex-direction: column;
         align-items: center;
-        margin-top: 144px;
+        justify-content: center;
         gap: 41px;
     }
 }
@@ -875,12 +876,17 @@ body {
 
 .modal-container {
     position: fixed;
+    opacity: 0;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
     background-color: rgba($color: #000000, $alpha: 0.5);
     overflow: auto;
+    transition: 0.5s;
+    &.modal-active {
+        opacity: 1;
+    }
 }
 
 .modal {
@@ -917,13 +923,6 @@ body {
             top: 52px;
         }
     }
-    &:hover {
-        .modal-button {
-            border: 2px solid #F1CDB3;
-            background-color: transparent;
-            transition: 0.5s;
-        }
-    }
 }
 
 .modal-pet {
@@ -941,18 +940,32 @@ body {
 
 .modal-button {
     position: absolute;
-    top: -52px;
-    left: 880px;
+    top: calc(50% - 305px);
+    left: calc(50% - -420px);
     border: 2px solid transparent;
     background-color: #FDDCC4;
     transition: 0.5s;
+    @media (max-height: 625px) {
+        top: 0;
+    }
     @media (max-width: 1279px) {
-        top: -52px;
-        left: 655px;
+        top: calc(50% - 252px);
+        left: calc(50% - -315px);
+        @media (max-height: 550px) {
+            top: 0;
+        }
     }
     @media (max-width: 767px) {
-        top: -52px;
-        left: 215px;
+        top: calc(50% - 270px);
+        left: calc(50% - -95px);
+        @media (max-height: 550px) {
+            top: 0;
+        }
+    }
+    &.modal-on {
+        border: 2px solid #F1CDB3;
+        background-color: transparent;
+        transition: 0.5s;
     }
 }
 

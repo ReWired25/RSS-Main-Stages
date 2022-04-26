@@ -247,9 +247,6 @@ function modalCreator(currObj) {
     let modalContainer = document.createElement('div');
     modalContainer.classList.add('modal-container');
 
-    let genBlock = document.createElement('div');
-    genBlock.classList.add('modal');
-
     let modalButton = document.createElement('button');
     modalButton.classList.add('slider__button', 'modal-button');
 
@@ -259,6 +256,9 @@ function modalCreator(currObj) {
     buttonIcon.alt = 'modal-button-icon'
 
     modalButton.append(buttonIcon);
+
+    let genBlock = document.createElement('div');
+    genBlock.classList.add('modal');
 
     let petImg = document.createElement('img');
     petImg.classList.add('modal-pet');
@@ -300,8 +300,8 @@ function modalCreator(currObj) {
     }
 
     infoBlock.append(infoTitle, breedTitle, infoText, ulBlock);
-    genBlock.append(modalButton, petImg, infoBlock);
-    modalContainer.append(genBlock);
+    genBlock.append(petImg, infoBlock);
+    modalContainer.append(modalButton, genBlock);
 
     return modalContainer;
 }
@@ -339,6 +339,18 @@ sliderContainer.addEventListener('click', function sliderListener(event) {
 
 function currModalListener() {
     let modal = sliderContainer.querySelector('.modal-container');
+
+    setTimeout(() => {
+        modal.classList.add('modal-active');
+    }, 100);
+
+    let modalWindow = modal.querySelector('.modal');
+    modalWindow.addEventListener('mouseenter', () => {
+        modal.querySelector('.modal-button').classList.add('modal-on');
+    })
+    modalWindow.addEventListener('mouseleave', () => {
+        modal.querySelector('.modal-button').classList.remove('modal-on');
+    })
 
     modal.addEventListener('click', (event) => {
         if (event.target.classList.contains('modal-container') ||
