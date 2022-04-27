@@ -1042,7 +1042,7 @@ body.open {
   transition: 0.5s;
 }
 
-@media (max-height: 625px) {
+@media (max-height: 605px) {
   .modal {
     top: 52px;
   }
@@ -1057,7 +1057,7 @@ body.open {
   }
 }
 
-@media (max-width: 1279px) and (max-height: 550px) {
+@media (max-width: 1279px) and (max-height: 505px) {
   .modal {
     top: 52px;
   }
@@ -1067,12 +1067,12 @@ body.open {
   .modal {
     width: 240px;
     max-height: 430px;
-    top: calc(50% - 215px);
+    top: calc(50% - 195px);
     left: calc(50% - 120px);
   }
 }
 
-@media (max-width: 767px) and (max-height: 550px) {
+@media (max-width: 767px) and (max-height: 500px) {
   .modal {
     top: 52px;
   }
@@ -1106,7 +1106,7 @@ body.open {
   transition: 0.5s;
 }
 
-@media (max-height: 625px) {
+@media (max-height: 605px) {
   .modal-button {
     top: 0;
   }
@@ -1119,7 +1119,7 @@ body.open {
   }
 }
 
-@media (max-width: 1279px) and (max-height: 550px) {
+@media (max-width: 1279px) and (max-height: 505px) {
   .modal-button {
     top: 0;
   }
@@ -1127,12 +1127,12 @@ body.open {
 
 @media (max-width: 767px) {
   .modal-button {
-    top: calc(50% - 270px);
+    top: calc(50% - 250px);
     left: calc(50% - -95px);
   }
 }
 
-@media (max-width: 767px) and (max-height: 550px) {
+@media (max-width: 767px) and (max-height: 500px) {
   .modal-button {
     top: 0;
   }
