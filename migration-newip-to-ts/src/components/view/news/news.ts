@@ -1,9 +1,13 @@
 import './news.css';
 import { ArticleInfo } from '../../../types/interfaces';
 
+enum NewsCount {
+    count = 10,
+}
+
 class News {
     draw(data: ArticleInfo[]) {
-        const news = data.length >= 10 ? data.filter((_item, idx) => idx < 10) : data;
+        const news = data.length >= NewsCount.count ? data.filter((_item, idx) => idx < NewsCount.count) : data;
 
         const fragment = document.createDocumentFragment();
         const newsItemTemp = document.querySelector('#newsItemTemp') as HTMLTemplateElement;
@@ -19,7 +23,7 @@ class News {
             (newsClone.querySelector('.news__meta-author') as HTMLLIElement).textContent =
                 item.author || item.source.name;
             (newsClone.querySelector('.news__meta-date') as HTMLLIElement).textContent = item.publishedAt
-                .slice(0, 10)
+                .slice(0, NewsCount.count)
                 .split('-')
                 .reverse()
                 .join('-');

@@ -29,3 +29,7 @@ export interface IDataNews {
     totalResults: number;
     articles: ArticleInfo[];
 }
+
+export interface IDrawClass {
+    draw: (data: IDataSource | IDataNews) => void;
+}

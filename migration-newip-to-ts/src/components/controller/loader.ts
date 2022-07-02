@@ -6,6 +6,11 @@ type getRestObjParameter = {
     options?: Record<string, string>;
 };
 
+enum ResponseErrors {
+    notFound = 404,
+    unauthorized = 401,
+}
+
 // type Callback<T> = (data: T) => void;
 
 class Loader {
@@ -28,7 +33,7 @@ class Loader {
 
     errorHandler(res: Response) {
         if (!res.ok) {
-            if (res.status === 401 || res.status === 404)
+            if (res.status === ResponseErrors.unauthorized || res.status === ResponseErrors.notFound)
                 console.log(`Sorry, but there is ${res.status} error: ${res.statusText}`);
             throw Error(res.statusText);
         }
