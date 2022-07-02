@@ -1,11 +1,12 @@
 import { IDataSource, IDataNews } from '../../types/interfaces';
+import { Callback } from '../../types/functions';
 
 type getRestObjParameter = {
     endpoint: string;
     options?: Record<string, string>;
 };
 
-type Callback<T> = (data: T) => void;
+// type Callback<T> = (data: T) => void;
 
 class Loader {
     private baseLink: string;
