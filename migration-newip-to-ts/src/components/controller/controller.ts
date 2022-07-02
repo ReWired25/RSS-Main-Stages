@@ -1,9 +1,9 @@
 import AppLoader from './appLoader';
-// import { IDataSource, IDataNews } from '../../types/interfaces';
-// import { Callback } from '../../types/functions';
+import { IDataSource, IDataNews } from '../../types/interfaces';
+import { Callback } from '../../types/functions';
 
 class AppController extends AppLoader {
-    getSources(callback: () => void) {
+    getSources(callback: Callback<IDataSource | IDataNews>) {
         super.getResp(
             {
                 endpoint: 'sources',
@@ -12,7 +12,7 @@ class AppController extends AppLoader {
         );
     }
 
-    getNews(e: Event, callback: () => void) {
+    getNews(e: Event, callback: Callback<IDataSource | IDataNews>) {
         let target = e.target as HTMLDivElement;
         const newsContainer = e.currentTarget as HTMLDivElement;
 

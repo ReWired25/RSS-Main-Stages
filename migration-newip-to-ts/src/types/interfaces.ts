@@ -1,3 +1,5 @@
+import { Callback } from './functions';
+
 export type SourceInfo = {
     id: string;
     name: string;
@@ -28,4 +30,22 @@ export interface IDataNews {
     status: string;
     totalResults: number;
     articles: ArticleInfo[];
+}
+
+export interface newsClass {
+    draw: (data: ArticleInfo[]) => void;
+}
+
+export interface sourceClass {
+    draw: (data: SourceInfo[]) => void;
+}
+
+export interface controllerClass {
+    getSources: (callback: Callback<IDataSource | IDataNews>) => void;
+    getNews: (e: Event, callback: Callback<IDataSource | IDataNews>) => void;
+}
+
+export interface viewClass {
+    drawNews: (data: IDataNews) => void;
+    drawSources: (data: IDataSource) => void;
 }

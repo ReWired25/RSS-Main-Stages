@@ -11,8 +11,6 @@ enum ResponseErrors {
     unauthorized = 401,
 }
 
-// type Callback<T> = (data: T) => void;
-
 class Loader {
     private baseLink: string;
     private options: { apiKey: string };
@@ -24,7 +22,7 @@ class Loader {
 
     getResp(
         { endpoint, options = {} }: getRestObjParameter,
-        callback = () => {
+        callback: Callback<IDataSource | IDataNews> = () => {
             console.error('No callback for GET response');
         }
     ): void {

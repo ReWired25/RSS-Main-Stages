@@ -1,10 +1,10 @@
 import News from './news/news';
 import Sources from './sources/sources';
-import { SourceInfo, ArticleInfo, IDataSource, IDataNews } from '../../types/interfaces';
+import { newsClass, sourceClass, IDataSource, IDataNews } from '../../types/interfaces';
 
 export class AppView {
-    private news: { draw: (data: ArticleInfo[]) => void };
-    private sources: { draw: (data: SourceInfo[]) => void };
+    private news: newsClass;
+    private sources: sourceClass;
 
     constructor() {
         this.news = new News();
