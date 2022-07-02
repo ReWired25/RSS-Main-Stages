@@ -1,4 +1,4 @@
-type SourceInfo = {
+export type SourceInfo = {
     id: string;
     name: string;
     description: string;
@@ -13,7 +13,7 @@ export interface IDataSource {
     sources: SourceInfo[];
 }
 
-type ArticleInfo = {
+export type ArticleInfo = {
     source: { id: string; name: string };
     author: string;
     title: string;
