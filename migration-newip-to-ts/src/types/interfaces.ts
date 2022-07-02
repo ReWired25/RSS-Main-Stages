@@ -1,15 +1,3 @@
-export interface IResponse {
-    type: string;
-    bodyUsed: boolean;
-    body: object;
-    headers: object;
-    ok: boolean;
-    redirected: boolean;
-    status: number;
-    statusText: string;
-    url: string;
-}
-
 type SourceInfo = {
     id: string;
     name: string;
