@@ -1,5 +1,4 @@
 import AppLoader from './appLoader';
-// import { IDataSource, IDataNews } from '../../types/interfaces';
 import { Callback } from '../../types/functions';
 
 class AppController extends AppLoader {

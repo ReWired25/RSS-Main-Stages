@@ -1,15 +1,10 @@
-// import { IDataSource, IDataNews } from '../../types/interfaces';
 import { Callback } from '../../types/functions';
+import { ResponseErrors } from '../../types/enums';
 
 type getRestObjParameter = {
     endpoint: string;
     options?: Record<string, string>;
 };
-
-enum ResponseErrors {
-    notFound = 404,
-    unauthorized = 401,
-}
 
 class Loader {
     private baseLink: string;

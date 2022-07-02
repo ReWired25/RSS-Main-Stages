@@ -1,9 +1,6 @@
 import './news.css';
 import { ArticleInfo } from '../../../types/interfaces';
-
-enum NewsCount {
-    count = 10,
-}
+import { NewsCount } from '../../../types/enums';
 
 class News {
     draw(data: ArticleInfo[]) {
