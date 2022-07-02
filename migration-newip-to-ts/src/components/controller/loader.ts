@@ -1,4 +1,4 @@
-import { IDataSource, IDataNews } from '../../types/interfaces';
+// import { IDataSource, IDataNews } from '../../types/interfaces';
 import { Callback } from '../../types/functions';
 
 type getRestObjParameter = {
@@ -20,9 +20,9 @@ class Loader {
         this.options = options;
     }
 
-    getResp(
+    getResp<T>(
         { endpoint, options = {} }: getRestObjParameter,
-        callback: Callback<IDataSource | IDataNews> = () => {
+        callback: Callback<T> = () => {
             console.error('No callback for GET response');
         }
     ): void {
@@ -50,11 +50,11 @@ class Loader {
         return url.slice(0, -1);
     }
 
-    load(method: string, endpoint: string, callback: Callback<IDataSource | IDataNews>, options = {}) {
+    load<T>(method: string, endpoint: string, callback: Callback<T>, options = {}) {
         fetch(this.makeUrl(options, endpoint), { method })
             .then(this.errorHandler)
             .then((res) => res.json())
-            .then((data: IDataSource | IDataNews) => callback(data))
+            .then((data: T) => callback(data))
             .catch((err: Error) => console.error(err));
     }
 }

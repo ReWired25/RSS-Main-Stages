@@ -41,8 +41,8 @@ export interface sourceClass {
 }
 
 export interface controllerClass {
-    getSources: (callback: Callback<IDataSource | IDataNews>) => void;
-    getNews: (e: Event, callback: Callback<IDataSource | IDataNews>) => void;
+    getSources: (callback: Callback<IDataSource>) => void;
+    getNews: (e: Event, callback: Callback<IDataNews>) => void;
 }
 
 export interface viewClass {

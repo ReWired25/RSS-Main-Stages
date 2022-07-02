@@ -1,6 +1,6 @@
 import AppController from '../controller/controller';
 import { AppView } from '../view/appView';
-import { controllerClass, viewClass, IDataNews, IDataSource } from '../../types/interfaces';
+import { controllerClass, viewClass } from '../../types/interfaces';
 
 class App {
     private controller: controllerClass;
@@ -12,10 +12,14 @@ class App {
     }
 
     start() {
-        (document.querySelector('.sources') as HTMLDivElement).addEventListener('click', (e) => {
-            this.controller.getNews(e, (data) => this.view.drawNews(data as IDataNews));
-        });
-        this.controller.getSources((data) => this.view.drawSources(data as IDataSource));
+        const elem: HTMLDivElement | null = document.querySelector('.sources');
+
+        if (elem) {
+            elem.addEventListener('click', (e) => {
+                this.controller.getNews(e, (data) => this.view.drawNews(data));
+            });
+        }
+        this.controller.getSources((data) => this.view.drawSources(data));
     }
 }
 
