@@ -4,18 +4,26 @@ import { SourceInfo } from '../../../types/interfaces';
 class Sources {
     draw(data: SourceInfo[]) {
         const fragment = document.createDocumentFragment();
-        const sourceItemTemp = document.querySelector('#sourceItemTemp') as HTMLTemplateElement;
+        const sourceItemTemp: HTMLTemplateElement | null = document.querySelector('#sourceItemTemp');
 
-        data.forEach((item) => {
-            const sourceClone = sourceItemTemp.content.cloneNode(true) as HTMLDivElement;
+        if (sourceItemTemp) {
+            data.forEach((item) => {
+                const sourceClone = sourceItemTemp.content.cloneNode(true) as HTMLDivElement | null;
 
-            (sourceClone.querySelector('.source__item-name') as HTMLSpanElement).textContent = item.name;
-            (sourceClone.querySelector('.source__item') as HTMLDivElement).setAttribute('data-source-id', item.id);
+                if (sourceClone) {
+                    const sourceItemName: HTMLSpanElement | null = sourceClone.querySelector('.source__item-name');
+                    if (sourceItemName) sourceItemName.textContent = item.name;
 
-            fragment.append(sourceClone);
-        });
+                    const sourceItem: HTMLDivElement | null = sourceClone.querySelector('.source__item');
+                    if (sourceItem) sourceItem.setAttribute('data-source-id', item.id);
 
-        (document.querySelector('.sources') as HTMLDivElement).append(fragment);
+                    fragment.append(sourceClone);
+                }
+            });
+
+            const sourcesElement: HTMLDivElement | null = document.querySelector('.sources');
+            if (sourcesElement) sourcesElement.append(fragment);
+        }
     }
 }
 
