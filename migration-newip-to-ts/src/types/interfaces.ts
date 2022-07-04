@@ -43,6 +43,7 @@ export interface sourceClass {
 export interface controllerClass {
     getSources: (callback: Callback<IDataSource>) => void;
     getNews: (e: Event, callback: Callback<IDataNews>) => void;
+    getFoundNews: (regexp: RegExp) => void;
 }
 
 export interface viewClass {

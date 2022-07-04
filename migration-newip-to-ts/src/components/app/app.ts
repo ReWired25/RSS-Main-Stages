@@ -12,14 +12,23 @@ class App {
     }
 
     start() {
-        const elem: HTMLDivElement | null = document.querySelector('.sources');
-
-        if (elem) {
-            elem.addEventListener('click', (e) => {
+        const buttonElement: HTMLDivElement | null = document.querySelector('.sources');
+        if (buttonElement) {
+            buttonElement.addEventListener('click', (e) => {
                 this.controller.getNews(e, (data) => this.view.drawNews(data));
             });
         }
         this.controller.getSources((data) => this.view.drawSources(data));
+
+        const inputElemet: HTMLInputElement | null = document.querySelector('.search-input');
+        if (inputElemet) {
+            inputElemet.addEventListener('input', () => {
+                const searchStr: string = inputElemet.value;
+                const regexp = new RegExp(`^${searchStr}|\\b${searchStr}`, 'gmi');
+
+                this.controller.getFoundNews(regexp);
+            });
+        }
     }
 }
 

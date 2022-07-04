@@ -43,6 +43,22 @@ class AppController extends AppLoader {
             }
         }
     }
+
+    getFoundNews(regexp: RegExp) {
+        const newsSources: NodeListOf<HTMLDivElement> = document.querySelectorAll('.source__item');
+
+        newsSources.forEach((item) => {
+            const sourceTitle: string | undefined = item.querySelector('.source__item-name')?.innerHTML;
+
+            if (sourceTitle) {
+                if (!sourceTitle.match(regexp)) {
+                    item.style.display = 'none';
+                } else {
+                    item.style.display = 'block';
+                }
+            }
+        });
+    }
 }
 
 export default AppController;

@@ -13,6 +13,40 @@ header h1 {
     font-weight: 800;
 }
 
+.search-block {
+    width: 212px;
+    margin: 0 auto;
+}
+  
+.search-input {
+    height: 20px;
+    padding: 1em 0.5em;
+    background-color: #333333;
+    border-style: hidden;
+    outline: none;
+    border-bottom: 2px solid #30c5ff;
+    font: 300 1em 'Fira Sans', sans-serif;
+    color: #70d6ff;
+    transition: 0.25s;
+}
+  
+.search-input::placeholder {
+    color: #44859e;
+    text-align: center;
+}
+
+.search-input:hover {
+    border-color: #3fcc59;
+    color: #69db7e;
+    box-shadow: 0 0.5em 0.5em -0.4em #3fcc59;
+    transform: translateY(-0.25em);
+}
+
+.search-input:hover::placeholder {
+    color: #4e9e5c;
+    text-align: center;
+}
+
 footer {
     height: 100px;
     display: flex;
