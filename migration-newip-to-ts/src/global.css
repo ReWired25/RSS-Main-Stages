@@ -1,4 +1,7 @@
 body {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 16px);
     color: #fff;
     background: #17181c;
     font-family: sans-serif;
@@ -52,7 +55,8 @@ header h1 {
 }
 
 footer {
-    height: 100px;
+    margin-top: auto;
+    min-height: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
