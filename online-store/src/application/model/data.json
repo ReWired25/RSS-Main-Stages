@@ -13,7 +13,9 @@
     "package": "OEM",
     "cooler": false,
     "gpu": false,
-    "tdp": "65 W"
+    "tdp": "65 W",
+    "price": "197$",
+    "popularity": 90
   },
   {
     "category": "standart",
@@ -29,7 +31,9 @@
     "package": "BOX",
     "cooler": true,
     "gpu": false,
-    "tdp": "65 W"
+    "tdp": "65 W",
+    "price": "211$",
+    "popularity": 100
   },
   {
     "category": "standart",
@@ -45,7 +49,9 @@
     "package": "OEM",
     "cooler": false,
     "gpu": "Intel UHD 730",
-    "tdp": "65 W"
+    "tdp": "65 W",
+    "price": "207$",
+    "popularity": 75
   },
   {
     "category": "standart",
@@ -61,7 +67,9 @@
     "package": "BOX",
     "cooler": true,
     "gpu": "Intel UHD 730",
-    "tdp": "65 W"
+    "tdp": "65 W",
+    "price": "214$",
+    "popularity": 80
   },
   {
     "category": "standart",
@@ -77,7 +85,9 @@
     "package": "OEM",
     "cooler": false,
     "gpu": "Intel UHD 750",
-    "tdp": "65 W"
+    "tdp": "65 W",
+    "price": "248$",
+    "popularity": 55
   },
   {
     "category": "standart",
@@ -93,7 +103,9 @@
     "package": "BOX",
     "cooler": true,
     "gpu": "Intel UHD 750",
-    "tdp": "65 W"
+    "tdp": "65 W",
+    "price": "257$",
+    "popularity": 70
   },
   {
     "category": "standart",
@@ -109,7 +121,9 @@
     "package": "BOX",
     "cooler": true,
     "gpu": "Intel UHD 750",
-    "tdp": "65 W"
+    "tdp": "65 W",
+    "price": "318$",
+    "popularity": 45
   },
   {
     "category": "overclock",
@@ -125,7 +139,9 @@
     "package": "BOX",
     "cooler": false,
     "gpu": "Intel UHD 750",
-    "tdp": "125 W"
+    "tdp": "125 W",
+    "price": "331$",
+    "popularity": 50
   },
   {
     "category": "standart",
@@ -141,7 +157,9 @@
     "package": "BOX",
     "cooler": true,
     "gpu": "Intel UHD 750",
-    "tdp": "65 W"
+    "tdp": "65 W",
+    "price": "421$",
+    "popularity": 70
   },
   {
     "category": "standart",
@@ -157,7 +175,9 @@
     "package": "BOX",
     "cooler": true,
     "gpu": false,
-    "tdp": "65 W"
+    "tdp": "65 W",
+    "price": "457$",
+    "popularity": 90
   },
   {
     "category": "overclock",
@@ -173,7 +193,9 @@
     "package": "OEM",
     "cooler": false,
     "gpu": "Intel UHD 750",
-    "tdp": "125 W"
+    "tdp": "125 W",
+    "price": "507$",
+    "popularity": 70
   },
   {
     "category": "overclock",
@@ -189,7 +211,9 @@
     "package": "BOX",
     "cooler": false,
     "gpu": false,
-    "tdp": "125 W"
+    "tdp": "125 W",
+    "price": "481$",
+    "popularity": 85
   },
   {
     "category": "standart",
@@ -205,7 +229,9 @@
     "package": "BOX",
     "cooler": true,
     "gpu": "Intel UHD 750",
-    "tdp": "65 W"
+    "tdp": "65 W",
+    "price": "481$",
+    "popularity": 80
   },
   {
     "category": "overclock",
@@ -221,7 +247,9 @@
     "package": "BOX",
     "cooler": false,
     "gpu": false,
-    "tdp": "125 W"
+    "tdp": "125 W",
+    "price": "485$",
+    "popularity": 85
   },
   {
     "category": "overclock",
@@ -237,7 +265,9 @@
     "package": "BOX",
     "cooler": false,
     "gpu": "Intel UHD 750",
-    "tdp": "125 W"
+    "tdp": "125 W",
+    "price": "500$",
+    "popularity": 70
   },
   {
     "category": "standart",
@@ -253,7 +283,9 @@
     "package": "OEM",
     "cooler": false,
     "gpu": false,
-    "tdp": "89 W"
+    "tdp": "89 W",
+    "price": "171$",
+    "popularity": 95
   },
   {
     "category": "standart",
@@ -269,7 +301,9 @@
     "package": "BOX",
     "cooler": true,
     "gpu": "Intel UHD 730",
-    "tdp": "89 W"
+    "tdp": "89 W",
+    "price": "211$",
+    "popularity": 80
   },
   {
     "category": "standart",
@@ -285,7 +319,9 @@
     "package": "OEM",
     "cooler": false,
     "gpu": false,
-    "tdp": "117 W"
+    "tdp": "117 W",
+    "price": "262$",
+    "popularity": 90
   },
   {
     "category": "standart",
@@ -301,7 +337,9 @@
     "package": "BOX",
     "cooler": true,
     "gpu": "Intel UHD 730",
-    "tdp": "117 W"
+    "tdp": "117 W",
+    "price": "285$",
+    "popularity": 75
   },
   {
     "category": "standart",
@@ -317,7 +355,9 @@
     "package": "OEM",
     "cooler": false,
     "gpu": "Intel UHD 770",
-    "tdp": "117 W"
+    "tdp": "117 W",
+    "price": "327$",
+    "popularity": 50
   },
   {
     "category": "standart",
@@ -333,7 +373,9 @@
     "package": "BOX",
     "cooler": true,
     "gpu": "Intel UHD 770",
-    "tdp": "117 W"
+    "tdp": "117 W",
+    "price": "338$",
+    "popularity": 70
   },
   {
     "category": "standart",
@@ -349,7 +391,9 @@
     "package": "OEM",
     "cooler": false,
     "gpu": "Intel UHD 770",
-    "tdp": "117 W"
+    "tdp": "117 W",
+    "price": "378$",
+    "popularity": 45
   },
   {
     "category": "overclock",
@@ -365,7 +409,9 @@
     "package": "OEM",
     "cooler": false,
     "gpu": "Intel UHD 770",
-    "tdp": "117 W"
+    "tdp": "117 W",
+    "price": "407$",
+    "popularity": 55
   },
   {
     "category": "standart",
@@ -381,7 +427,9 @@
     "package": "OEM",
     "cooler": false,
     "gpu": false,
-    "tdp": "180 W"
+    "tdp": "180 W",
+    "price": "477$",
+    "popularity": 85
   },
   {
     "category": "standart",
@@ -397,7 +445,9 @@
     "package": "BOX",
     "cooler": true,
     "gpu": "Intel UHD 770",
-    "tdp": "180 W"
+    "tdp": "180 W",
+    "price": "500$",
+    "popularity": 70
   },
   {
     "category": "overclock",
@@ -413,7 +463,9 @@
     "package": "BOX",
     "cooler": false,
     "gpu": false,
-    "tdp": "190 W"
+    "tdp": "190 W",
+    "price": "574$",
+    "popularity": 90
   },
   {
     "category": "overclock",
@@ -429,7 +481,9 @@
     "package": "BOX",
     "cooler": false,
     "gpu": "Intel UHD 770",
-    "tdp": "190 W"
+    "tdp": "190 W",
+    "price": "628$",
+    "popularity": 55
   },
   {
     "category": "extraPerfomance",
@@ -445,7 +499,9 @@
     "package": "OEM",
     "cooler": false,
     "gpu": false,
-    "tdp": "241 W"
+    "tdp": "241 W",
+    "price": "785$",
+    "popularity": 55
   },
   {
     "category": "extraPerfomance",
@@ -461,7 +517,9 @@
     "package": "OEM",
     "cooler": false,
     "gpu": "Intel UHD 770",
-    "tdp": "202 W"
+    "tdp": "202 W",
+    "price": "828$",
+    "popularity": 45
   },
   {
     "category": "extraPerfomance",
@@ -477,7 +535,9 @@
     "package": "BOX",
     "cooler": false,
     "gpu": false,
-    "tdp": "241 W"
+    "tdp": "241 W",
+    "price": "832$",
+    "popularity": 75
   },
   {
     "category": "overclock",
@@ -493,7 +553,9 @@
     "package": "OEM",
     "cooler": false,
     "gpu": false,
-    "tdp": "65 W"
+    "tdp": "65 W",
+    "price": "227$",
+    "popularity": 95
   },
   {
     "category": "overclock",
@@ -509,7 +571,9 @@
     "package": "BOX",
     "cooler": true,
     "gpu": false,
-    "tdp": "65 W"
+    "tdp": "65 W",
+    "price": "264$",
+    "popularity": 100
   },
   {
     "category": "overclock",
@@ -525,7 +589,9 @@
     "package": "BOX",
     "cooler": true,
     "gpu": false,
-    "tdp": "65 W"
+    "tdp": "65 W",
+    "price": "242$",
+    "popularity": 50
   },
   {
     "category": "overclock",
@@ -541,7 +607,9 @@
     "package": "BOX",
     "cooler": true,
     "gpu": false,
-    "tdp": "65 W"
+    "tdp": "65 W",
+    "price": "285$",
+    "popularity": 55
   },
   {
     "category": "standart",
@@ -557,7 +625,9 @@
     "package": "OEM",
     "cooler": false,
     "gpu": "Radeon Vega 6",
-    "tdp": "65 W"
+    "tdp": "65 W",
+    "price": "197$",
+    "popularity": 70
   },
   {
     "category": "standart",
@@ -573,7 +643,9 @@
     "package": "OEM",
     "cooler": false,
     "gpu": "Radeon Vega 7",
-    "tdp": "65 W"
+    "tdp": "65 W",
+    "price": "247$",
+    "popularity": 50
   },
   {
     "category": "standart",
@@ -589,7 +661,9 @@
     "package": "OEM",
     "cooler": false,
     "gpu": "Radeon Vega 8",
-    "tdp": "65 W"
+    "tdp": "65 W",
+    "price": "292$",
+    "popularity": 75
   },
   {
     "category": "overclock",
@@ -605,7 +679,9 @@
     "package": "OEM",
     "cooler": false,
     "gpu": "Radeon Vega 7",
-    "tdp": "65 W"
+    "tdp": "65 W",
+    "price": "277$",
+    "popularity": 90
   },
   {
     "category": "standart",
@@ -621,7 +697,9 @@
     "package": "OEM",
     "cooler": false,
     "gpu": "Radeon Vega 7",
-    "tdp": "65 W"
+    "tdp": "65 W",
+    "price": "279$",
+    "popularity": 45
   },
   {
     "category": "overclock",
@@ -637,7 +715,9 @@
     "package": "BOX",
     "cooler": true,
     "gpu": false,
-    "tdp": "65 W"
+    "tdp": "65 W",
+    "price": "314$",
+    "popularity": 55
   },
   {
     "category": "overclock",
@@ -653,7 +733,9 @@
     "package": "OEM",
     "cooler": false,
     "gpu": false,
-    "tdp": "65 W"
+    "tdp": "65 W",
+    "price": "295$",
+    "popularity": 95
   },
   {
     "category": "overclock",
@@ -669,7 +751,9 @@
     "package": "BOX",
     "cooler": true,
     "gpu": false,
-    "tdp": "65 W"
+    "tdp": "65 W",
+    "price": "304$",
+    "popularity": 100
   },
   {
     "category": "overclock",
@@ -685,7 +769,9 @@
     "package": "OEM",
     "cooler": false,
     "gpu": "Radeon Vega 8",
-    "tdp": "65 W"
+    "tdp": "65 W",
+    "price": "345$",
+    "popularity": 85
   },
   {
     "category": "overclock",
@@ -701,7 +787,9 @@
     "package": "BOX",
     "cooler": true,
     "gpu": "Radeon Vega 8",
-    "tdp": "65 W"
+    "tdp": "65 W",
+    "price": "371$",
+    "popularity": 95
   },
   {
     "category": "overclock",
@@ -717,7 +805,9 @@
     "package": "BOX",
     "cooler": true,
     "gpu": false,
-    "tdp": "65 W"
+    "tdp": "65 W",
+    "price": "521$",
+    "popularity": 75
   },
   {
     "category": "overclock",
@@ -733,7 +823,9 @@
     "package": "OEM",
     "cooler": false,
     "gpu": false,
-    "tdp": "65 W"
+    "tdp": "65 W",
+    "price": "345$",
+    "popularity": 55
   },
   {
     "category": "overclock",
@@ -749,7 +841,9 @@
     "package": "BOX",
     "cooler": true,
     "gpu": false,
-    "tdp": "65 W"
+    "tdp": "65 W",
+    "price": "357$",
+    "popularity": 70
   },
   {
     "category": "overclock",
@@ -765,7 +859,9 @@
     "package": "OEM",
     "cooler": false,
     "gpu": false,
-    "tdp": "105 W"
+    "tdp": "105 W",
+    "price": "300$",
+    "popularity": 50
   },
   {
     "category": "overclock",
@@ -781,7 +877,9 @@
     "package": "BOX",
     "cooler": true,
     "gpu": false,
-    "tdp": "105 W"
+    "tdp": "105 W",
+    "price": "285$",
+    "popularity": 45
   },
   {
     "category": "extraPerfomance",
@@ -797,7 +895,9 @@
     "package": "BOX",
     "cooler": true,
     "gpu": false,
-    "tdp": "105 W"
+    "tdp": "105 W",
+    "price": "428$",
+    "popularity": 55
   },
   {
     "category": "extraPerfomance",
@@ -813,7 +913,9 @@
     "package": "BOX",
     "cooler": false,
     "gpu": false,
-    "tdp": "105 W"
+    "tdp": "105 W",
+    "price": "722$",
+    "popularity": 45
   },
   {
     "category": "overclock",
@@ -829,7 +931,9 @@
     "package": "OEM",
     "cooler": false,
     "gpu": false,
-    "tdp": "105 W"
+    "tdp": "105 W",
+    "price": "394$",
+    "popularity": 70
   },
   {
     "category": "overclock",
@@ -845,7 +949,9 @@
     "package": "BOX",
     "cooler": false,
     "gpu": false,
-    "tdp": "105 W"
+    "tdp": "105 W",
+    "price": "402$",
+    "popularity": 75
   },
   {
     "category": "extraPerfomance",
@@ -861,7 +967,9 @@
     "package": "OEM",
     "cooler": false,
     "gpu": false,
-    "tdp": "105 W"
+    "tdp": "105 W",
+    "price": "542$",
+    "popularity": 55
   },
   {
     "category": "extraPerfomance",
@@ -877,7 +985,9 @@
     "package": "BOX",
     "cooler": false,
     "gpu": false,
-    "tdp": "105 W"
+    "tdp": "105 W",
+    "price": "557$",
+    "popularity": 70
   },
   {
     "category": "extraPerfomance",
@@ -893,7 +1003,9 @@
     "package": "OEM",
     "cooler": false,
     "gpu": false,
-    "tdp": "105 W"
+    "tdp": "105 W",
+    "price": "772$",
+    "popularity": 50
   },
   {
     "category": "extraPerfomance",
@@ -909,6 +1021,8 @@
     "package": "BOX",
     "cooler": false,
     "gpu": false,
-    "tdp": "105 W"
+    "tdp": "105 W",
+    "price": "772$",
+    "popularity": 75
   }
 ]
