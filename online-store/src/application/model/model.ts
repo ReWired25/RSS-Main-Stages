@@ -2,17 +2,14 @@ import { buildPage } from '../view/view';
 import { Iproduct } from '../types/interfaces';
 // methods for listners // filters / sorts / search
 
-async function loader() {
+export async function loader(callback: (result: Iproduct[]) => void) {
   const resolve = await fetch('./assets/data/data.json');
   const result = await resolve.json();
 
-  console.log(result);
-  elementsFabric.productCreater(result);
+  callback(result);
 }
 
-loader();
-
-class elementsFabric {
+export class ElementsFabric {
   static createModal(productWrapper: HTMLDivElement): void {
     const modal = document.createElement('div');
     modal.classList.add('product-modal');
@@ -63,11 +60,9 @@ class elementsFabric {
       spec === 'Price'
         ? (span.innerHTML = `${value}$`)
         : (span.innerHTML = `${value}`);
-      // span.innerHTML = `${value}`;
     }
     if (typeof value === 'boolean') {
-      if (value) span.innerHTML = 'included';
-      else span.innerHTML = 'discrete required';
+      span.innerHTML = 'Discrete required';
     }
 
     description.innerHTML = `${spec}:`;
@@ -102,12 +97,15 @@ class elementsFabric {
       const productSpecs = Object.keys(product);
 
       productSpecs.forEach((spec) => {
-        const description = this.createValueSpecs(product[spec], spec);
+        const description = ElementsFabric.createValueSpecs(
+          product[spec],
+          spec
+        );
         productWrapper.append(description);
       });
 
       productWrapper.addEventListener('click', () => {
-        this.createModal(productWrapper);
+        ElementsFabric.createModal(productWrapper);
       });
 
       productsElements.push(productWrapper);

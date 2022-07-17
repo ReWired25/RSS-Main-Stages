@@ -26,3 +26,12 @@ export interface Iproduct {
   price: string;
   popularity: number;
 }
+
+export interface IfilterTemplate {
+  [index: string]: string[];
+  Category: string[];
+  PCE: string[];
+  Memory: string[];
+  Package: string[];
+  GPU: string[];
+}

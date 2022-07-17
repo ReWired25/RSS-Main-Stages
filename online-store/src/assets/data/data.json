@@ -1,6 +1,6 @@
 [
   {
-    "Category": "standart",
+    "Category": "Standart",
     "Model": "Intel Core i5 11400F",
     "Family": "Rocket Lake",
     "Socket": "LGA 1200",
@@ -18,7 +18,7 @@
     "Popularity": 90
   },
   {
-    "Category": "standart",
+    "Category": "Standart",
     "Model": "Intel Core i5 11400F",
     "Family": "Rocket Lake",
     "Socket": "LGA 1200",
@@ -29,14 +29,14 @@
     "PCE": "4.0",
     "Memory": "DDR4",
     "Package": "BOX",
-    "Cooler": true,
+    "Cooler": "Included",
     "GPU": false,
     "TDP": "65 W",
     "Price": 211,
     "Popularity": 100
   },
   {
-    "Category": "standart",
+    "Category": "Standart",
     "Model": "Intel Core i5 11400",
     "Family": "Rocket Lake",
     "Socket": "LGA 1200",
@@ -54,7 +54,7 @@
     "Popularity": 75
   },
   {
-    "Category": "standart",
+    "Category": "Standart",
     "Model": "Intel Core i5 11400",
     "Family": "Rocket Lake",
     "Socket": "LGA 1200",
@@ -65,14 +65,14 @@
     "PCE": "4.0",
     "Memory": "DDR4",
     "Package": "BOX",
-    "Cooler": true,
+    "Cooler": "Included",
     "GPU": "Intel UHD 730",
     "TDP": "65 W",
     "Price": 214,
     "Popularity": 80
   },
   {
-    "Category": "standart",
+    "Category": "Standart",
     "Model": "Intel Core i5 11500",
     "Family": "Rocket Lake",
     "Socket": "LGA 1200",
@@ -90,7 +90,7 @@
     "Popularity": 55
   },
   {
-    "Category": "standart",
+    "Category": "Standart",
     "Model": "Intel Core i5 11500",
     "Family": "Rocket Lake",
     "Socket": "LGA 1200",
@@ -101,14 +101,14 @@
     "PCE": "4.0",
     "Memory": "DDR4",
     "Package": "BOX",
-    "Cooler": true,
+    "Cooler": "Included",
     "GPU": "Intel UHD 750",
     "TDP": "65 W",
     "Price": 257,
     "Popularity": 70
   },
   {
-    "Category": "standart",
+    "Category": "Standart",
     "Model": "Intel Core i5 11600",
     "Family": "Rocket Lake",
     "Socket": "LGA 1200",
@@ -119,14 +119,14 @@
     "PCE": "4.0",
     "Memory": "DDR4",
     "Package": "BOX",
-    "Cooler": true,
+    "Cooler": "Included",
     "GPU": "Intel UHD 750",
     "TDP": "65 W",
     "Price": 318,
     "Popularity": 45
   },
   {
-    "Category": "overclock",
+    "Category": "Overclock",
     "Model": "Intel Core i5 11600K",
     "Family": "Rocket Lake",
     "Socket": "LGA 1200",
@@ -144,7 +144,7 @@
     "Popularity": 50
   },
   {
-    "Category": "standart",
+    "Category": "Standart",
     "Model": "Intel Core i7 11700",
     "Family": "Rocket Lake",
     "Socket": "LGA 1200",
@@ -155,14 +155,14 @@
     "PCE": "4.0",
     "Memory": "DDR4",
     "Package": "BOX",
-    "Cooler": true,
+    "Cooler": "Included",
     "GPU": "Intel UHD 750",
     "TDP": "65 W",
     "Price": 421,
     "Popularity": 70
   },
   {
-    "Category": "standart",
+    "Category": "Standart",
     "Model": "Intel Core i7 11700F",
     "Family": "Rocket Lake",
     "Socket": "LGA 1200",
@@ -173,14 +173,14 @@
     "PCE": "4.0",
     "Memory": "DDR4",
     "Package": "BOX",
-    "Cooler": true,
+    "Cooler": "Included",
     "GPU": false,
     "TDP": "65 W",
     "Price": 457,
     "Popularity": 90
   },
   {
-    "Category": "overclock",
+    "Category": "Overclock",
     "Model": "Intel Core i7 11700K",
     "Family": "Rocket Lake",
     "Socket": "LGA 1200",
@@ -198,7 +198,7 @@
     "Popularity": 70
   },
   {
-    "Category": "overclock",
+    "Category": "Overclock",
     "Model": "Intel Core i7 11700KF",
     "Family": "Rocket Lake",
     "Socket": "LGA 1200",
@@ -216,7 +216,7 @@
     "Popularity": 85
   },
   {
-    "Category": "standart",
+    "Category": "Standart",
     "Model": "Intel Core i9 11900",
     "Family": "Rocket Lake",
     "Socket": "LGA 1200",
@@ -227,14 +227,14 @@
     "PCE": "4.0",
     "Memory": "DDR4",
     "Package": "BOX",
-    "Cooler": true,
+    "Cooler": "Included",
     "GPU": "Intel UHD 750",
     "TDP": "65 W",
     "Price": 481,
     "Popularity": 80
   },
   {
-    "Category": "overclock",
+    "Category": "Overclock",
     "Model": "Intel Core i9 11900KF",
     "Family": "Rocket Lake",
     "Socket": "LGA 1200",
@@ -252,7 +252,7 @@
     "Popularity": 85
   },
   {
-    "Category": "overclock",
+    "Category": "Overclock",
     "Model": "Intel Core i9 11900K",
     "Family": "Rocket Lake",
     "Socket": "LGA 1200",
@@ -270,7 +270,7 @@
     "Popularity": 70
   },
   {
-    "Category": "standart",
+    "Category": "Standart",
     "Model": "Intel Core i3 12100F",
     "Family": "Adler Lake",
     "Socket": "LGA 1700",
@@ -288,7 +288,7 @@
     "Popularity": 95
   },
   {
-    "Category": "standart",
+    "Category": "Standart",
     "Model": "Intel Core i3 12100",
     "Family": "Adler Lake",
     "Socket": "LGA 1700",
@@ -299,14 +299,14 @@
     "PCE": "5.0",
     "Memory": "DDR5",
     "Package": "BOX",
-    "Cooler": true,
+    "Cooler": "Included",
     "GPU": "Intel UHD 730",
     "TDP": "89 W",
     "Price": 211,
     "Popularity": 80
   },
   {
-    "Category": "standart",
+    "Category": "Standart",
     "Model": "Intel Core i5 12400F",
     "Family": "Adler Lake",
     "Socket": "LGA 1700",
@@ -324,7 +324,7 @@
     "Popularity": 90
   },
   {
-    "Category": "standart",
+    "Category": "Standart",
     "Model": "Intel Core i5 12400",
     "Family": "Adler Lake",
     "Socket": "LGA 1700",
@@ -335,14 +335,14 @@
     "PCE": "5.0",
     "Memory": "DDR5",
     "Package": "BOX",
-    "Cooler": true,
+    "Cooler": "Included",
     "GPU": "Intel UHD 730",
     "TDP": "117 W",
     "Price": 285,
     "Popularity": 75
   },
   {
-    "Category": "standart",
+    "Category": "Standart",
     "Model": "Intel Core i5 12500",
     "Family": "Adler Lake",
     "Socket": "LGA 1700",
@@ -360,7 +360,7 @@
     "Popularity": 50
   },
   {
-    "Category": "standart",
+    "Category": "Standart",
     "Model": "Intel Core i5 12500",
     "Family": "Adler Lake",
     "Socket": "LGA 1700",
@@ -371,14 +371,14 @@
     "PCE": "5.0",
     "Memory": "DDR5",
     "Package": "BOX",
-    "Cooler": true,
+    "Cooler": "Included",
     "GPU": "Intel UHD 770",
     "TDP": "117 W",
     "Price": 338,
     "Popularity": 70
   },
   {
-    "Category": "standart",
+    "Category": "Standart",
     "Model": "Intel Core i5 12600",
     "Family": "Adler Lake",
     "Socket": "LGA 1700",
@@ -396,7 +396,7 @@
     "Popularity": 45
   },
   {
-    "Category": "overclock",
+    "Category": "Overclock",
     "Model": "Intel Core i5 12600K",
     "Family": "Adler Lake",
     "Socket": "LGA 1700",
@@ -414,7 +414,7 @@
     "Popularity": 55
   },
   {
-    "Category": "standart",
+    "Category": "Standart",
     "Model": "Intel Core i7 12700F",
     "Family": "Adler Lake",
     "Socket": "LGA 1700",
@@ -432,7 +432,7 @@
     "Popularity": 85
   },
   {
-    "Category": "standart",
+    "Category": "Standart",
     "Model": "Intel Core i7 12700",
     "Family": "Adler Lake",
     "Socket": "LGA 1700",
@@ -443,14 +443,14 @@
     "PCE": "5.0",
     "Memory": "DDR5",
     "Package": "BOX",
-    "Cooler": true,
+    "Cooler": "Included",
     "GPU": "Intel UHD 770",
     "TDP": "180 W",
     "Price": 500,
     "Popularity": 70
   },
   {
-    "Category": "overclock",
+    "Category": "Overclock",
     "Model": "Intel Core i7 12700KF",
     "Family": "Adler Lake",
     "Socket": "LGA 1700",
@@ -468,7 +468,7 @@
     "Popularity": 90
   },
   {
-    "Category": "overclock",
+    "Category": "Overclock",
     "Model": "Intel Core i7 12700K",
     "Family": "Adler Lake",
     "Socket": "LGA 1700",
@@ -486,7 +486,7 @@
     "Popularity": 55
   },
   {
-    "Category": "extraPerfomance",
+    "Category": "Extra perfomance",
     "Model": "Intel Core i9 12900KF",
     "Family": "Adler Lake",
     "Socket": "LGA 1700",
@@ -504,7 +504,7 @@
     "Popularity": 55
   },
   {
-    "Category": "extraPerfomance",
+    "Category": "Extra perfomance",
     "Model": "Intel Core i9 12900",
     "Family": "Adler Lake",
     "Socket": "LGA 1700",
@@ -522,7 +522,7 @@
     "Popularity": 45
   },
   {
-    "Category": "extraPerfomance",
+    "Category": "Extra perfomance",
     "Model": "Intel Core i9 12900KF",
     "Family": "Adler Lake",
     "Socket": "LGA 1700",
@@ -540,7 +540,7 @@
     "Popularity": 75
   },
   {
-    "Category": "overclock",
+    "Category": "Overclock",
     "Model": "AMD Ryzen 5 3600",
     "Family": "Matisse",
     "Socket": "AM4",
@@ -558,7 +558,7 @@
     "Popularity": 95
   },
   {
-    "Category": "overclock",
+    "Category": "Overclock",
     "Model": "AMD Ryzen 5 3600",
     "Family": "Matisse",
     "Socket": "AM4",
@@ -569,14 +569,14 @@
     "PCE": "4.0",
     "Memory": "DDR4",
     "Package": "BOX",
-    "Cooler": true,
+    "Cooler": "Included",
     "GPU": false,
     "TDP": "65 W",
     "Price": 264,
     "Popularity": 100
   },
   {
-    "Category": "overclock",
+    "Category": "Overclock",
     "Model": "AMD Ryzen 3 4100",
     "Family": "Renoir",
     "Socket": "AM4",
@@ -587,14 +587,14 @@
     "PCE": "3.0",
     "Memory": "DDR4",
     "Package": "BOX",
-    "Cooler": true,
+    "Cooler": "Included",
     "GPU": false,
     "TDP": "65 W",
     "Price": 242,
     "Popularity": 50
   },
   {
-    "Category": "overclock",
+    "Category": "Overclock",
     "Model": "AMD Ryzen 5 4500",
     "Family": "Renoir",
     "Socket": "AM4",
@@ -605,14 +605,14 @@
     "PCE": "3.0",
     "Memory": "DDR4",
     "Package": "BOX",
-    "Cooler": true,
+    "Cooler": "Included",
     "GPU": false,
     "TDP": "65 W",
     "Price": 285,
     "Popularity": 55
   },
   {
-    "Category": "standart",
+    "Category": "Standart",
     "Model": "AMD Ryzen 3 PRO 4350G",
     "Family": "Renoir",
     "Socket": "AM4",
@@ -630,7 +630,7 @@
     "Popularity": 70
   },
   {
-    "Category": "standart",
+    "Category": "Standart",
     "Model": "AMD Ryzen 5 PRO 4650G",
     "Family": "Renoir",
     "Socket": "AM4",
@@ -648,7 +648,7 @@
     "Popularity": 50
   },
   {
-    "Category": "standart",
+    "Category": "Standart",
     "Model": "AMD Ryzen 7 PRO 4750G",
     "Family": "Renoir",
     "Socket": "AM4",
@@ -666,7 +666,7 @@
     "Popularity": 75
   },
   {
-    "Category": "overclock",
+    "Category": "Overclock",
     "Model": "AMD Ryzen 5 5600G",
     "Family": "Cezanne",
     "Socket": "AM4",
@@ -684,7 +684,7 @@
     "Popularity": 90
   },
   {
-    "Category": "standart",
+    "Category": "Standart",
     "Model": "AMD Ryzen 5 PRO 5650G",
     "Family": "Cezanne",
     "Socket": "AM4",
@@ -702,7 +702,7 @@
     "Popularity": 45
   },
   {
-    "Category": "overclock",
+    "Category": "Overclock",
     "Model": "AMD Ryzen 5 5500",
     "Family": "Cezanne",
     "Socket": "AM4",
@@ -713,14 +713,14 @@
     "PCE": "3.0",
     "Memory": "DDR4",
     "Package": "BOX",
-    "Cooler": true,
+    "Cooler": "Included",
     "GPU": false,
     "TDP": "65 W",
     "Price": 314,
     "Popularity": 55
   },
   {
-    "Category": "overclock",
+    "Category": "Overclock",
     "Model": "AMD Ryzen 5 5600X",
     "Family": "Cezanne",
     "Socket": "AM4",
@@ -738,7 +738,7 @@
     "Popularity": 95
   },
   {
-    "Category": "overclock",
+    "Category": "Overclock",
     "Model": "AMD Ryzen 5 5600X",
     "Family": "Cezanne",
     "Socket": "AM4",
@@ -749,14 +749,14 @@
     "PCE": "4.0",
     "Memory": "DDR4",
     "Package": "BOX",
-    "Cooler": true,
+    "Cooler": "Included",
     "GPU": false,
     "TDP": "65 W",
     "Price": 304,
     "Popularity": 100
   },
   {
-    "Category": "overclock",
+    "Category": "Overclock",
     "Model": "AMD Ryzen 7 5700G",
     "Family": "Cezanne",
     "Socket": "AM4",
@@ -774,7 +774,7 @@
     "Popularity": 85
   },
   {
-    "Category": "overclock",
+    "Category": "Overclock",
     "Model": "AMD Ryzen 7 5700G",
     "Family": "Cezanne",
     "Socket": "AM4",
@@ -785,14 +785,14 @@
     "PCE": "3.0",
     "Memory": "DDR4",
     "Package": "BOX",
-    "Cooler": true,
+    "Cooler": "Included",
     "GPU": "Radeon Vega 8",
     "TDP": "65 W",
     "Price": 371,
     "Popularity": 95
   },
   {
-    "Category": "overclock",
+    "Category": "Overclock",
     "Model": "AMD Ryzen 7 5700X",
     "Family": "Cezanne",
     "Socket": "AM4",
@@ -803,14 +803,14 @@
     "PCE": "4.0",
     "Memory": "DDR4",
     "Package": "BOX",
-    "Cooler": true,
+    "Cooler": "Included",
     "GPU": false,
     "TDP": "65 W",
     "Price": 521,
     "Popularity": 75
   },
   {
-    "Category": "overclock",
+    "Category": "Overclock",
     "Model": "AMD Ryzen 7 3700X",
     "Family": "Matisse",
     "Socket": "AM4",
@@ -828,7 +828,7 @@
     "Popularity": 55
   },
   {
-    "Category": "overclock",
+    "Category": "Overclock",
     "Model": "AMD Ryzen 7 3700X",
     "Family": "Matisse",
     "Socket": "AM4",
@@ -839,14 +839,14 @@
     "PCE": "4.0",
     "Memory": "DDR4",
     "Package": "BOX",
-    "Cooler": true,
+    "Cooler": "Included",
     "GPU": false,
     "TDP": "65 W",
     "Price": 357,
     "Popularity": 70
   },
   {
-    "Category": "overclock",
+    "Category": "Overclock",
     "Model": "AMD Ryzen 7 3800X",
     "Family": "Matisse",
     "Socket": "AM4",
@@ -864,7 +864,7 @@
     "Popularity": 50
   },
   {
-    "Category": "overclock",
+    "Category": "Overclock",
     "Model": "AMD Ryzen 7 3800X",
     "Family": "Matisse",
     "Socket": "AM4",
@@ -875,14 +875,14 @@
     "PCE": "4.0",
     "Memory": "DDR4",
     "Package": "BOX",
-    "Cooler": true,
+    "Cooler": "Included",
     "GPU": false,
     "TDP": "105 W",
     "Price": 285,
     "Popularity": 45
   },
   {
-    "Category": "extraPerfomance",
+    "Category": "Extra perfomance",
     "Model": "AMD Ryzen 9 3900X",
     "Family": "Matisse",
     "Socket": "AM4",
@@ -893,14 +893,14 @@
     "PCE": "4.0",
     "Memory": "DDR4",
     "Package": "BOX",
-    "Cooler": true,
+    "Cooler": "Included",
     "GPU": false,
     "TDP": "105 W",
     "Price": 428,
     "Popularity": 55
   },
   {
-    "Category": "extraPerfomance",
+    "Category": "Extra perfomance",
     "Model": "AMD Ryzen 9 3950X",
     "Family": "Matisse",
     "Socket": "AM4",
@@ -918,7 +918,7 @@
     "Popularity": 45
   },
   {
-    "Category": "overclock",
+    "Category": "Overclock",
     "Model": "AMD Ryzen 7 5800X",
     "Family": "Vermeer",
     "Socket": "AM4",
@@ -936,7 +936,7 @@
     "Popularity": 70
   },
   {
-    "Category": "overclock",
+    "Category": "Overclock",
     "Model": "AMD Ryzen 7 5800X",
     "Family": "Vermeer",
     "Socket": "AM4",
@@ -954,7 +954,7 @@
     "Popularity": 75
   },
   {
-    "Category": "extraPerfomance",
+    "Category": "Extra perfomance",
     "Model": "AMD Ryzen 9 5900X",
     "Family": "Vermeer",
     "Socket": "AM4",
@@ -972,7 +972,7 @@
     "Popularity": 55
   },
   {
-    "Category": "extraPerfomance",
+    "Category": "Extra perfomance",
     "Model": "AMD Ryzen 9 5900X",
     "Family": "Vermeer",
     "Socket": "AM4",
@@ -990,7 +990,7 @@
     "Popularity": 70
   },
   {
-    "Category": "extraPerfomance",
+    "Category": "Extra perfomance",
     "Model": "AMD Ryzen 9 5950X",
     "Family": "Vermeer",
     "Socket": "AM4",
@@ -1008,7 +1008,7 @@
     "Popularity": 50
   },
   {
-    "Category": "extraPerfomance",
+    "Category": "Extra perfomance",
     "Model": "AMD Ryzen 9 5950X",
     "Family": "Vermeer",
     "Socket": "AM4",

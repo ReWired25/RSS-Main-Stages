@@ -1,4 +1,6 @@
-import './application/model/model';
 import './style.scss';
+import { loader, ElementsFabric } from './application/model/model';
+import { filtersCreater } from './application/controller/controller';
 
-console.log('Hello World!');
+filtersCreater();
+loader(ElementsFabric.productCreater);
