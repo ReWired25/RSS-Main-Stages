@@ -205,6 +205,9 @@ document.body.append(newSort);
 function searchCreater() {
   const searchInput = document.createElement('input');
   searchInput.classList.add('search-input');
+  searchInput.placeholder = 'Search';
+  searchInput.autocomplete = 'off';
+  searchInput.setAttribute('autofocus', '');
 
   searchInput.addEventListener('input', () => {
     const searchStr = searchInput.value;
