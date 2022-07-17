@@ -1,6 +1,8 @@
 import './style.scss';
-import { loader, ElementsFabric } from './application/model/model';
+import { loader } from './application/model/model';
 import { filtersCreater } from './application/controller/controller';
+import { FiltersMethods } from './application/model/listeners-methods';
 
 filtersCreater();
-loader(ElementsFabric.productCreater);
+// loader(ElementsFabric.productCreater);
+loader(FiltersMethods.filterer);

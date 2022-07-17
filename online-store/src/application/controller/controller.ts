@@ -1,5 +1,9 @@
 // import { IAppController } from '../types/interfaces';
-import { FiltersMethods } from '../model/listeners-methods';
+import {
+  FiltersMethods,
+  SortMethods,
+  SearchMethod,
+} from '../model/listeners-methods';
 import { loader } from '../model/model';
 
 // class AppController {
@@ -117,29 +121,29 @@ export function filtersCreater(): void {
     'Overclock',
     'Extra perfomance',
   ]);
-  const newElemTwo = valueInputCreater('PCE express', 'PCE', 3, [
+  const newElemTwo = valueInputCreater('Socket', 'Socket', 3, [
+    'LGA 1200',
+    'LGA 1700',
+    'AM4',
+  ]);
+  const newElemThree = valueInputCreater('PCE express', 'PCE', 3, [
     '3.0',
     '4.0',
     '5.0',
   ]);
-  const newElemThree = valueInputCreater('Memory type', 'Memory', 2, [
+  const newElemFour = valueInputCreater('Memory type', 'Memory', 2, [
     'DDR4',
     'DDR5',
   ]);
-  const newElemFour = valueInputCreater('Package', 'Package', 2, [
+  const newElemFive = valueInputCreater('Package', 'Package', 2, [
     'OEM',
     'BOX',
   ]);
-  const newElemFive = valueInputCreater('Integrated graphics', 'GPU', 1, [
+  const newElemSix = valueInputCreater('Integrated graphics', 'GPU', 1, [
     'GPU',
   ]);
-  const newElemSix = valueInputCreater('Cooling system', 'Cooler', 1, [
+  const newElemSeven = valueInputCreater('Cooling system', 'Cooler', 1, [
     'Included',
-  ]);
-  const newElemSeven = valueInputCreater('Socket', 'Socket', 3, [
-    'LGA 1200',
-    'LGA 1700',
-    'AM4',
   ]);
 
   document.body.append(
@@ -152,3 +156,71 @@ export function filtersCreater(): void {
     newElemSeven
   );
 }
+
+function sortCreater(): HTMLDivElement {
+  const sortWrapper = document.createElement('div');
+  sortWrapper.classList.add('sorting');
+
+  const nameSort = document.createElement('p');
+  nameSort.innerHTML = 'Sorting';
+  sortWrapper.append(nameSort);
+
+  const select = document.createElement('select');
+  select.name = 'sort';
+
+  const valueArr = [
+    'popularity-descending',
+    'price-ascending',
+    'price-descending',
+    'TDP-ascending',
+  ];
+  const nameArr = [
+    'By popularity (desc)',
+    'By price (asc)',
+    'By price (desc)',
+    'By TDP (asc)',
+  ];
+
+  for (let i = 0; i < nameArr.length; i++) {
+    const option = document.createElement('option');
+    option.value = valueArr[i];
+    option.innerHTML = nameArr[i];
+
+    select.append(option);
+  }
+
+  select.addEventListener('change', () => {
+    SortMethods.selectedOpt = select.options[select.selectedIndex].value;
+
+    loader(FiltersMethods.filterer);
+  });
+
+  sortWrapper.append(select);
+  return sortWrapper;
+}
+
+const newSort = sortCreater();
+document.body.append(newSort);
+
+function searchCreater() {
+  const searchInput = document.createElement('input');
+  searchInput.classList.add('search-input');
+
+  searchInput.addEventListener('input', () => {
+    const searchStr = searchInput.value;
+
+    if (searchStr) {
+      const regexp = new RegExp(`${searchStr}`, `gmi`);
+      SearchMethod.regexp = regexp;
+    } else {
+      SearchMethod.regexp = '';
+    }
+
+    loader(FiltersMethods.filterer);
+  });
+
+  return searchInput;
+}
+
+const newSearch = searchCreater();
+document.body.append(newSearch);

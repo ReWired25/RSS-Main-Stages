@@ -13,7 +13,7 @@
     "Package": "OEM",
     "Cooler": false,
     "GPU": false,
-    "TDP": "65 W",
+    "TDP": 65,
     "Price": 197,
     "Popularity": 90
   },
@@ -31,7 +31,7 @@
     "Package": "BOX",
     "Cooler": "Included",
     "GPU": false,
-    "TDP": "65 W",
+    "TDP": 65,
     "Price": 211,
     "Popularity": 100
   },
@@ -49,7 +49,7 @@
     "Package": "OEM",
     "Cooler": false,
     "GPU": "Intel UHD 730",
-    "TDP": "65 W",
+    "TDP": 65,
     "Price": 207,
     "Popularity": 75
   },
@@ -67,7 +67,7 @@
     "Package": "BOX",
     "Cooler": "Included",
     "GPU": "Intel UHD 730",
-    "TDP": "65 W",
+    "TDP": 65,
     "Price": 214,
     "Popularity": 80
   },
@@ -85,7 +85,7 @@
     "Package": "OEM",
     "Cooler": false,
     "GPU": "Intel UHD 750",
-    "TDP": "65 W",
+    "TDP": 65,
     "Price": 248,
     "Popularity": 55
   },
@@ -103,7 +103,7 @@
     "Package": "BOX",
     "Cooler": "Included",
     "GPU": "Intel UHD 750",
-    "TDP": "65 W",
+    "TDP": 65,
     "Price": 257,
     "Popularity": 70
   },
@@ -121,7 +121,7 @@
     "Package": "BOX",
     "Cooler": "Included",
     "GPU": "Intel UHD 750",
-    "TDP": "65 W",
+    "TDP": 65,
     "Price": 318,
     "Popularity": 45
   },
@@ -139,7 +139,7 @@
     "Package": "BOX",
     "Cooler": false,
     "GPU": "Intel UHD 750",
-    "TDP": "125 W",
+    "TDP": 125,
     "Price": 331,
     "Popularity": 50
   },
@@ -157,7 +157,7 @@
     "Package": "BOX",
     "Cooler": "Included",
     "GPU": "Intel UHD 750",
-    "TDP": "65 W",
+    "TDP": 65,
     "Price": 421,
     "Popularity": 70
   },
@@ -175,7 +175,7 @@
     "Package": "BOX",
     "Cooler": "Included",
     "GPU": false,
-    "TDP": "65 W",
+    "TDP": 65,
     "Price": 457,
     "Popularity": 90
   },
@@ -193,7 +193,7 @@
     "Package": "OEM",
     "Cooler": false,
     "GPU": "Intel UHD 750",
-    "TDP": "125 W",
+    "TDP": 125,
     "Price": 507,
     "Popularity": 70
   },
@@ -211,7 +211,7 @@
     "Package": "BOX",
     "Cooler": false,
     "GPU": false,
-    "TDP": "125 W",
+    "TDP": 125,
     "Price": 481,
     "Popularity": 85
   },
@@ -229,7 +229,7 @@
     "Package": "BOX",
     "Cooler": "Included",
     "GPU": "Intel UHD 750",
-    "TDP": "65 W",
+    "TDP": 65,
     "Price": 481,
     "Popularity": 80
   },
@@ -247,7 +247,7 @@
     "Package": "BOX",
     "Cooler": false,
     "GPU": false,
-    "TDP": "125 W",
+    "TDP": 125,
     "Price": 485,
     "Popularity": 85
   },
@@ -265,7 +265,7 @@
     "Package": "BOX",
     "Cooler": false,
     "GPU": "Intel UHD 750",
-    "TDP": "125 W",
+    "TDP": 125,
     "Price": 500,
     "Popularity": 70
   },
@@ -283,7 +283,7 @@
     "Package": "OEM",
     "Cooler": false,
     "GPU": false,
-    "TDP": "89 W",
+    "TDP": 89,
     "Price": 171,
     "Popularity": 95
   },
@@ -301,7 +301,7 @@
     "Package": "BOX",
     "Cooler": "Included",
     "GPU": "Intel UHD 730",
-    "TDP": "89 W",
+    "TDP": 89,
     "Price": 211,
     "Popularity": 80
   },
@@ -319,7 +319,7 @@
     "Package": "OEM",
     "Cooler": false,
     "GPU": false,
-    "TDP": "117 W",
+    "TDP": 117,
     "Price": 262,
     "Popularity": 90
   },
@@ -337,7 +337,7 @@
     "Package": "BOX",
     "Cooler": "Included",
     "GPU": "Intel UHD 730",
-    "TDP": "117 W",
+    "TDP": 117,
     "Price": 285,
     "Popularity": 75
   },
@@ -355,7 +355,7 @@
     "Package": "OEM",
     "Cooler": false,
     "GPU": "Intel UHD 770",
-    "TDP": "117 W",
+    "TDP": 117,
     "Price": 327,
     "Popularity": 50
   },
@@ -373,7 +373,7 @@
     "Package": "BOX",
     "Cooler": "Included",
     "GPU": "Intel UHD 770",
-    "TDP": "117 W",
+    "TDP": 117,
     "Price": 338,
     "Popularity": 70
   },
@@ -391,7 +391,7 @@
     "Package": "OEM",
     "Cooler": false,
     "GPU": "Intel UHD 770",
-    "TDP": "117 W",
+    "TDP": 117,
     "Price": 378,
     "Popularity": 45
   },
@@ -409,7 +409,7 @@
     "Package": "OEM",
     "Cooler": false,
     "GPU": "Intel UHD 770",
-    "TDP": "117 W",
+    "TDP": 117,
     "Price": 407,
     "Popularity": 55
   },
@@ -427,7 +427,7 @@
     "Package": "OEM",
     "Cooler": false,
     "GPU": false,
-    "TDP": "180 W",
+    "TDP": 180,
     "Price": 477,
     "Popularity": 85
   },
@@ -445,7 +445,7 @@
     "Package": "BOX",
     "Cooler": "Included",
     "GPU": "Intel UHD 770",
-    "TDP": "180 W",
+    "TDP": 180,
     "Price": 500,
     "Popularity": 70
   },
@@ -463,7 +463,7 @@
     "Package": "BOX",
     "Cooler": false,
     "GPU": false,
-    "TDP": "190 W",
+    "TDP": 190,
     "Price": 574,
     "Popularity": 90
   },
@@ -481,7 +481,7 @@
     "Package": "BOX",
     "Cooler": false,
     "GPU": "Intel UHD 770",
-    "TDP": "190 W",
+    "TDP": 190,
     "Price": 628,
     "Popularity": 55
   },
@@ -499,7 +499,7 @@
     "Package": "OEM",
     "Cooler": false,
     "GPU": false,
-    "TDP": "241 W",
+    "TDP": 241,
     "Price": 785,
     "Popularity": 55
   },
@@ -517,7 +517,7 @@
     "Package": "OEM",
     "Cooler": false,
     "GPU": "Intel UHD 770",
-    "TDP": "202 W",
+    "TDP": 202,
     "Price": 828,
     "Popularity": 45
   },
@@ -535,7 +535,7 @@
     "Package": "BOX",
     "Cooler": false,
     "GPU": false,
-    "TDP": "241 W",
+    "TDP": 241,
     "Price": 832,
     "Popularity": 75
   },
@@ -553,7 +553,7 @@
     "Package": "OEM",
     "Cooler": false,
     "GPU": false,
-    "TDP": "65 W",
+    "TDP": 65,
     "Price": 227,
     "Popularity": 95
   },
@@ -571,7 +571,7 @@
     "Package": "BOX",
     "Cooler": "Included",
     "GPU": false,
-    "TDP": "65 W",
+    "TDP": 65,
     "Price": 264,
     "Popularity": 100
   },
@@ -589,7 +589,7 @@
     "Package": "BOX",
     "Cooler": "Included",
     "GPU": false,
-    "TDP": "65 W",
+    "TDP": 65,
     "Price": 242,
     "Popularity": 50
   },
@@ -607,7 +607,7 @@
     "Package": "BOX",
     "Cooler": "Included",
     "GPU": false,
-    "TDP": "65 W",
+    "TDP": 65,
     "Price": 285,
     "Popularity": 55
   },
@@ -625,7 +625,7 @@
     "Package": "OEM",
     "Cooler": false,
     "GPU": "Radeon Vega 6",
-    "TDP": "65 W",
+    "TDP": 65,
     "Price": 197,
     "Popularity": 70
   },
@@ -643,7 +643,7 @@
     "Package": "OEM",
     "Cooler": false,
     "GPU": "Radeon Vega 7",
-    "TDP": "65 W",
+    "TDP": 65,
     "Price": 247,
     "Popularity": 50
   },
@@ -661,7 +661,7 @@
     "Package": "OEM",
     "Cooler": false,
     "GPU": "Radeon Vega 8",
-    "TDP": "65 W",
+    "TDP": 65,
     "Price": 292,
     "Popularity": 75
   },
@@ -679,7 +679,7 @@
     "Package": "OEM",
     "Cooler": false,
     "GPU": "Radeon Vega 7",
-    "TDP": "65 W",
+    "TDP": 65,
     "Price": 277,
     "Popularity": 90
   },
@@ -697,7 +697,7 @@
     "Package": "OEM",
     "Cooler": false,
     "GPU": "Radeon Vega 7",
-    "TDP": "65 W",
+    "TDP": 65,
     "Price": 279,
     "Popularity": 45
   },
@@ -715,7 +715,7 @@
     "Package": "BOX",
     "Cooler": "Included",
     "GPU": false,
-    "TDP": "65 W",
+    "TDP": 65,
     "Price": 314,
     "Popularity": 55
   },
@@ -733,7 +733,7 @@
     "Package": "OEM",
     "Cooler": false,
     "GPU": false,
-    "TDP": "65 W",
+    "TDP": 65,
     "Price": 295,
     "Popularity": 95
   },
@@ -751,7 +751,7 @@
     "Package": "BOX",
     "Cooler": "Included",
     "GPU": false,
-    "TDP": "65 W",
+    "TDP": 65,
     "Price": 304,
     "Popularity": 100
   },
@@ -769,7 +769,7 @@
     "Package": "OEM",
     "Cooler": false,
     "GPU": "Radeon Vega 8",
-    "TDP": "65 W",
+    "TDP": 65,
     "Price": 345,
     "Popularity": 85
   },
@@ -787,7 +787,7 @@
     "Package": "BOX",
     "Cooler": "Included",
     "GPU": "Radeon Vega 8",
-    "TDP": "65 W",
+    "TDP": 65,
     "Price": 371,
     "Popularity": 95
   },
@@ -805,7 +805,7 @@
     "Package": "BOX",
     "Cooler": "Included",
     "GPU": false,
-    "TDP": "65 W",
+    "TDP": 65,
     "Price": 521,
     "Popularity": 75
   },
@@ -823,7 +823,7 @@
     "Package": "OEM",
     "Cooler": false,
     "GPU": false,
-    "TDP": "65 W",
+    "TDP": 65,
     "Price": 345,
     "Popularity": 55
   },
@@ -841,7 +841,7 @@
     "Package": "BOX",
     "Cooler": "Included",
     "GPU": false,
-    "TDP": "65 W",
+    "TDP": 65,
     "Price": 357,
     "Popularity": 70
   },
@@ -859,7 +859,7 @@
     "Package": "OEM",
     "Cooler": false,
     "GPU": false,
-    "TDP": "105 W",
+    "TDP": 105,
     "Price": 300,
     "Popularity": 50
   },
@@ -877,7 +877,7 @@
     "Package": "BOX",
     "Cooler": "Included",
     "GPU": false,
-    "TDP": "105 W",
+    "TDP": 105,
     "Price": 285,
     "Popularity": 45
   },
@@ -895,7 +895,7 @@
     "Package": "BOX",
     "Cooler": "Included",
     "GPU": false,
-    "TDP": "105 W",
+    "TDP": 105,
     "Price": 428,
     "Popularity": 55
   },
@@ -913,7 +913,7 @@
     "Package": "BOX",
     "Cooler": false,
     "GPU": false,
-    "TDP": "105 W",
+    "TDP": 105,
     "Price": 722,
     "Popularity": 45
   },
@@ -931,7 +931,7 @@
     "Package": "OEM",
     "Cooler": false,
     "GPU": false,
-    "TDP": "105 W",
+    "TDP": 105,
     "Price": 394,
     "Popularity": 70
   },
@@ -949,7 +949,7 @@
     "Package": "BOX",
     "Cooler": false,
     "GPU": false,
-    "TDP": "105 W",
+    "TDP": 105,
     "Price": 402,
     "Popularity": 75
   },
@@ -967,7 +967,7 @@
     "Package": "OEM",
     "Cooler": false,
     "GPU": false,
-    "TDP": "105 W",
+    "TDP": 105,
     "Price": 542,
     "Popularity": 55
   },
@@ -985,7 +985,7 @@
     "Package": "BOX",
     "Cooler": false,
     "GPU": false,
-    "TDP": "105 W",
+    "TDP": 105,
     "Price": 557,
     "Popularity": 70
   },
@@ -1003,7 +1003,7 @@
     "Package": "OEM",
     "Cooler": false,
     "GPU": false,
-    "TDP": "105 W",
+    "TDP": 105,
     "Price": 772,
     "Popularity": 50
   },
@@ -1021,7 +1021,7 @@
     "Package": "BOX",
     "Cooler": false,
     "GPU": false,
-    "TDP": "105 W",
+    "TDP": 105,
     "Price": 772,
     "Popularity": 75
   }

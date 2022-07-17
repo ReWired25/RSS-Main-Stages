@@ -57,9 +57,9 @@ export class ElementsFabric {
       span.innerHTML = value;
     }
     if (typeof value === 'number') {
-      spec === 'Price'
-        ? (span.innerHTML = `${value}$`)
-        : (span.innerHTML = `${value}`);
+      if (spec === 'Price') span.innerHTML = `${value} $`;
+      else if (spec === 'TDP') span.innerHTML = `${value} W`;
+      else span.innerHTML = `${value}`;
     }
     if (typeof value === 'boolean') {
       span.innerHTML = 'Discrete required';

@@ -18,6 +18,19 @@
   gap: 10px;
 }
 
+.sorting {
+  margin: 10px;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.search-input {
+  margin: 10px;
+  padding: 5px;
+}
+
 .product {
   border: 3px solid black;
   margin: 10px;
