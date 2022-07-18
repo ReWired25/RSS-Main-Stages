@@ -45,15 +45,74 @@ export class FiltersMethods {
     SortMethods.sortingMethod(finalElements);
     finalElements = SearchMethod.searchFilter(finalElements);
 
+    finalElements = FilterRange.rangeFilterer(finalElements);
+
     if (finalElements.length > 0) {
       ElementsFabric.productCreater(finalElements);
     } else if (!finalElements.length && SearchMethod.regexp) {
+      ErrorHandler.withoutMatch();
+    } else if (
+      !finalElements.length &&
+      FilterRange.minPrice &&
+      FilterRange.maxPrice
+    ) {
+      ErrorHandler.withoutMatch();
+    } else if (
+      !finalElements.length &&
+      FilterRange.minGHz &&
+      FilterRange.maxGHz
+    ) {
       ErrorHandler.withoutMatch();
     } else {
       FiltersMethods.checkboxCounter === 0
         ? ElementsFabric.productCreater(objs)
         : ErrorHandler.withoutMatch();
     }
+  }
+}
+
+export class FilterRange {
+  static minPrice = 0;
+  static maxPrice = 0;
+  static minGHz = 0;
+  static maxGHz = 0;
+
+  static rangeFilterer(objs: Iproduct[]) {
+    if (
+      !FilterRange.minPrice &&
+      !FilterRange.maxPrice &&
+      !FilterRange.minGHz &&
+      !FilterRange.maxGHz
+    )
+      return objs;
+
+    const filteredArr = objs.filter((product) => {
+      let isEqual = true;
+
+      if (FilterRange.minPrice && FilterRange.maxPrice) {
+        if (
+          product.Price <= FilterRange.minPrice ||
+          product.Price >= FilterRange.maxPrice
+        ) {
+          isEqual = false;
+        }
+      }
+
+      if (FilterRange.minGHz && FilterRange.maxGHz) {
+        if (
+          parseFloat(product['Base Rate']) <= FilterRange.minGHz ||
+          parseFloat(product['Max Rate']) >= FilterRange.maxGHz
+        ) {
+          isEqual = false;
+        }
+      }
+
+      return isEqual;
+    });
+
+    console.log(filteredArr);
+
+    return filteredArr;
   }
 }
 

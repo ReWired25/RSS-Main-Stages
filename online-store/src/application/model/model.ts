@@ -1,16 +1,26 @@
 import { buildPage } from '../view/view';
 import { Iproduct } from '../types/interfaces';
+import { ErrorHandler } from './error-handler';
+import { CartMethods } from './cart-methods';
 // methods for listners // filters / sorts / search
 
 export async function loader(callback: (result: Iproduct[]) => void) {
-  const resolve = await fetch('./assets/data/data.json');
-  const result = await resolve.json();
+  try {
+    const resolve = await fetch('./assets/data/data.json');
+    const result = await resolve.json();
 
-  callback(result);
+    callback(result);
+  } catch {
+    ErrorHandler.responseHandler();
+  }
 }
 
 export class ElementsFabric {
-  static createModal(productWrapper: HTMLDivElement): void {
+  static createModal(
+    productWrapper: HTMLDivElement,
+    cartButton: HTMLButtonElement,
+    productObj: Iproduct
+  ): void {
     const modal = document.createElement('div');
     modal.classList.add('product-modal');
 
@@ -28,12 +38,23 @@ export class ElementsFabric {
     const elements = productWrapper.children;
 
     for (let i = 0; i < elements.length; i++) {
-      const currElement = <HTMLParagraphElement | null>(
+      const currElement = <HTMLParagraphElement | HTMLButtonElement | null>(
         elements[i].cloneNode(true)
       );
 
       if (currElement && !currElement.innerHTML.includes('Popularity')) {
         currElement.style.display = 'block';
+
+        if (currElement.classList.contains('cart-button')) {
+          currElement.addEventListener('click', () => {
+            CartMethods.cartService(
+              productWrapper,
+              cartButton,
+              productObj,
+              <HTMLButtonElement>currElement
+            );
+          });
+        }
 
         modal.append(currElement);
       }
@@ -104,8 +125,19 @@ export class ElementsFabric {
         productWrapper.append(description);
       });
 
-      productWrapper.addEventListener('click', () => {
-        ElementsFabric.createModal(productWrapper);
+      const cartButton = document.createElement('button');
+      cartButton.classList.add('cart-button');
+      cartButton.innerHTML = 'add to cart';
+
+      cartButton.addEventListener('click', () => {
+        CartMethods.cartService(productWrapper, cartButton, product);
+      });
+
+      productWrapper.append(cartButton);
+
+      productWrapper.addEventListener('click', (event) => {
+        if (event.target !== cartButton)
+          ElementsFabric.createModal(productWrapper, cartButton, product);
       });
 
       productsElements.push(productWrapper);

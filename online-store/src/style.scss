@@ -1,3 +1,5 @@
+@import '../node_modules/nouislider/dist/nouislider.css';
+
 * {
   margin: 0;
   padding: 0;
@@ -12,10 +14,24 @@
   }
 }
 
+.cart {
+  margin: 10px;
+  padding: 10px;
+  width: 50px;
+  height: 30px;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
 .value-filter {
   margin: 10px;
   display: flex;
   gap: 10px;
+}
+
+.slider-wrapper {
+  margin: 50px 30px;
+  width: 350px;
 }
 
 .sorting {
@@ -40,12 +56,17 @@
   animation: appear 1s;
 }
 
+.product-in-cart {
+  background-color: rgb(200, 255, 200);
+}
+
 .hidden {
   display: none;
 }
 
 .product-modal {
   position: relative;
+  z-index: 20;
   top: calc(50% - 200px);
   left: calc(50% - 250px);
   width: 500px;
@@ -60,6 +81,7 @@
 
 .modal-background {
   position: fixed;
+  z-index: 20;
   top: 0;
   left: 0;
   width: 100vw;
@@ -79,4 +101,20 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.resp-error-wrapper {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.resp-error-title {
+  font-size: 35px;
+}
+
+.resp-error-message {
+  font-size: 20px;
 }

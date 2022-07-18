@@ -3,7 +3,10 @@ import {
   FiltersMethods,
   SortMethods,
   SearchMethod,
+  FilterRange,
 } from '../model/listeners-methods';
+import { CartMethods } from '../model/cart-methods';
+import noUiSlider, { target } from 'nouislider';
 import { loader } from '../model/model';
 
 // class AppController {
@@ -205,6 +208,7 @@ document.body.append(newSort);
 function searchCreater() {
   const searchInput = document.createElement('input');
   searchInput.classList.add('search-input');
+  searchInput.type = 'search';
   searchInput.placeholder = 'Search';
   searchInput.autocomplete = 'off';
   searchInput.setAttribute('autofocus', '');
@@ -227,3 +231,60 @@ function searchCreater() {
 
 const newSearch = searchCreater();
 document.body.append(newSearch);
+
+function cartCreater() {
+  const cartElement = document.createElement('div');
+  const cartCounter = document.createElement('p');
+  cartElement.classList.add('cart');
+  cartCounter.classList.add('cart-counter');
+
+  CartMethods.cart = cartCounter;
+
+  if (CartMethods.counter > 0)
+    cartCounter.innerHTML = CartMethods.counter.toString();
+
+  cartElement.append(cartCounter);
+
+  return cartElement;
+}
+
+const newCart = cartCreater();
+document.body.append(newCart);
+
+function sliderCreater(minValue: number, maxValue: number) {
+  const sliderWrapper = document.createElement('div');
+  const slider: target = document.createElement('div');
+  sliderWrapper.classList.add('slider-wrapper');
+  slider.classList.add('slider');
+
+  noUiSlider.create(slider, {
+    start: [minValue, maxValue],
+    tooltips: true,
+    connect: true,
+    range: {
+      min: minValue,
+      max: maxValue,
+    },
+  });
+
+  slider.noUiSlider?.on('change', () => {
+    const values = <string[] | undefined>slider.noUiSlider?.get();
+
+    if (values && +values[0] > 100) {
+      FilterRange.minPrice = +values[0];
+      FilterRange.maxPrice = +values[1];
+    } else if (values && +values[0] < 100) {
+      FilterRange.minGHz = +values[0];
+      FilterRange.maxGHz = +values[1];
+    }
+
+    loader(FiltersMethods.filterer);
+  });
+
+  sliderWrapper.append(slider);
+  return sliderWrapper;
+}
+
+const newSlider = sliderCreater(2.1, 5.2);
+const newSliderTwo = sliderCreater(171, 832);
+document.body.append(newSlider, newSliderTwo);
