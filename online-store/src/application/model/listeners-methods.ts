@@ -244,7 +244,6 @@ export class LocalStorage {
       const cart = JSON.parse(jsonCart);
 
       CartMethods.counter = cart.length;
-      if (cart.length) CartMethods.cart.innerHTML = cart.length;
       CartMethods.productsInCart = cart;
     }
   }

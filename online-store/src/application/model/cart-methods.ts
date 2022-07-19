@@ -1,5 +1,5 @@
 import { Iproduct } from '../types/interfaces';
-import LocalStorage from './local-storage-export';
+import { LocalStorage } from './listeners-methods';
 
 export class CartMethods {
   static cart: HTMLParagraphElement;
@@ -19,6 +19,7 @@ export class CartMethods {
       if (modalButton) modalButton.innerHTML = 'remove from cart';
 
       CartMethods.productsInCart.push([productObj.Model, productObj.Package]);
+
       LocalStorage.add();
 
       product.classList.add('product-in-cart');

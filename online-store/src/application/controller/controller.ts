@@ -1,3 +1,4 @@
+import { IfilterTemplate } from '../types/interfaces';
 import {
   FiltersMethods,
   SortMethods,
@@ -37,7 +38,8 @@ function valueInputCreater(
             'Intel UHD 770',
             'Radeon Vega 6',
             'Radeon Vega 7',
-            'Radeon Vega 8'
+            'Radeon Vega 8',
+            'GPU'
           );
         } else {
           FiltersMethods.filterTemplate[input.name].push(input.id);
@@ -61,12 +63,18 @@ function valueInputCreater(
       }
     });
 
-    const checkedInputs = Object.values(FiltersMethods.filterTemplate);
-    checkedInputs.forEach((valuesArr) => {
-      valuesArr.forEach((value) => {
-        if (value === texts[i]) input.setAttribute('checked', '');
+    const checkedInputsJson = localStorage.getItem('values');
+
+    if (checkedInputsJson) {
+      const checkedInputsObj: IfilterTemplate = JSON.parse(checkedInputsJson);
+      const checkedInputs = Object.values(checkedInputsObj);
+
+      checkedInputs.forEach((valuesArr) => {
+        valuesArr.forEach((value) => {
+          if (value === texts[i]) input.setAttribute('checked', '');
+        });
       });
-    });
+    }
 
     input.name = spec;
     input.id = texts[i];
