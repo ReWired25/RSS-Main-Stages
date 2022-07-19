@@ -42,12 +42,27 @@ body {
 }
 
 .cart {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 10px;
   margin: 10px;
   padding: 10px;
-  width: 70px;
+  width: 80px;
   height: 40px;
   border: 2px solid rgb(145, 145, 145);
+  background-color: #84cc37;
   border-radius: 5px;
+}
+
+.cart-counter {
+  font-size: 25px;
+  font-weight: 700;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.cart-image {
+  height: 30px;
 }
 
 .control-panel {
@@ -185,8 +200,8 @@ body {
 
 .product-in-cart {
   background: linear-gradient(#284e00, #7b80ad);
-  box-shadow: inset 0px 0px 50px #2d2d30;
-  transition: 0.5s;
+  box-shadow: inset 0px 150px 50px #2d2d30;
+  transition: 0.3s;
 }
 
 .hidden {
@@ -301,9 +316,25 @@ body {
   }
 }
 
+.github-image,
+.rss-image {
+  height: 25px;
+}
+
+.github-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 .github-link,
 .rss-link {
   font-size: 20px;
   text-decoration: none;
   color: #a87aff;
+  transition: 0.5s;
+  &:hover {
+    transform: scale(1.2);
+    transition: 0.5s;
+  }
 }

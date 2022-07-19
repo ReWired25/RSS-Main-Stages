@@ -48,18 +48,23 @@ export function footerCreater(): HTMLElement {
     img.classList.add(imgClass);
     element.append(img);
 
-    if (text) element.innerHTML = text;
+    if (text) element.append(text);
     return element;
   }
 
   const githubLink = creater(
     'github-link',
     'github-image',
-    'url',
-    'path',
+    'https://github.com/ReWired25',
+    './assets/svg/github-icon-purple.svg',
     'ReWired25'
   );
-  const rssLink = creater('rss-link', 'rss-image', 'url', 'path');
+  const rssLink = creater(
+    'rss-link',
+    'rss-image',
+    'https://rs.school/js/',
+    './assets/svg/rs_school_js-purple.svg'
+  );
 
   const year = document.createElement('p');
   year.innerHTML =

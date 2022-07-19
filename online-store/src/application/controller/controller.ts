@@ -130,7 +130,12 @@ export function cartCreater() {
   if (CartMethods.counter > 0)
     cartCounter.innerHTML = CartMethods.counter.toString();
 
-  cartElement.append(cartCounter);
+  const cartImage = document.createElement('img');
+  cartImage.classList.add('cart-image');
+  cartImage.alt = 'cart-icon';
+  cartImage.src = './assets/svg/shopping-cart.svg';
+
+  cartElement.append(cartImage, cartCounter);
 
   return cartElement;
 }
