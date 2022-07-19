@@ -12,12 +12,12 @@ export class CartMethods {
     productObj: Iproduct,
     modalButton?: HTMLButtonElement
   ): void {
-    if (CartMethods.counter >= 20) {
-      CartMethods.counterModal();
-      return;
-    }
-
     if (!product.classList.contains('product-in-cart')) {
+      if (CartMethods.counter >= 20) {
+        CartMethods.counterModal();
+        return;
+      }
+
       CartMethods.counter++;
       CartMethods.cart.innerHTML = CartMethods.counter.toString();
       cardButton.innerHTML = 'remove from cart';

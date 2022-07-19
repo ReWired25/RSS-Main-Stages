@@ -304,6 +304,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  color: #fff;
+  text-shadow: 0 0 5px #fff;
 }
 
 .resp-error-wrapper {
@@ -322,6 +324,7 @@ body {
 .resp-error-message {
   font-size: 20px;
   color: #fff;
+  text-shadow: 0 0 5px #fff;
 }
 
 .footer {
