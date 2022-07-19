@@ -78,64 +78,90 @@ function valueInputCreater(
     ResetsMethods.inputsHolder.push(input);
 
     div.append(input, label);
-    // if (texts) {
-    //   input.name = spec;
-    //   input.id = texts[i];
-
-    //   const label = document.createElement('label');
-    //   label.setAttribute('for', texts[i]);
-    //   label.innerHTML = texts[i];
-
-    //   div.append(input, label);
-    // } else {
-    //   div.append(input);
-    // }
   }
 
   div.classList.add('value-filter');
   return div;
 }
 
-export function filtersCreater(): void {
-  const newElem = valueInputCreater('Category', 'Category', 3, [
-    'Standart',
-    'Overclock',
-    'Extra perfomance',
-  ]);
-  const newElemTwo = valueInputCreater('Socket', 'Socket', 3, [
-    'LGA 1200',
-    'LGA 1700',
-    'AM4',
-  ]);
-  const newElemThree = valueInputCreater('PCE express', 'PCE', 3, [
-    '3.0',
-    '4.0',
-    '5.0',
-  ]);
-  const newElemFour = valueInputCreater('Memory type', 'Memory', 2, [
-    'DDR4',
-    'DDR5',
-  ]);
-  const newElemFive = valueInputCreater('Package', 'Package', 2, [
-    'OEM',
-    'BOX',
-  ]);
-  const newElemSix = valueInputCreater('Integrated graphics', 'GPU', 1, [
-    'GPU',
-  ]);
-  const newElemSeven = valueInputCreater('Cooling system', 'Cooler', 1, [
-    'Included',
-  ]);
+export function filtersCreater(): HTMLDivElement {
+  const filtersArr = [
+    ['Category', 'Category', 3, ['Standart', 'Overclock', 'Extra perfomance']],
+    ['Socket', 'Socket', 3, ['LGA 1200', 'LGA 1700', 'AM4']],
+    ['PCE express', 'PCE', 3, ['3.0', '4.0', '5.0']],
+    ['Memory type', 'Memory', 2, ['DDR4', 'DDR5']],
+    ['Package', 'Package', 2, ['OEM', 'BOX']],
+    ['Integrated graphics', 'GPU', 1, ['GPU']],
+    ['Cooling system', 'Cooler', 1, ['Included']],
+  ];
 
-  document.body.append(
-    newElem,
-    newElemTwo,
-    newElemThree,
-    newElemFour,
-    newElemFive,
-    newElemSix,
-    newElemSeven
-  );
+  const filtersWrapper = document.createElement('div');
+  filtersWrapper.classList.add('filters-wrapper');
+
+  filtersArr.forEach((filters) => {
+    const specName = <string>filters[0];
+    const spec = <string>filters[1];
+    const chekboxNum = <number>filters[2];
+    const texts = <string[]>filters[3];
+
+    const newElement = valueInputCreater(specName, spec, chekboxNum, texts);
+    filtersWrapper.append(newElement);
+  });
+
+  return filtersWrapper;
+}
+
+export function cartCreater() {
+  const cartElement = document.createElement('div');
+  const cartCounter = document.createElement('p');
+  cartElement.classList.add('cart');
+  cartCounter.classList.add('cart-counter');
+
+  CartMethods.cart = cartCounter;
+
+  if (CartMethods.counter > 0)
+    cartCounter.innerHTML = CartMethods.counter.toString();
+
+  cartElement.append(cartCounter);
+
+  return cartElement;
+}
+
+function sliderCreater(minValue: number, maxValue: number) {
+  const sliderWrapper = document.createElement('div');
+  const slider: target = document.createElement('div');
+  sliderWrapper.classList.add('slider-wrapper');
+  slider.classList.add('slider');
+
+  noUiSlider.create(slider, {
+    start: [minValue, maxValue],
+    tooltips: true,
+    connect: true,
+    range: {
+      min: minValue,
+      max: maxValue,
+    },
+  });
+
+  slider.noUiSlider?.on('change', () => {
+    const values = <string[] | undefined>slider.noUiSlider?.get();
+
+    if (values && +values[0] > 100) {
+      FilterRange.minPrice = +values[0];
+      FilterRange.maxPrice = +values[1];
+    } else if (values && +values[0] < 100) {
+      FilterRange.minGHz = +values[0];
+      FilterRange.maxGHz = +values[1];
+    }
+
+    loader(FiltersMethods.filterer);
+  });
+
+  if (maxValue < 100) FilterRange.rateSlider = slider;
+  else FilterRange.priseSlider = slider;
+
+  sliderWrapper.append(slider);
+  return sliderWrapper;
 }
 
 function sortCreater(): HTMLDivElement {
@@ -180,9 +206,6 @@ function sortCreater(): HTMLDivElement {
   return sortWrapper;
 }
 
-const newSort = sortCreater();
-document.body.append(newSort);
-
 function searchCreater() {
   const searchInput = document.createElement('input');
   searchInput.classList.add('search-input');
@@ -207,69 +230,6 @@ function searchCreater() {
   return searchInput;
 }
 
-const newSearch = searchCreater();
-document.body.append(newSearch);
-
-function cartCreater() {
-  const cartElement = document.createElement('div');
-  const cartCounter = document.createElement('p');
-  cartElement.classList.add('cart');
-  cartCounter.classList.add('cart-counter');
-
-  CartMethods.cart = cartCounter;
-
-  if (CartMethods.counter > 0)
-    cartCounter.innerHTML = CartMethods.counter.toString();
-
-  cartElement.append(cartCounter);
-
-  return cartElement;
-}
-
-const newCart = cartCreater();
-document.body.append(newCart);
-
-function sliderCreater(minValue: number, maxValue: number) {
-  const sliderWrapper = document.createElement('div');
-  const slider: target = document.createElement('div');
-  sliderWrapper.classList.add('slider-wrapper');
-  slider.classList.add('slider');
-
-  noUiSlider.create(slider, {
-    start: [minValue, maxValue],
-    tooltips: true,
-    connect: true,
-    range: {
-      min: minValue,
-      max: maxValue,
-    },
-  });
-
-  slider.noUiSlider?.on('change', () => {
-    const values = <string[] | undefined>slider.noUiSlider?.get();
-
-    if (values && +values[0] > 100) {
-      FilterRange.minPrice = +values[0];
-      FilterRange.maxPrice = +values[1];
-    } else if (values && +values[0] < 100) {
-      FilterRange.minGHz = +values[0];
-      FilterRange.maxGHz = +values[1];
-    }
-
-    loader(FiltersMethods.filterer);
-  });
-
-  if (maxValue < 100) FilterRange.rateSlider = slider;
-  else FilterRange.priseSlider = slider;
-
-  sliderWrapper.append(slider);
-  return sliderWrapper;
-}
-
-const newSlider = sliderCreater(2.1, 5.2);
-const newSliderTwo = sliderCreater(171, 832);
-document.body.append(newSlider, newSliderTwo);
-
 function resetCreater(type: string) {
   const resetButton = document.createElement('button');
   resetButton.classList.add('reset-button');
@@ -292,6 +252,44 @@ function resetCreater(type: string) {
   return resetButton;
 }
 
-const newReset = resetCreater('reset filters');
-const newResetTwo = resetCreater('reset options');
-document.body.append(newReset, newResetTwo);
+function controlPanelCreater() {
+  const panel = document.createElement('div');
+  panel.classList.add('control-panel');
+
+  const filters = filtersCreater();
+
+  panel.append(filters);
+
+  const slidersWrapper = document.createElement('div');
+  slidersWrapper.classList.add('slidersWrapper');
+
+  const rateTitle = document.createElement('p');
+  rateTitle.classList.add('rate-title');
+  rateTitle.innerHTML = 'Sort by clock-rate';
+
+  const priceTitle = document.createElement('p');
+  priceTitle.classList.add('price-title');
+  priceTitle.innerHTML = 'Sort by price';
+
+  const rateSlider = sliderCreater(2.1, 5.2);
+  const priceSlider = sliderCreater(171, 832);
+  slidersWrapper.append(rateTitle, rateSlider, priceTitle, priceSlider);
+
+  panel.append(slidersWrapper);
+
+  const sortSearchWrapper = document.createElement('div');
+  sortSearchWrapper.classList.add('sort-search-wrapper');
+  const newSort = sortCreater();
+  const newSearch = searchCreater();
+
+  const resetFilters = resetCreater('reset filters');
+  const resetOptions = resetCreater('reset options');
+
+  sortSearchWrapper.append(newSearch, newSort, resetFilters, resetOptions);
+
+  panel.append(sortSearchWrapper);
+
+  return panel;
+}
+
+export const controlPanelElemet = controlPanelCreater();
