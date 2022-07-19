@@ -12,6 +12,11 @@ export class CartMethods {
     productObj: Iproduct,
     modalButton?: HTMLButtonElement
   ): void {
+    if (CartMethods.counter >= 20) {
+      CartMethods.counterModal();
+      return;
+    }
+
     if (!product.classList.contains('product-in-cart')) {
       CartMethods.counter++;
       CartMethods.cart.innerHTML = CartMethods.counter.toString();
@@ -43,5 +48,23 @@ export class CartMethods {
 
       product.classList.remove('product-in-cart');
     }
+  }
+
+  static counterModal() {
+    const modalWrapper = document.createElement('div');
+    const modalWindow = document.createElement('div');
+    modalWrapper.classList.add('cart-modal-wrapper');
+    modalWindow.classList.add('cart-modal');
+
+    const message = document.createElement('p');
+    message.innerHTML = 'Sorry, all cart slots are full!';
+
+    modalWrapper.addEventListener('click', () => {
+      modalWrapper.remove();
+    });
+
+    modalWindow.append(message);
+    modalWrapper.append(modalWindow);
+    document.body.append(modalWrapper);
   }
 }

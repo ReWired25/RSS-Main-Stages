@@ -272,6 +272,30 @@ body {
   cursor: pointer;
 }
 
+.cart-modal-wrapper {
+  @extend .modal-background;
+}
+
+.cart-modal {
+  position: relative;
+  width: 500px;
+  height: 250px;
+  top: calc(50% - 125px);
+  left: calc(50% - 250px);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #2d2d30;
+  box-shadow: inset 0 0 25px #000;
+  p {
+    color: #fff;
+    font-size: 30px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-shadow: 0 0 5px #fff;
+  }
+}
+
 .error-wrapper {
   margin: 50px 0;
   font-size: 30px;
