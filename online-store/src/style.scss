@@ -10,6 +10,7 @@ body {
   height: 100vh;
   display: flex;
   flex-direction: column;
+  background-color: #212123;
 }
 
 @keyframes appear {
@@ -24,8 +25,20 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 100px;
+  margin: 20px 20px 0 20px;
+  padding: 20px 100px 20px 100px;
   height: 80px;
+  background-color: #2d2d30;
+  border-radius: 5px;
+}
+
+.store-title {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-size: 35px;
+  color: #a87aff;
+  text-shadow: 0 0 5px #a87aff;
 }
 
 .cart {
@@ -38,10 +51,11 @@ body {
 }
 
 .control-panel {
+  margin: 0 20px;
   display: flex;
   justify-content: space-between;
-  gap: 10px;
-  padding: 20px 10px;
+  gap: 20px;
+  padding: 20px 0;
 }
 
 .filters-wrapper,
@@ -49,13 +63,18 @@ body {
 .sort-search-wrapper {
   width: calc(100vw / 3);
   min-width: 300px;
+  height: 320px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: #2d2d30;
+  color: #fff;
+  border-radius: 5px;
 }
 
 .filters-wrapper {
   align-items: baseline;
+  padding: 20px 0;
 }
 
 .sliders-wrapper {
@@ -66,6 +85,15 @@ body {
   margin: 10px;
   display: flex;
   gap: 10px;
+  legend {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #a6ff45;
+    text-shadow: 0 0 1.5px #a6ff45;
+  }
+  label {
+    font-weight: 700;
+    color: #c4c4c4;
+  }
 }
 
 .slider-wrapper {
@@ -73,9 +101,16 @@ body {
   width: 270px;
 }
 
+.noUi-connect {
+  background: #84cc37;
+}
+
 .rate-title,
 .price-title {
-  font-size: 20px;
+  font-size: 18px;
+  color: #c4c4c4;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  text-transform: uppercase;
 }
 
 .sort-search-wrapper {
@@ -94,7 +129,8 @@ body {
 }
 
 .search-input {
-  width: 250px;
+  width: 280px;
+  height: 35px;
   margin: 10px;
   padding: 5px;
 }
@@ -119,15 +155,24 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  border: 3px solid black;
+  border-radius: 5px;
   margin: 10px;
   padding: 10px;
-  width: 270px;
+  width: 280px;
   font-size: 17px;
+  background-color: #2d2d30;
+  color: #a6ff45;
+  text-shadow: 0 0 1.5px #a6ff45;
   cursor: pointer;
   animation: appear 1s;
+  img {
+    width: 100px;
+    height: 100px;
+  }
   span {
-    padding-left: 5px;
+    color: #c4c4c4;
+    text-shadow: 0 0 1.5px #c4c4c4;
+    padding-left: 10px;
     font-weight: 700;
   }
 }
@@ -139,7 +184,9 @@ body {
 }
 
 .product-in-cart {
-  background-color: rgb(200, 255, 200);
+  background: linear-gradient(#284e00, #7b80ad);
+  box-shadow: inset 0px 0px 50px #2d2d30;
+  transition: 0.5s;
 }
 
 .hidden {
@@ -149,25 +196,48 @@ body {
 .product-modal {
   position: relative;
   z-index: 20;
-  top: calc(50% - 225px);
+  top: calc(50% - 280px);
   left: calc(50% - 250px);
   width: 500px;
-  height: 450px;
-  padding: 0 10px;
+  height: 555px;
+  padding: 0 35px;
   display: flex;
   flex-direction: column;
   align-items: baseline;
   gap: 5px;
-  background-color: white;
-  border: 1px solid black;
+  background-color: #2d2d30;
+  color: #9257ff;
   border-radius: 5px;
   box-shadow: 0 0 45px 10px black;
   animation: appear 0.5s;
   .close-modal-button {
     align-self: flex-end;
+    width: 40px;
+    height: 30px;
+    font-weight: 700;
+    box-shadow: 0 0 5px #fff;
+    border-style: none;
+    border-radius: 5%;
+    transition: 0.3s;
+    &:hover {
+      box-shadow: 0 0 10px #fff;
+      transition: 0.5s;
+    }
+  }
+  img {
+    width: 100px;
+    height: 100px;
+    align-self: center;
   }
   .cart-button {
     align-self: center;
+  }
+  p {
+    font-family: 'Times New Roman', Times, serif;
+  }
+  span {
+    color: #fff;
+    padding-left: 25px;
   }
 }
 
@@ -207,20 +277,27 @@ body {
 
 .resp-error-title {
   font-size: 35px;
+  color: #fff;
 }
 
 .resp-error-message {
   font-size: 20px;
+  color: #fff;
 }
 
 .footer {
   margin-top: auto;
+  margin-left: 20px;
+  margin-right: 20px;
   display: flex;
   justify-content: space-around;
   align-items: center;
   min-height: 100px;
+  background-color: #2d2d30;
+  border-radius: 5px;
   p {
     text-align: center;
+    color: #a87aff;
   }
 }
 
@@ -228,5 +305,5 @@ body {
 .rss-link {
   font-size: 20px;
   text-decoration: none;
-  color: black;
+  color: #a87aff;
 }

@@ -25,7 +25,11 @@ export class CartMethods {
       product.classList.add('product-in-cart');
     } else {
       CartMethods.counter--;
-      CartMethods.cart.innerHTML = CartMethods.counter.toString();
+      if (CartMethods.counter) {
+        CartMethods.cart.innerHTML = CartMethods.counter.toString();
+      } else {
+        CartMethods.cart.innerHTML = '';
+      }
       cardButton.innerHTML = 'add to cart';
       if (modalButton) modalButton.innerHTML = 'add to cart';
 

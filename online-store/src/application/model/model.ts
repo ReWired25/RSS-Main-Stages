@@ -70,6 +70,14 @@ export class ElementsFabric {
     value: string | number | boolean,
     spec: string
   ): HTMLElement {
+    if (spec === 'Image') {
+      const image = document.createElement('img');
+      image.alt = 'cpu-photo';
+      image.src = <string>value;
+
+      return image;
+    }
+
     const description = document.createElement('p');
     const span = document.createElement('span');
 

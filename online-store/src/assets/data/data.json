@@ -1,5 +1,6 @@
 [
   {
+    "Image": "./assets/img/11400F.png",
     "Category": "Standart",
     "Model": "Intel Core i5 11400F",
     "Family": "Rocket Lake",
@@ -18,6 +19,7 @@
     "Popularity": 90
   },
   {
+    "Image": "./assets/img/11400Fbox.png",
     "Category": "Standart",
     "Model": "Intel Core i5 11400F",
     "Family": "Rocket Lake",
@@ -36,6 +38,7 @@
     "Popularity": 100
   },
   {
+    "Image": "./assets/img/11400.png",
     "Category": "Standart",
     "Model": "Intel Core i5 11400",
     "Family": "Rocket Lake",
@@ -54,6 +57,7 @@
     "Popularity": 75
   },
   {
+    "Image": "./assets/img/11400box.png",
     "Category": "Standart",
     "Model": "Intel Core i5 11400",
     "Family": "Rocket Lake",
@@ -72,6 +76,7 @@
     "Popularity": 80
   },
   {
+    "Image": "./assets/img/11500.png",
     "Category": "Standart",
     "Model": "Intel Core i5 11500",
     "Family": "Rocket Lake",
@@ -90,6 +95,7 @@
     "Popularity": 55
   },
   {
+    "Image": "./assets/img/11500box.png",
     "Category": "Standart",
     "Model": "Intel Core i5 11500",
     "Family": "Rocket Lake",
@@ -108,6 +114,7 @@
     "Popularity": 70
   },
   {
+    "Image": "./assets/img/11600box.png",
     "Category": "Standart",
     "Model": "Intel Core i5 11600",
     "Family": "Rocket Lake",
@@ -126,6 +133,7 @@
     "Popularity": 45
   },
   {
+    "Image": "./assets/img/11600Kbox.png",
     "Category": "Overclock",
     "Model": "Intel Core i5 11600K",
     "Family": "Rocket Lake",
@@ -144,6 +152,7 @@
     "Popularity": 50
   },
   {
+    "Image": "./assets/img/11700box.png",
     "Category": "Standart",
     "Model": "Intel Core i7 11700",
     "Family": "Rocket Lake",
@@ -162,6 +171,7 @@
     "Popularity": 70
   },
   {
+    "Image": "./assets/img/11700Fbox.png",
     "Category": "Standart",
     "Model": "Intel Core i7 11700F",
     "Family": "Rocket Lake",
@@ -180,6 +190,7 @@
     "Popularity": 90
   },
   {
+    "Image": "./assets/img/11700k.png",
     "Category": "Overclock",
     "Model": "Intel Core i7 11700K",
     "Family": "Rocket Lake",
@@ -198,6 +209,7 @@
     "Popularity": 70
   },
   {
+    "Image": "./assets/img/11700KF.png",
     "Category": "Overclock",
     "Model": "Intel Core i7 11700KF",
     "Family": "Rocket Lake",
@@ -216,6 +228,7 @@
     "Popularity": 85
   },
   {
+    "Image": "./assets/img/11900box.png",
     "Category": "Standart",
     "Model": "Intel Core i9 11900",
     "Family": "Rocket Lake",
@@ -234,6 +247,7 @@
     "Popularity": 80
   },
   {
+    "Image": "./assets/img/11900KFbox.png",
     "Category": "Overclock",
     "Model": "Intel Core i9 11900KF",
     "Family": "Rocket Lake",
@@ -252,6 +266,7 @@
     "Popularity": 85
   },
   {
+    "Image": "./assets/img/11900Kbox.png",
     "Category": "Overclock",
     "Model": "Intel Core i9 11900K",
     "Family": "Rocket Lake",
@@ -270,6 +285,7 @@
     "Popularity": 70
   },
   {
+    "Image": "./assets/img/12100F.png",
     "Category": "Standart",
     "Model": "Intel Core i3 12100F",
     "Family": "Adler Lake",
@@ -288,6 +304,7 @@
     "Popularity": 95
   },
   {
+    "Image": "./assets/img/12100box.png",
     "Category": "Standart",
     "Model": "Intel Core i3 12100",
     "Family": "Adler Lake",
@@ -306,6 +323,7 @@
     "Popularity": 80
   },
   {
+    "Image": "./assets/img/12400F.png",
     "Category": "Standart",
     "Model": "Intel Core i5 12400F",
     "Family": "Adler Lake",
@@ -324,6 +342,7 @@
     "Popularity": 90
   },
   {
+    "Image": "./assets/img/12400box.png",
     "Category": "Standart",
     "Model": "Intel Core i5 12400",
     "Family": "Adler Lake",
@@ -342,6 +361,7 @@
     "Popularity": 75
   },
   {
+    "Image": "./assets/img/12500.png",
     "Category": "Standart",
     "Model": "Intel Core i5 12500",
     "Family": "Adler Lake",
@@ -360,6 +380,7 @@
     "Popularity": 50
   },
   {
+    "Image": "./assets/img/12500box.png",
     "Category": "Standart",
     "Model": "Intel Core i5 12500",
     "Family": "Adler Lake",
@@ -378,6 +399,7 @@
     "Popularity": 70
   },
   {
+    "Image": "./assets/img/12600.png",
     "Category": "Standart",
     "Model": "Intel Core i5 12600",
     "Family": "Adler Lake",
@@ -396,6 +418,7 @@
     "Popularity": 45
   },
   {
+    "Image": "./assets/img/12600k.png",
     "Category": "Overclock",
     "Model": "Intel Core i5 12600K",
     "Family": "Adler Lake",
@@ -414,6 +437,7 @@
     "Popularity": 55
   },
   {
+    "Image": "./assets/img/12700F.png",
     "Category": "Standart",
     "Model": "Intel Core i7 12700F",
     "Family": "Adler Lake",
@@ -432,6 +456,7 @@
     "Popularity": 85
   },
   {
+    "Image": "./assets/img/12700box.png",
     "Category": "Standart",
     "Model": "Intel Core i7 12700",
     "Family": "Adler Lake",
@@ -450,6 +475,7 @@
     "Popularity": 70
   },
   {
+    "Image": "./assets/img/12700KF.png",
     "Category": "Overclock",
     "Model": "Intel Core i7 12700KF",
     "Family": "Adler Lake",
@@ -468,6 +494,7 @@
     "Popularity": 90
   },
   {
+    "Image": "./assets/img/12700K.png",
     "Category": "Overclock",
     "Model": "Intel Core i7 12700K",
     "Family": "Adler Lake",
@@ -486,6 +513,7 @@
     "Popularity": 55
   },
   {
+    "Image": "./assets/img/12900KF.png",
     "Category": "Extra perfomance",
     "Model": "Intel Core i9 12900KF",
     "Family": "Adler Lake",
@@ -504,6 +532,7 @@
     "Popularity": 55
   },
   {
+    "Image": "./assets/img/12900.png",
     "Category": "Extra perfomance",
     "Model": "Intel Core i9 12900",
     "Family": "Adler Lake",
@@ -522,6 +551,7 @@
     "Popularity": 45
   },
   {
+    "Image": "./assets/img/12900KFbox.png",
     "Category": "Extra perfomance",
     "Model": "Intel Core i9 12900KF",
     "Family": "Adler Lake",
@@ -540,6 +570,7 @@
     "Popularity": 75
   },
   {
+    "Image": "./assets/img/3600.png",
     "Category": "Overclock",
     "Model": "AMD Ryzen 5 3600",
     "Family": "Matisse",
@@ -558,6 +589,7 @@
     "Popularity": 95
   },
   {
+    "Image": "./assets/img/3600box.png",
     "Category": "Overclock",
     "Model": "AMD Ryzen 5 3600",
     "Family": "Matisse",
@@ -576,6 +608,7 @@
     "Popularity": 100
   },
   {
+    "Image": "./assets/img/4100box.png",
     "Category": "Overclock",
     "Model": "AMD Ryzen 3 4100",
     "Family": "Renoir",
@@ -594,6 +627,7 @@
     "Popularity": 50
   },
   {
+    "Image": "./assets/img/4500box.png",
     "Category": "Overclock",
     "Model": "AMD Ryzen 5 4500",
     "Family": "Renoir",
@@ -612,6 +646,7 @@
     "Popularity": 55
   },
   {
+    "Image": "./assets/img/4350G.png",
     "Category": "Standart",
     "Model": "AMD Ryzen 3 PRO 4350G",
     "Family": "Renoir",
@@ -630,6 +665,7 @@
     "Popularity": 70
   },
   {
+    "Image": "./assets/img/4650G.png",
     "Category": "Standart",
     "Model": "AMD Ryzen 5 PRO 4650G",
     "Family": "Renoir",
@@ -648,6 +684,7 @@
     "Popularity": 50
   },
   {
+    "Image": "./assets/img/4750G.png",
     "Category": "Standart",
     "Model": "AMD Ryzen 7 PRO 4750G",
     "Family": "Renoir",
@@ -666,6 +703,7 @@
     "Popularity": 75
   },
   {
+    "Image": "./assets/img/5600G.png",
     "Category": "Overclock",
     "Model": "AMD Ryzen 5 5600G",
     "Family": "Cezanne",
@@ -684,6 +722,7 @@
     "Popularity": 90
   },
   {
+    "Image": "./assets/img/5650G.png",
     "Category": "Standart",
     "Model": "AMD Ryzen 5 PRO 5650G",
     "Family": "Cezanne",
@@ -702,6 +741,7 @@
     "Popularity": 45
   },
   {
+    "Image": "./assets/img/5500box.png",
     "Category": "Overclock",
     "Model": "AMD Ryzen 5 5500",
     "Family": "Cezanne",
@@ -720,6 +760,7 @@
     "Popularity": 55
   },
   {
+    "Image": "./assets/img/5600X.png",
     "Category": "Overclock",
     "Model": "AMD Ryzen 5 5600X",
     "Family": "Cezanne",
@@ -738,6 +779,7 @@
     "Popularity": 95
   },
   {
+    "Image": "./assets/img/5600Xbox.png",
     "Category": "Overclock",
     "Model": "AMD Ryzen 5 5600X",
     "Family": "Cezanne",
@@ -756,6 +798,7 @@
     "Popularity": 100
   },
   {
+    "Image": "./assets/img/5700G.png",
     "Category": "Overclock",
     "Model": "AMD Ryzen 7 5700G",
     "Family": "Cezanne",
@@ -774,6 +817,7 @@
     "Popularity": 85
   },
   {
+    "Image": "./assets/img/5700Gbox.png",
     "Category": "Overclock",
     "Model": "AMD Ryzen 7 5700G",
     "Family": "Cezanne",
@@ -792,6 +836,7 @@
     "Popularity": 95
   },
   {
+    "Image": "./assets/img/5700Xbox.png",
     "Category": "Overclock",
     "Model": "AMD Ryzen 7 5700X",
     "Family": "Cezanne",
@@ -810,6 +855,7 @@
     "Popularity": 75
   },
   {
+    "Image": "./assets/img/3700X.png",
     "Category": "Overclock",
     "Model": "AMD Ryzen 7 3700X",
     "Family": "Matisse",
@@ -828,6 +874,7 @@
     "Popularity": 55
   },
   {
+    "Image": "./assets/img/3700Xbox.png",
     "Category": "Overclock",
     "Model": "AMD Ryzen 7 3700X",
     "Family": "Matisse",
@@ -846,6 +893,7 @@
     "Popularity": 70
   },
   {
+    "Image": "./assets/img/3800X.png",
     "Category": "Overclock",
     "Model": "AMD Ryzen 7 3800X",
     "Family": "Matisse",
@@ -864,6 +912,7 @@
     "Popularity": 50
   },
   {
+    "Image": "./assets/img/3800Xbox.png",
     "Category": "Overclock",
     "Model": "AMD Ryzen 7 3800X",
     "Family": "Matisse",
@@ -882,6 +931,7 @@
     "Popularity": 45
   },
   {
+    "Image": "./assets/img/3900Xbox.png",
     "Category": "Extra perfomance",
     "Model": "AMD Ryzen 9 3900X",
     "Family": "Matisse",
@@ -900,6 +950,7 @@
     "Popularity": 55
   },
   {
+    "Image": "./assets/img/3950Xbox.png",
     "Category": "Extra perfomance",
     "Model": "AMD Ryzen 9 3950X",
     "Family": "Matisse",
@@ -918,6 +969,7 @@
     "Popularity": 45
   },
   {
+    "Image": "./assets/img/5600X.png",
     "Category": "Overclock",
     "Model": "AMD Ryzen 7 5800X",
     "Family": "Vermeer",
@@ -936,6 +988,7 @@
     "Popularity": 70
   },
   {
+    "Image": "./assets/img/5800Xbox.png",
     "Category": "Overclock",
     "Model": "AMD Ryzen 7 5800X",
     "Family": "Vermeer",
@@ -954,6 +1007,7 @@
     "Popularity": 75
   },
   {
+    "Image": "./assets/img/5900X.png",
     "Category": "Extra perfomance",
     "Model": "AMD Ryzen 9 5900X",
     "Family": "Vermeer",
@@ -972,6 +1026,7 @@
     "Popularity": 55
   },
   {
+    "Image": "./assets/img/5900Xbox.png",
     "Category": "Extra perfomance",
     "Model": "AMD Ryzen 9 5900X",
     "Family": "Vermeer",
@@ -990,6 +1045,7 @@
     "Popularity": 70
   },
   {
+    "Image": "./assets/img/5950X.png",
     "Category": "Extra perfomance",
     "Model": "AMD Ryzen 9 5950X",
     "Family": "Vermeer",
@@ -1008,6 +1064,7 @@
     "Popularity": 50
   },
   {
+    "Image": "./assets/img/5950Xbox.png",
     "Category": "Extra perfomance",
     "Model": "AMD Ryzen 9 5950X",
     "Family": "Vermeer",
