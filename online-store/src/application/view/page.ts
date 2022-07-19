@@ -15,13 +15,13 @@ export function headerCreater(): HTMLElement {
   return header;
 }
 
-export function mainCreater(elements: HTMLElement[]): HTMLElement {
+export function mainCreater(productsWrapper: HTMLElement): HTMLElement {
   const main = document.createElement('main');
   main.classList.add('main');
 
   const controlPanel = controlPanelElemet;
 
-  main.append(controlPanel, ...elements);
+  main.append(controlPanel, productsWrapper);
 
   return main;
 }

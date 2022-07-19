@@ -261,7 +261,7 @@ function controlPanelCreater() {
   panel.append(filters);
 
   const slidersWrapper = document.createElement('div');
-  slidersWrapper.classList.add('slidersWrapper');
+  slidersWrapper.classList.add('sliders-wrapper');
 
   const rateTitle = document.createElement('p');
   rateTitle.classList.add('rate-title');

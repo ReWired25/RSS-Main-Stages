@@ -1,9 +1,21 @@
 import { headerCreater, mainCreater, footerCreater } from './page';
 
 export function buildPage(elements: HTMLElement[]): void {
-  const main = document.querySelector('main');
-  if (main) {
-    main.remove();
+  const existingWrapper = document.querySelector('.products-wrapper');
+
+  if (existingWrapper) {
+    existingWrapper.innerHTML = '';
+    existingWrapper.append(...elements);
+    return;
   }
-  document.body.append(headerCreater(), mainCreater(elements), footerCreater());
+
+  const productsWrapper = document.createElement('div');
+  productsWrapper.classList.add('products-wrapper');
+  productsWrapper.append(...elements);
+
+  document.body.append(
+    headerCreater(),
+    mainCreater(productsWrapper),
+    footerCreater()
+  );
 }
