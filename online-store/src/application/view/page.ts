@@ -68,7 +68,7 @@ export function footerCreater(): HTMLElement {
 
   const year = document.createElement('p');
   year.innerHTML =
-    'All product rights reserved and property of Intel and AMD <br> 2022';
+    'All product rights reserved<br>and property of Intel and AMD<br>2022';
   footer.append(githubLink, year, rssLink);
 
   return footer;
