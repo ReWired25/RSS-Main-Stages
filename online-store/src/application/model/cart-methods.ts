@@ -1,4 +1,5 @@
 import { Iproduct } from '../types/interfaces';
+import LocalStorage from './local-storage-export';
 
 export class CartMethods {
   static cart: HTMLParagraphElement;
@@ -18,6 +19,7 @@ export class CartMethods {
       if (modalButton) modalButton.innerHTML = 'remove from cart';
 
       CartMethods.productsInCart.push([productObj.Model, productObj.Package]);
+      LocalStorage.add();
 
       product.classList.add('product-in-cart');
     } else {
@@ -32,6 +34,7 @@ export class CartMethods {
         }
       });
       CartMethods.productsInCart.splice(currIndex, 1);
+      LocalStorage.add();
 
       product.classList.remove('product-in-cart');
     }

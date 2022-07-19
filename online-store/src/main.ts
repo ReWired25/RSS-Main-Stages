@@ -1,8 +1,12 @@
 import './style.scss';
 import { loader } from './application/model/model';
 import { filtersCreater } from './application/controller/controller';
-import { FiltersMethods } from './application/model/listeners-methods';
+import {
+  FiltersMethods,
+  LocalStorage,
+} from './application/model/listeners-methods';
 
+LocalStorage.load();
 filtersCreater();
 // loader(ElementsFabric.productCreater);
 loader(FiltersMethods.filterer);

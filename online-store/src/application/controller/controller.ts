@@ -66,9 +66,6 @@ function valueInputCreater(
       if (input.checked) {
         FiltersMethods.checkboxCounter++;
 
-        console.log(input.name);
-        console.log(input.id);
-
         if (input.name === 'GPU') {
           FiltersMethods.filterTemplate[input.name].push(
             'Intel UHD 730',
@@ -100,18 +97,34 @@ function valueInputCreater(
       }
     });
 
-    if (texts) {
-      input.name = spec;
-      input.id = texts[i];
+    const checkedInputs = Object.values(FiltersMethods.filterTemplate);
+    checkedInputs.forEach((valuesArr) => {
+      valuesArr.forEach((value) => {
+        if (value === texts[i]) input.setAttribute('checked', '');
+      });
+    });
 
-      const label = document.createElement('label');
-      label.setAttribute('for', texts[i]);
-      label.innerHTML = texts[i];
+    input.name = spec;
+    input.id = texts[i];
 
-      div.append(input, label);
-    } else {
-      div.append(input);
-    }
+    const label = document.createElement('label');
+    label.setAttribute('for', texts[i]);
+    label.innerHTML = texts[i];
+
+    div.append(input, label);
+
+    // if (texts) {
+    //   input.name = spec;
+    //   input.id = texts[i];
+
+    //   const label = document.createElement('label');
+    //   label.setAttribute('for', texts[i]);
+    //   label.innerHTML = texts[i];
+
+    //   div.append(input, label);
+    // } else {
+    //   div.append(input);
+    // }
   }
 
   div.classList.add('value-filter');
@@ -280,6 +293,9 @@ function sliderCreater(minValue: number, maxValue: number) {
 
     loader(FiltersMethods.filterer);
   });
+
+  if (maxValue < 100) FilterRange.rateSlider = slider;
+  else FilterRange.priseSlider = slider;
 
   sliderWrapper.append(slider);
   return sliderWrapper;

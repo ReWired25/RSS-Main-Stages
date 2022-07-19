@@ -2,7 +2,6 @@ import { buildPage } from '../view/view';
 import { Iproduct } from '../types/interfaces';
 import { ErrorHandler } from './error-handler';
 import { CartMethods } from './cart-methods';
-// methods for listners // filters / sorts / search
 
 export async function loader(callback: (result: Iproduct[]) => void) {
   try {
@@ -133,12 +132,24 @@ export class ElementsFabric {
         CartMethods.cartService(productWrapper, cartButton, product);
       });
 
-      productWrapper.append(cartButton);
-
       productWrapper.addEventListener('click', (event) => {
         if (event.target !== cartButton)
           ElementsFabric.createModal(productWrapper, cartButton, product);
       });
+
+      CartMethods.productsInCart.forEach((valuesArr) => {
+        const modelName = valuesArr[0];
+        const packageName = valuesArr[1];
+
+        if (product.Model === modelName && product.Package === packageName) {
+          if (!productWrapper.classList.contains('product-in-cart')) {
+            productWrapper.classList.add('product-in-cart');
+            cartButton.innerHTML = 'remove from cart';
+          }
+        }
+      });
+
+      productWrapper.append(cartButton);
 
       productsElements.push(productWrapper);
     });
