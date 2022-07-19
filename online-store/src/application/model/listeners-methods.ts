@@ -41,9 +41,6 @@ export class FiltersMethods {
       }
     });
 
-    console.log(FiltersMethods.checkboxCounter);
-    console.log(finalElements);
-
     SortMethods.sortingMethod(finalElements);
     finalElements = SearchMethod.searchFilter(finalElements);
     finalElements = FilterRange.rangeFilterer(finalElements);
@@ -115,8 +112,6 @@ export class FilterRange {
       return isEqual;
     });
 
-    console.log(filteredArr);
-
     return filteredArr;
   }
 }
@@ -157,6 +152,46 @@ export class SearchMethod {
     });
 
     return filteredArr;
+  }
+}
+
+export class ResetsMethods {
+  static inputsHolder: HTMLInputElement[] = [];
+
+  static filters() {
+    FiltersMethods.filterTemplate = {
+      Category: [],
+      Socket: [],
+      PCE: [],
+      Memory: [],
+      Package: [],
+      Cooler: [],
+      GPU: [],
+    };
+
+    FilterRange.minPrice = 171;
+    FilterRange.maxPrice = 832;
+    FilterRange.minGHz = 2.1;
+    FilterRange.maxGHz = 5.2;
+
+    FilterRange.priseSlider.noUiSlider?.set([171, 832]);
+    FilterRange.rateSlider.noUiSlider?.set([2.1, 5.2]);
+
+    ResetsMethods.inputsHolder.forEach((input) =>
+      input.removeAttribute('checked')
+    );
+  }
+
+  static options() {
+    ResetsMethods.filters();
+
+    CartMethods.productsInCart = [];
+    CartMethods.counter = 0;
+    CartMethods.cart.innerHTML = '';
+
+    ['values', 'range', 'sort', 'cart'].forEach((key) => {
+      localStorage.removeItem(key);
+    });
   }
 }
 

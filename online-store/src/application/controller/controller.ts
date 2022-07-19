@@ -1,49 +1,13 @@
-// import { IAppController } from '../types/interfaces';
 import {
   FiltersMethods,
   SortMethods,
   SearchMethod,
   FilterRange,
+  ResetsMethods,
 } from '../model/listeners-methods';
 import { CartMethods } from '../model/cart-methods';
 import noUiSlider, { target } from 'nouislider';
 import { loader } from '../model/model';
-
-// class AppController {
-
-// }
-
-// STANDART / OVERCLOCKABLE / EXTRA PERFOMANCE
-// PCE express
-// With GPU
-// Memory type
-// Package
-// With cooler included
-// TDW
-
-// // family
-// // socket
-
-// "Category": "standart", /////////// +
-// "Model": "Intel Core i5 11400F",
-// "Family": "Rocket Lake", *****
-// "Socket": "LGA 1200", *****
-// "Core": 6,
-// "Treads": 12,
-// "Base Rate": "2.6 GHz",
-// "Max Rate": "4.4 GHz",
-// "PCE": "4.0", /////////// +
-// "Memory": "DDR4", /////////// +
-// "Package": "OEM", /////////// +
-// "Cooler": false, *****
-// "GPU": false, /////////// +
-// "TDP": "65 W", ---------- / sort
-// "Price": 197, ---------- range / sort
-// "Popularity": 90 ------------ sort
-
-// Sort: by price, by popularity, by relevance
-
-// Range filters: by price, by GHz, maybe by cores
 
 function valueInputCreater(
   specName: string,
@@ -111,8 +75,9 @@ function valueInputCreater(
     label.setAttribute('for', texts[i]);
     label.innerHTML = texts[i];
 
-    div.append(input, label);
+    ResetsMethods.inputsHolder.push(input);
 
+    div.append(input, label);
     // if (texts) {
     //   input.name = spec;
     //   input.id = texts[i];
@@ -304,3 +269,29 @@ function sliderCreater(minValue: number, maxValue: number) {
 const newSlider = sliderCreater(2.1, 5.2);
 const newSliderTwo = sliderCreater(171, 832);
 document.body.append(newSlider, newSliderTwo);
+
+function resetCreater(type: string) {
+  const resetButton = document.createElement('button');
+  resetButton.classList.add('reset-button');
+  resetButton.innerHTML = type;
+
+  if (type === 'reset filters') {
+    resetButton.addEventListener('click', () => {
+      ResetsMethods.filters();
+
+      loader(FiltersMethods.filterer);
+    });
+  } else {
+    resetButton.addEventListener('click', () => {
+      ResetsMethods.options();
+
+      loader(FiltersMethods.filterer);
+    });
+  }
+
+  return resetButton;
+}
+
+const newReset = resetCreater('reset filters');
+const newResetTwo = resetCreater('reset options');
+document.body.append(newReset, newResetTwo);

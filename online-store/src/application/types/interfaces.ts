@@ -1,12 +1,3 @@
-// export interface IAppController {
-//   valueFilter(): HTMLDivElement;
-//   rangeFilter(): HTMLDivElement;
-//   sort(): HTMLDivElement;
-//   search(): HTMLDivElement;
-//   reset(): void;
-//   cart(): HTMLDivElement;
-// }
-
 export interface Iproduct {
   [index: string]: string | number | boolean;
   Category: string;

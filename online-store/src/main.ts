@@ -8,5 +8,4 @@ import {
 
 LocalStorage.load();
 filtersCreater();
-// loader(ElementsFabric.productCreater);
 loader(FiltersMethods.filterer);
