@@ -177,12 +177,15 @@ export class ResetsMethods {
     FilterRange.priseSlider.noUiSlider?.set([171, 832]);
     FilterRange.rateSlider.noUiSlider?.set([2.1, 5.2]);
 
-    ResetsMethods.inputsHolder.forEach((input) =>
-      input.removeAttribute('checked')
-    );
+    ResetsMethods.inputsHolder.forEach((input) => {
+      input.checked = false;
+      input.removeAttribute('checked');
+    });
   }
 
   static options() {
+    console.log(ResetsMethods.inputsHolder);
+
     ResetsMethods.filters();
 
     CartMethods.productsInCart = [];
