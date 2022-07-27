@@ -1,6 +1,6 @@
 import { headerCreater, mainCreater, footerCreater } from './page';
 
-export function buildPage(elements: HTMLElement[]): void {
+export function pageBuilder(elements: HTMLElement[]): void {
   const existingWrapper = document.querySelector('.products-wrapper');
 
   if (existingWrapper) {

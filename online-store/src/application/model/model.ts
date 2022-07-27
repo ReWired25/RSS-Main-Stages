@@ -1,4 +1,4 @@
-import { buildPage } from '../view/view';
+import { pageBuilder } from '../view/view';
 import { Iproduct } from '../types/interfaces';
 import { ErrorHandler } from './error-handler';
 import { CartMethods } from './cart-methods';
@@ -15,7 +15,7 @@ export async function loader(callback: (result: Iproduct[]) => void) {
 }
 
 export class ElementsFabric {
-  static createModal(
+  static createModalForProduct(
     productWrapper: HTMLDivElement,
     cartButton: HTMLButtonElement,
     productObj: Iproduct
@@ -46,7 +46,7 @@ export class ElementsFabric {
 
         if (currElement.classList.contains('cart-button')) {
           currElement.addEventListener('click', () => {
-            CartMethods.cartService(
+            CartMethods.addRemoveProduct(
               productWrapper,
               cartButton,
               productObj,
@@ -137,12 +137,16 @@ export class ElementsFabric {
       cartButton.innerHTML = 'add to cart';
 
       cartButton.addEventListener('click', () => {
-        CartMethods.cartService(productWrapper, cartButton, product);
+        CartMethods.addRemoveProduct(productWrapper, cartButton, product);
       });
 
       productWrapper.addEventListener('click', (event) => {
         if (event.target !== cartButton)
-          ElementsFabric.createModal(productWrapper, cartButton, product);
+          ElementsFabric.createModalForProduct(
+            productWrapper,
+            cartButton,
+            product
+          );
       });
 
       CartMethods.productsInCart.forEach((valuesArr) => {
@@ -162,6 +166,6 @@ export class ElementsFabric {
       productsElements.push(productWrapper);
     });
 
-    buildPage(productsElements);
+    pageBuilder(productsElements);
   }
 }

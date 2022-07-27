@@ -1,7 +1,7 @@
-import { buildPage } from '../view/view';
+import { pageBuilder } from '../view/view';
 
 export class ErrorHandler {
-  static withoutMatch(): void {
+  static searchFiltersWithoutMatch(): void {
     const errorWrapper = document.createElement('div');
     const errorMessage = document.createElement('p');
     errorWrapper.classList.add('error-wrapper');
@@ -10,7 +10,7 @@ export class ErrorHandler {
     errorMessage.innerHTML = 'Sorry, no matches found';
 
     errorWrapper.append(errorMessage);
-    buildPage([errorWrapper]);
+    pageBuilder([errorWrapper]);
   }
 
   static responseHandler(): void {

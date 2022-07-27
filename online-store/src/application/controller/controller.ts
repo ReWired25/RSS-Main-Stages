@@ -16,12 +16,12 @@ function valueInputCreater(
   chekboxNum: number,
   texts: string[]
 ): HTMLDivElement {
-  const div = document.createElement('div');
+  const valueWrapper = document.createElement('div');
   const legend = document.createElement('legend');
 
   legend.innerHTML = specName;
 
-  div.append(legend);
+  valueWrapper.append(legend);
 
   for (let i = 0; i < chekboxNum; i++) {
     const input = document.createElement('input');
@@ -45,7 +45,7 @@ function valueInputCreater(
           FiltersMethods.filterTemplate[input.name].push(input.id);
         }
 
-        loader(FiltersMethods.filterer);
+        loader(FiltersMethods.filtersLauncher);
       }
       if (!input.checked) {
         FiltersMethods.checkboxCounter--;
@@ -59,7 +59,7 @@ function valueInputCreater(
           FiltersMethods.filterTemplate[input.name].splice(index, 1);
         }
 
-        loader(FiltersMethods.filterer);
+        loader(FiltersMethods.filtersLauncher);
       }
     });
 
@@ -85,11 +85,11 @@ function valueInputCreater(
 
     ResetsMethods.inputsHolder.push(input);
 
-    div.append(input, label);
+    valueWrapper.append(input, label);
   }
 
-  div.classList.add('value-filter');
-  return div;
+  valueWrapper.classList.add('value-filter');
+  return valueWrapper;
 }
 
 export function filtersCreater(): HTMLDivElement {
@@ -127,8 +127,8 @@ export function cartCreater() {
 
   CartMethods.cart = cartCounter;
 
-  if (CartMethods.counter > 0)
-    cartCounter.innerHTML = CartMethods.counter.toString();
+  if (CartMethods.productsCounter > 0)
+    cartCounter.innerHTML = CartMethods.productsCounter.toString();
 
   const cartImage = document.createElement('img');
   cartImage.classList.add('cart-image');
@@ -167,7 +167,7 @@ function sliderCreater(minValue: number, maxValue: number) {
       FilterRange.maxGHz = +values[1];
     }
 
-    loader(FiltersMethods.filterer);
+    loader(FiltersMethods.filtersLauncher);
   });
 
   if (maxValue < 100) FilterRange.rateSlider = slider;
@@ -212,7 +212,7 @@ function sortCreater(): HTMLDivElement {
   select.addEventListener('change', () => {
     SortMethods.selectedOpt = select.options[select.selectedIndex].value;
 
-    loader(FiltersMethods.filterer);
+    loader(FiltersMethods.filtersLauncher);
   });
 
   sortWrapper.append(select);
@@ -237,7 +237,7 @@ function searchCreater() {
       SearchMethod.regexp = '';
     }
 
-    loader(FiltersMethods.filterer);
+    loader(FiltersMethods.filtersLauncher);
   });
 
   return searchInput;
@@ -250,15 +250,15 @@ function resetCreater(type: string) {
 
   if (type === 'reset filters') {
     resetButton.addEventListener('click', () => {
-      ResetsMethods.filters();
+      ResetsMethods.resetFilters();
 
-      loader(FiltersMethods.filterer);
+      loader(FiltersMethods.filtersLauncher);
     });
   } else {
     resetButton.addEventListener('click', () => {
-      ResetsMethods.options();
+      ResetsMethods.resetOptions();
 
-      loader(FiltersMethods.filterer);
+      loader(FiltersMethods.filtersLauncher);
     });
   }
 

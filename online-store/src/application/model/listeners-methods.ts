@@ -16,7 +16,7 @@ export class FiltersMethods {
     GPU: [],
   };
 
-  static filterer(objs: Iproduct[]): void {
+  static filtersLauncher(objs: Iproduct[]): void {
     let finalElements: Iproduct[] = [];
 
     objs.forEach((product) => {
@@ -42,31 +42,31 @@ export class FiltersMethods {
     });
 
     SortMethods.sortingMethod(finalElements);
-    finalElements = SearchMethod.searchFilter(finalElements);
-    finalElements = FilterRange.rangeFilterer(finalElements);
+    finalElements = SearchMethod.searchFiltering(finalElements);
+    finalElements = FilterRange.rangeFiltering(finalElements);
 
-    LocalStorage.add();
+    LocalStorage.addDataInStorage();
 
     if (finalElements.length > 0) {
       ElementsFabric.productCreater(finalElements);
     } else if (!finalElements.length && SearchMethod.regexp) {
-      ErrorHandler.withoutMatch();
+      ErrorHandler.searchFiltersWithoutMatch();
     } else if (
       !finalElements.length &&
       FilterRange.minPrice &&
       FilterRange.maxPrice
     ) {
-      ErrorHandler.withoutMatch();
+      ErrorHandler.searchFiltersWithoutMatch();
     } else if (
       !finalElements.length &&
       FilterRange.minGHz &&
       FilterRange.maxGHz
     ) {
-      ErrorHandler.withoutMatch();
+      ErrorHandler.searchFiltersWithoutMatch();
     } else {
       FiltersMethods.checkboxCounter === 0
         ? ElementsFabric.productCreater(objs)
-        : ErrorHandler.withoutMatch();
+        : ErrorHandler.searchFiltersWithoutMatch();
     }
   }
 }
@@ -79,7 +79,7 @@ export class FilterRange {
   static minGHz = 2.1;
   static maxGHz = 5.2;
 
-  static rangeFilterer(objs: Iproduct[]) {
+  static rangeFiltering(objs: Iproduct[]) {
     if (
       !FilterRange.minPrice &&
       !FilterRange.maxPrice &&
@@ -140,7 +140,7 @@ export class SortMethods {
 export class SearchMethod {
   static regexp: RegExp | string;
 
-  static searchFilter(objs: Iproduct[]) {
+  static searchFiltering(objs: Iproduct[]) {
     if (!SearchMethod.regexp) return objs;
 
     const filteredArr: Iproduct[] = [];
@@ -158,7 +158,7 @@ export class SearchMethod {
 export class ResetsMethods {
   static inputsHolder: HTMLInputElement[] = [];
 
-  static filters() {
+  static resetFilters() {
     FiltersMethods.filterTemplate = {
       Category: [],
       Socket: [],
@@ -183,13 +183,13 @@ export class ResetsMethods {
     });
   }
 
-  static options() {
+  static resetOptions() {
     console.log(ResetsMethods.inputsHolder);
 
-    ResetsMethods.filters();
+    ResetsMethods.resetFilters();
 
     CartMethods.productsInCart = [];
-    CartMethods.counter = 0;
+    CartMethods.productsCounter = 0;
     CartMethods.cart.innerHTML = '';
 
     ['values', 'range', 'sort', 'cart'].forEach((key) => {
@@ -199,7 +199,7 @@ export class ResetsMethods {
 }
 
 export class LocalStorage {
-  static add() {
+  static addDataInStorage() {
     const jsonValues = JSON.stringify(FiltersMethods.filterTemplate);
     localStorage.setItem('values', jsonValues);
 
@@ -218,7 +218,7 @@ export class LocalStorage {
     localStorage.setItem('cart', jsonCart);
   }
 
-  static load() {
+  static loadDataFromStorage() {
     const jsonValues = localStorage.getItem('values');
     if (jsonValues) {
       const values: IfilterTemplate = JSON.parse(jsonValues);
@@ -246,7 +246,7 @@ export class LocalStorage {
     if (jsonCart) {
       const cart = JSON.parse(jsonCart);
 
-      CartMethods.counter = cart.length;
+      CartMethods.productsCounter = cart.length;
       CartMethods.productsInCart = cart;
     }
   }

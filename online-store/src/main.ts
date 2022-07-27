@@ -5,5 +5,5 @@ import {
   LocalStorage,
 } from './application/model/listeners-methods';
 
-LocalStorage.load();
-loader(FiltersMethods.filterer);
+LocalStorage.loadDataFromStorage();
+loader(FiltersMethods.filtersLauncher);

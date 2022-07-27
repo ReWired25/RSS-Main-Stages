@@ -3,35 +3,35 @@ import { LocalStorage } from './listeners-methods';
 
 export class CartMethods {
   static cart: HTMLParagraphElement;
-  static counter = 0;
+  static productsCounter = 0;
   static productsInCart: string[][] = [];
 
-  static cartService(
+  static addRemoveProduct(
     product: HTMLDivElement,
     cardButton: HTMLButtonElement,
     productObj: Iproduct,
     modalButton?: HTMLButtonElement
   ): void {
     if (!product.classList.contains('product-in-cart')) {
-      if (CartMethods.counter >= 20) {
-        CartMethods.counterModal();
+      if (CartMethods.productsCounter >= 20) {
+        CartMethods.showModalFilledCart();
         return;
       }
 
-      CartMethods.counter++;
-      CartMethods.cart.innerHTML = CartMethods.counter.toString();
+      CartMethods.productsCounter++;
+      CartMethods.cart.innerHTML = CartMethods.productsCounter.toString();
       cardButton.innerHTML = 'remove from cart';
       if (modalButton) modalButton.innerHTML = 'remove from cart';
 
       CartMethods.productsInCart.push([productObj.Model, productObj.Package]);
 
-      LocalStorage.add();
+      LocalStorage.addDataInStorage();
 
       product.classList.add('product-in-cart');
     } else {
-      CartMethods.counter--;
-      if (CartMethods.counter) {
-        CartMethods.cart.innerHTML = CartMethods.counter.toString();
+      CartMethods.productsCounter--;
+      if (CartMethods.productsCounter) {
+        CartMethods.cart.innerHTML = CartMethods.productsCounter.toString();
       } else {
         CartMethods.cart.innerHTML = '';
       }
@@ -44,13 +44,13 @@ export class CartMethods {
         }
       });
       CartMethods.productsInCart.splice(currIndex, 1);
-      LocalStorage.add();
+      LocalStorage.addDataInStorage();
 
       product.classList.remove('product-in-cart');
     }
   }
 
-  static counterModal() {
+  static showModalFilledCart() {
     const modalWrapper = document.createElement('div');
     const modalWindow = document.createElement('div');
     modalWrapper.classList.add('cart-modal-wrapper');
