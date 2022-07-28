@@ -10,11 +10,11 @@ import { CartMethods } from '../model/cart-methods';
 import noUiSlider, { target } from 'nouislider';
 import { loader } from '../model/model';
 
-function valueInputCreater(
+export function valueInputCreater(
   specName: string,
   spec: string,
   chekboxNum: number,
-  texts: string[]
+  values: string[]
 ): HTMLDivElement {
   const valueWrapper = document.createElement('div');
   const legend = document.createElement('legend');
@@ -71,17 +71,17 @@ function valueInputCreater(
 
       checkedInputs.forEach((valuesArr) => {
         valuesArr.forEach((value) => {
-          if (value === texts[i]) input.setAttribute('checked', '');
+          if (value === values[i]) input.setAttribute('checked', '');
         });
       });
     }
 
     input.name = spec;
-    input.id = texts[i];
+    input.id = values[i];
 
     const label = document.createElement('label');
-    label.setAttribute('for', texts[i]);
-    label.innerHTML = texts[i];
+    label.setAttribute('for', values[i]);
+    label.innerHTML = values[i];
 
     ResetsMethods.inputsHolder.push(input);
 
@@ -110,16 +110,16 @@ export function filtersCreater(): HTMLDivElement {
     const specName = <string>filters[0];
     const spec = <string>filters[1];
     const chekboxNum = <number>filters[2];
-    const texts = <string[]>filters[3];
+    const values = <string[]>filters[3];
 
-    const newElement = valueInputCreater(specName, spec, chekboxNum, texts);
+    const newElement = valueInputCreater(specName, spec, chekboxNum, values);
     filtersWrapper.append(newElement);
   });
 
   return filtersWrapper;
 }
 
-export function cartCreater() {
+export function cartCreater(): HTMLDivElement {
   const cartElement = document.createElement('div');
   const cartCounter = document.createElement('p');
   cartElement.classList.add('cart');
@@ -140,7 +140,7 @@ export function cartCreater() {
   return cartElement;
 }
 
-function sliderCreater(minValue: number, maxValue: number) {
+export function sliderCreater(minValue: number, maxValue: number) {
   const sliderWrapper = document.createElement('div');
   const slider: target = document.createElement('div');
   sliderWrapper.classList.add('slider-wrapper');
@@ -177,7 +177,7 @@ function sliderCreater(minValue: number, maxValue: number) {
   return sliderWrapper;
 }
 
-function sortCreater(): HTMLDivElement {
+export function sortCreater(): HTMLDivElement {
   const sortWrapper = document.createElement('div');
   sortWrapper.classList.add('sorting');
 
@@ -219,7 +219,7 @@ function sortCreater(): HTMLDivElement {
   return sortWrapper;
 }
 
-function searchCreater() {
+export function searchCreater(): HTMLInputElement {
   const searchInput = document.createElement('input');
   searchInput.classList.add('search-input');
   searchInput.type = 'search';
@@ -243,7 +243,7 @@ function searchCreater() {
   return searchInput;
 }
 
-function resetCreater(type: string) {
+export function resetCreater(type: string): HTMLButtonElement {
   const resetButton = document.createElement('button');
   resetButton.classList.add('reset-button');
   resetButton.innerHTML = type;
@@ -265,7 +265,7 @@ function resetCreater(type: string) {
   return resetButton;
 }
 
-function controlPanelCreater() {
+export function controlPanelCreater() {
   const panel = document.createElement('div');
   panel.classList.add('control-panel');
 

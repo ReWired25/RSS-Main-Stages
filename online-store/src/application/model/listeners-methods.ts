@@ -184,8 +184,6 @@ export class ResetsMethods {
   }
 
   static resetOptions() {
-    console.log(ResetsMethods.inputsHolder);
-
     ResetsMethods.resetFilters();
 
     CartMethods.productsInCart = [];
