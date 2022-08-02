@@ -6,15 +6,22 @@ export const getAllCars = async () => {
   return cars;
 };
 
-export const getCarsForPage = async (pageNum: number) => {
+export const getCarsForPage = async (pageNum = 1) => {
   const responseResult = await fetch(
-    `http://127.0.0.1:3000/garage?_page=${pageNum}&_limit=2`
+    `http://127.0.0.1:3000/garage?_page=${pageNum}&_limit=7`
   );
   const cars = await responseResult.json();
-  const totalCars = responseResult.headers.get('X-Total-Count');
 
   console.log(cars);
-  return { cars, totalCars };
+  return cars;
+};
+
+export const getNumOfCars = async () => {
+  const responseResult = await fetch(
+    `http://127.0.0.1:3000/garage?_page=1&_limit=7`
+  );
+  const totalNumOfCars = <string>responseResult.headers.get('X-Total-Count');
+  return totalNumOfCars;
 };
 
 export const getSpecificCar = async (idNum: number) => {
@@ -101,7 +108,7 @@ export const getWinnersForPage = async (
   orderType = 'ASC'
 ) => {
   const responseResult = await fetch(
-    `http://127.0.0.1:3000/winners?_page=${pageNum}&_limit=2&_sort=${sortType}&_order=${orderType}`
+    `http://127.0.0.1:3000/winners?_page=${pageNum}&_limit=10&_sort=${sortType}&_order=${orderType}`
   );
   const winners = await responseResult.json();
 
