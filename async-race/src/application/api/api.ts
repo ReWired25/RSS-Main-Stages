@@ -54,9 +54,9 @@ export const deleteCar = async (idNum: number) => {
 };
 
 export const updateCar = async (
-  idNum: number,
   carName: string,
-  carColor: string
+  carColor: string,
+  idNum: number
 ) => {
   const data = {
     name: carName,

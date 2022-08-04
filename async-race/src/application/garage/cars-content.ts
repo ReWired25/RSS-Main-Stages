@@ -1,13 +1,6 @@
 import { Icar } from '../types/interfaces';
-
-const elementCreater = (
-  type: string,
-  elementClassName: string
-): HTMLElement => {
-  const element = document.createElement(type);
-  element.classList.add(elementClassName);
-  return element;
-};
+import elementCreater from '../utilites/overall-functions';
+import GarageState from '../states/garage-state';
 
 const createContentTitle = (): HTMLElement => {
   const title = elementCreater('h2', 'garage-title');
@@ -17,10 +10,13 @@ const createContentTitle = (): HTMLElement => {
 
 const createNumOfCarsCounter = (totalCars: string): HTMLElement => {
   const wrapper = elementCreater('div', 'cars-counter-wrapper');
-
   const counterTitle = elementCreater('p', 'cars-counter-title');
-  counterTitle.innerHTML = 'Total cars in the garage';
   const counter = elementCreater('p', 'cars-counter');
+  GarageState.carsCounter = counter;
+
+  // THROW TO STATE
+
+  counterTitle.innerHTML = 'Total cars in the garage';
   counter.innerHTML = totalCars;
 
   wrapper.append(counterTitle, counter);
@@ -36,7 +32,7 @@ const createCarsContentHeader = (totalCars: string): HTMLElement => {
   return contentHeader;
 };
 
-const createCarView = (objs: Icar[]): HTMLElement[] => {
+export const createCarsView = (objs: Icar[]): HTMLElement[] => {
   const carsElementsArray: HTMLElement[] = [];
 
   objs.forEach((car) => {
@@ -52,14 +48,18 @@ const createCarView = (objs: Icar[]): HTMLElement[] => {
 };
 
 const createCarsViewWrapper = (objs: Icar[]): HTMLElement => {
-  const carsView = createCarView(objs);
+  const carsView = createCarsView(objs);
 
   const wrapper = elementCreater('div', 'cars-view-wrapper');
+  GarageState.carsViewWrapper = wrapper;
+
+  // THROW TO STATE
+
   wrapper.append(...carsView);
   return wrapper;
 };
 
-const createrCarsContentWrapper = (
+const createCarsContentWrapper = (
   objs: Icar[],
   totalCars: string
 ): HTMLElement => {
@@ -71,4 +71,4 @@ const createrCarsContentWrapper = (
   return contentWrapper;
 };
 
-export default createrCarsContentWrapper;
+export default createCarsContentWrapper;
