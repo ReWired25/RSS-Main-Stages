@@ -1,7 +1,8 @@
 import { Icar } from '../types/interfaces';
 import elementCreater from '../utilites/overall-functions';
 import GarageState from '../states/garage-state';
-import { getCarsForPage, getNumOfCars } from '../api/api';
+import { getCarsForPage, getNumOfCars, deleteCar } from '../api/api';
+import PaginationState from '../states/pagination-state';
 
 const createContentTitle = (): HTMLElement => {
   const title = elementCreater('h2', 'garage-title');
@@ -38,18 +39,28 @@ export const createCarsView = (objs: Icar[]): HTMLElement[] => {
     const carWrapper = elementCreater('div', 'car-view-wrapper');
     const carContent = elementCreater('p', 'car-contet');
     const carSelectButton = elementCreater('button', 'car-select-button');
+    const carRemoveButton = elementCreater('button', 'car-remove-button');
 
     carContent.id = car.id.toString();
     carSelectButton.id = car.id.toString();
+    carRemoveButton.id = car.id.toString();
     carSelectButton.innerHTML = 'Select';
+    carRemoveButton.innerHTML = 'Remove';
 
     carSelectButton.addEventListener('click', () => {
       GarageState.selectedCarId = Number(carSelectButton.id);
       GarageState.updateInputElement.focus();
     });
+    carRemoveButton.addEventListener('click', () => {
+      const idNum = Number(carRemoveButton.id);
+      deleteCar(idNum);
+
+      const currentPage = Number(PaginationState.pageCounter.innerHTML);
+      GarageState.listenerButtonUpdater(currentPage);
+    });
 
     carContent.innerHTML = `Model: ${car.name} Color: ${car.color}`;
-    carWrapper.append(carContent, carSelectButton);
+    carWrapper.append(carContent, carSelectButton, carRemoveButton);
     carsElementsArray.push(carWrapper);
   });
 
@@ -58,12 +69,7 @@ export const createCarsView = (objs: Icar[]): HTMLElement[] => {
 
 const createCarsViewWrapper = (objs: Icar[]): HTMLElement => {
   const carsView = createCarsView(objs);
-
   const wrapper = elementCreater('div', 'cars-view-wrapper');
-  // GarageState.carsViewWrapper = wrapper;
-
-  // THROW TO STATE
-
   wrapper.append(...carsView);
   return wrapper;
 };
@@ -89,4 +95,8 @@ export const updateCarsContent = async (numOfPage: number) => {
 
   GarageState.carsContentWrapper.innerHTML = '';
   GarageState.carsContentWrapper.append(contentHeader, carsContent);
+};
+
+export const forwardUpdateFuncToButton = () => {
+  GarageState.listenerButtonUpdater = updateCarsContent;
 };

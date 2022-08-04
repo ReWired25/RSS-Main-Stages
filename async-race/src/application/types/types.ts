@@ -8,3 +8,5 @@ export type UpdateRequest = (
   carColor: string,
   idNum: number
 ) => Promise<void>;
+
+export type UpdateCarsFunc = (numOfPage: number) => Promise<void>;
