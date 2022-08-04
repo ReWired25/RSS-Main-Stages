@@ -37,7 +37,7 @@ const getRandomColor = (): string => {
   return colorStr;
 };
 
-export const getNewCar = () => {
+const getNewCar = () => {
   const cars = [
     'Aston Martin',
     'BMW',
@@ -73,9 +73,11 @@ export const getNewCar = () => {
   };
 };
 
-export const createHundredCars = () => {
+const createHundredCars = () => {
   for (let i = 0; i < 100; i += 1) {
     const newCar = getNewCar();
     createCar(newCar.carName, newCar.carColor);
   }
 };
+
+export default createHundredCars;

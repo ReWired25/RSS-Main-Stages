@@ -4,6 +4,7 @@ import { createCar, updateCar } from '../api/api';
 import GarageState from '../states/garage-state';
 import PaginationState from '../states/pagination-state';
 import { updateCarsContent } from './cars-content';
+import createHundredCars from './hundred-cars-generator';
 
 const createInputCarProp = (
   inputClassName: string,
@@ -118,6 +119,17 @@ const createCarMakerUpdaterWrapper = (
   return wrapper;
 };
 
+const createHundredCarsButton = () => {
+  const button = elementCreater('button', 'hundred-cars-button');
+  button.innerHTML = 'Generate cars';
+  button.addEventListener('click', () => {
+    createHundredCars();
+    const currentPage = Number(PaginationState.pageCounter.innerHTML);
+    updateCarsContent(currentPage);
+  });
+  return button;
+};
+
 const createGarageControlWrapper = () => {
   const createFunctionality = createCarMakerUpdaterWrapper(
     'car-create-button',
@@ -130,9 +142,14 @@ const createGarageControlWrapper = () => {
     'car-update-wrapper',
     true
   );
+  const generatorCarsButton = createHundredCarsButton();
 
   const controlWrapper = elementCreater('div', 'control-panel-wrapper');
-  controlWrapper.append(createFunctionality, updateFunctionality);
+  controlWrapper.append(
+    createFunctionality,
+    updateFunctionality,
+    generatorCarsButton
+  );
   return controlWrapper;
 };
 
