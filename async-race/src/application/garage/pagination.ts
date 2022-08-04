@@ -1,24 +1,14 @@
 import elementCreater from '../utilites/overall-functions';
 import PaginationState from '../states/pagination-state';
-import { getNumOfCars, getCarsForPage } from '../api/api';
-import { createCarsView } from './cars-content';
+import { getNumOfCars } from '../api/api';
+import { updateCarsContent } from './cars-content';
 import GarageState from '../states/garage-state';
-
-const generateNewCarsView = async (currentPage: number) => {
-  const currentCars = await getCarsForPage(currentPage);
-  const currentCarsView = createCarsView(currentCars);
-  GarageState.carsViewWrapper.innerHTML = '';
-  GarageState.carsViewWrapper.append(...currentCarsView);
-};
 
 const createNumOfPageCounter = () => {
   const pageCounterWrapper = elementCreater('div', 'page-counter-wrapper');
   const pageCounterTitle = elementCreater('p', 'page-counter-title');
   const pageCounter = elementCreater('p', 'page-counter');
-
   PaginationState.pageCounter = pageCounter;
-
-  // THROW TO STATE
 
   pageCounterTitle.innerHTML = 'Page:';
   pageCounter.innerHTML = '1';
@@ -48,7 +38,7 @@ const createPaginationButtons = () => {
     if (currentPage === 1) prevButton.setAttribute('disabled', '');
 
     PaginationState.pageCounter.innerHTML = currentPage.toString();
-    generateNewCarsView(currentPage);
+    updateCarsContent(currentPage);
   });
 
   nextButton.addEventListener('click', async () => {
@@ -64,7 +54,7 @@ const createPaginationButtons = () => {
       if (currentPage === totalPages) nextButton.setAttribute('disabled', '');
 
       PaginationState.pageCounter.innerHTML = currentPage.toString();
-      generateNewCarsView(currentPage);
+      updateCarsContent(currentPage);
     }
   });
 

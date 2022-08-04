@@ -1,6 +1,7 @@
 import { Icar } from '../types/interfaces';
 import elementCreater from '../utilites/overall-functions';
 import GarageState from '../states/garage-state';
+import { getCarsForPage, getNumOfCars } from '../api/api';
 
 const createContentTitle = (): HTMLElement => {
   const title = elementCreater('h2', 'garage-title');
@@ -13,8 +14,6 @@ const createNumOfCarsCounter = (totalCars: string): HTMLElement => {
   const counterTitle = elementCreater('p', 'cars-counter-title');
   const counter = elementCreater('p', 'cars-counter');
   GarageState.carsCounter = counter;
-
-  // THROW TO STATE
 
   counterTitle.innerHTML = 'Total cars in the garage';
   counter.innerHTML = totalCars;
@@ -38,9 +37,19 @@ export const createCarsView = (objs: Icar[]): HTMLElement[] => {
   objs.forEach((car) => {
     const carWrapper = elementCreater('div', 'car-view-wrapper');
     const carContent = elementCreater('p', 'car-contet');
-    carContent.innerHTML = `Model: ${car.name} Color: ${car.color}`;
+    const carSelectButton = elementCreater('button', 'car-select-button');
 
-    carWrapper.append(carContent);
+    carContent.id = car.id.toString();
+    carSelectButton.id = car.id.toString();
+    carSelectButton.innerHTML = 'Select';
+
+    carSelectButton.addEventListener('click', () => {
+      GarageState.selectedCarId = Number(carSelectButton.id);
+      GarageState.updateInputElement.focus();
+    });
+
+    carContent.innerHTML = `Model: ${car.name} Color: ${car.color}`;
+    carWrapper.append(carContent, carSelectButton);
     carsElementsArray.push(carWrapper);
   });
 
@@ -51,7 +60,7 @@ const createCarsViewWrapper = (objs: Icar[]): HTMLElement => {
   const carsView = createCarsView(objs);
 
   const wrapper = elementCreater('div', 'cars-view-wrapper');
-  GarageState.carsViewWrapper = wrapper;
+  // GarageState.carsViewWrapper = wrapper;
 
   // THROW TO STATE
 
@@ -59,16 +68,25 @@ const createCarsViewWrapper = (objs: Icar[]): HTMLElement => {
   return wrapper;
 };
 
-const createCarsContentWrapper = (
+export const createCarsContentWrapper = (
   objs: Icar[],
   totalCars: string
 ): HTMLElement => {
   const contentHeader = createCarsContentHeader(totalCars);
   const carsContent = createCarsViewWrapper(objs);
-
   const contentWrapper = elementCreater('div', 'cars-content-wrapper');
+  GarageState.carsContentWrapper = contentWrapper;
+
   contentWrapper.append(contentHeader, carsContent);
   return contentWrapper;
 };
 
-export default createCarsContentWrapper;
+export const updateCarsContent = async (numOfPage: number) => {
+  const cars = await getCarsForPage(numOfPage);
+  const numOfCars = await getNumOfCars();
+  const contentHeader = createCarsContentHeader(numOfCars);
+  const carsContent = createCarsViewWrapper(cars);
+
+  GarageState.carsContentWrapper.innerHTML = '';
+  GarageState.carsContentWrapper.append(contentHeader, carsContent);
+};

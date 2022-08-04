@@ -2,6 +2,8 @@ import { CreateRequest, UpdateRequest } from '../types/types';
 import elementCreater from '../utilites/overall-functions';
 import { createCar, updateCar } from '../api/api';
 import GarageState from '../states/garage-state';
+import PaginationState from '../states/pagination-state';
+import { updateCarsContent } from './cars-content';
 
 const createInputCarProp = (
   inputClassName: string,
@@ -14,11 +16,31 @@ const createInputCarProp = (
   return input;
 };
 
+const listenerCreateButton = (
+  inputText: HTMLInputElement,
+  inputColor: HTMLInputElement,
+  createRequest: CreateRequest
+) => {
+  if (!inputText.value) throw new Error('Enter the name of the auto!');
+
+  const carName = inputText;
+  const carColor = inputColor;
+
+  createRequest(carName.value, carColor.value);
+  carName.value = '';
+  carColor.value = '#FFFFFF';
+
+  const currentPage = Number(PaginationState.pageCounter.innerHTML);
+  updateCarsContent(currentPage);
+};
+
 const listenerUpdateButton = (
   inputText: HTMLInputElement,
   inputColor: HTMLInputElement,
   updateRequest: UpdateRequest
 ) => {
+  if (!inputText.value) throw new Error('Enter the name of the auto!');
+
   const carName = inputText;
   const carColor = inputColor;
 
@@ -27,21 +49,13 @@ const listenerUpdateButton = (
     updateRequest(carName.value, carColor.value, currentIdCar);
     carName.value = '';
     carColor.value = '#FFFFFF';
+    GarageState.selectedCarId = 0;
+
+    const currentPage = Number(PaginationState.pageCounter.innerHTML);
+    updateCarsContent(currentPage);
   } else {
     throw new Error('SELECT A CAR');
   }
-};
-
-const listenerCreateButton = (
-  inputText: HTMLInputElement,
-  inputColor: HTMLInputElement,
-  createRequest: CreateRequest
-) => {
-  const carName = inputText;
-  const carColor = inputColor;
-  createRequest(carName.value, carColor.value);
-  carName.value = '';
-  carColor.value = '#FFFFFF';
 };
 
 const createCarMakeUpdateButton = (
@@ -69,40 +83,6 @@ const createCarMakeUpdateButton = (
   return button;
 };
 
-// const createCarMakerWrapper = () => {
-//   const inputName = createInputCarProp('input-car-name', 'text');
-//   const pickColor = createInputCarProp('input-car-color', 'color', '#FFFFFF');
-//   const button = createCarMakeUpdateButton(
-//     'car-create-button',
-//     'create',
-//     inputName,
-//     pickColor,
-//     createCar,
-//     updateCar
-//   );
-
-//   const wrapper = elementCreater('div', 'car-create-wrapper');
-//   wrapper.append(inputName, pickColor, button);
-//   return wrapper;
-// };
-
-// const createCarUpdaterWrapper = () => {
-//   const inputName = createInputCarProp('input-car-name', 'text');
-//   const pickColor = createInputCarProp('input-car-color', 'color', '#FFFFFF');
-//   const button = createCarMakeUpdateButton(
-//     'car-update-button',
-//     'update',
-//     inputName,
-//     pickColor,
-//     createCar,
-//     updateCar
-//   );
-
-//   const wrapper = elementCreater('div', 'car-update-wrapper');
-//   wrapper.append(inputName, pickColor, button);
-//   return wrapper;
-// };
-
 const createCarMakerUpdaterWrapper = (
   buttonTypeClass: string,
   buttonContent: string,
@@ -113,6 +93,7 @@ const createCarMakerUpdaterWrapper = (
   const pickColor = createInputCarProp('input-car-color', 'color', '#FFFFFF');
   let button;
   if (isUpdate) {
+    GarageState.updateInputElement = inputName;
     button = createCarMakeUpdateButton(
       buttonTypeClass,
       buttonContent,
