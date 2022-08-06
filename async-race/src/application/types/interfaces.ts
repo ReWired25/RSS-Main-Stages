@@ -3,3 +3,15 @@ export interface Icar {
   color: string;
   id: number;
 }
+
+export interface IfinishedCars {
+  carObj: Icar;
+  timeStamp: number;
+}
+
+export interface IcarElementsForRace {
+  carStartButton: HTMLElement;
+  carStopButton: HTMLElement;
+  carImage: HTMLElement;
+  car: Icar;
+}

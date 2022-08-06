@@ -1,8 +1,18 @@
 import { Icar } from '../types/interfaces';
+import RaceValues from '../types/enums';
 import elementCreater from '../utilites/overall-functions';
+import carIconTemplate from '../utilites/car-icon-svg';
+import finishIconTemplate from '../utilites/finish-icon-svg';
 import GarageState from '../states/garage-state';
-import { getCarsForPage, getNumOfCars, deleteCar } from '../api/api';
+import {
+  getCarsForPage,
+  getNumOfCars,
+  deleteCar,
+  startStopCarEngine,
+  startCarDrive,
+} from '../api/api';
 import PaginationState from '../states/pagination-state';
+import RaceState from '../states/race-state';
 
 const createContentTitle = (): HTMLElement => {
   const title = elementCreater('h2', 'garage-title');
@@ -32,16 +42,86 @@ const createCarsContentHeader = (totalCars: string): HTMLElement => {
   return contentHeader;
 };
 
+export const startCar = async (
+  startButton: HTMLElement,
+  stopButton: HTMLElement,
+  startingCar: HTMLElement,
+  carObj: Icar
+) => {
+  const currentCar = startingCar;
+  const responseCarCondition = await startStopCarEngine(carObj.id, 'started');
+  const carTime = responseCarCondition.distance / responseCarCondition.velocity;
+  const currentWidth = document.body.clientWidth;
+
+  currentCar.style.transition = `${carTime}ms`;
+  currentCar.style.marginLeft = `${
+    currentWidth - RaceValues.carWidth - RaceValues.wrapperPadding * 2
+  }px`;
+  startButton.setAttribute('disabled', '');
+  stopButton.removeAttribute('disabled');
+
+  if (responseCarCondition) {
+    const raceCondition = await startCarDrive(carObj.id);
+    if (raceCondition === 500) {
+      if (RaceState.stoppedCars.has(carObj.id)) {
+        RaceState.stoppedCars.delete(carObj.id);
+      }
+      console.log(`Oops! engine ${carObj.name} is broken!`);
+      currentCar.style.transition = RaceValues.transitionDefault;
+      currentCar.style.marginLeft = `${
+        currentCar.offsetLeft - RaceValues.wrapperPadding
+      }px`;
+      await startStopCarEngine(carObj.id, 'stopped');
+    }
+    if (raceCondition === 200) {
+      if (RaceState.stoppedCars.has(carObj.id)) {
+        RaceState.stoppedCars.delete(carObj.id);
+      } else {
+        const timeStamp = Date.now();
+        RaceState.finishedCars.push({ carObj, timeStamp });
+      }
+    }
+  }
+};
+
+export const stopCar = async (
+  startButton: HTMLElement,
+  stopButton: HTMLElement,
+  startingCar: HTMLElement,
+  carObj: Icar
+) => {
+  const currentCar = startingCar;
+  currentCar.style.transition = RaceValues.transitionDefault;
+  currentCar.style.marginLeft = RaceValues.marginDefault;
+
+  startButton.removeAttribute('disabled');
+  stopButton.setAttribute('disabled', '');
+  RaceState.stoppedCars.add(carObj.id);
+  await startStopCarEngine(carObj.id, 'stopped');
+};
+
+const createSVGImage = (
+  template: string,
+  wrapperClass: string,
+  iconClass: string,
+  carObj?: Icar
+) => {
+  const imageWrapper = elementCreater('div', wrapperClass);
+  imageWrapper.innerHTML = template;
+  const imageIcon = <SVGElement>imageWrapper.firstChild;
+  imageIcon.classList.add(iconClass);
+  if (carObj) imageIcon.style.fill = `${carObj.color}`;
+  return imageWrapper;
+};
+
 export const createCarsView = (objs: Icar[]): HTMLElement[] => {
   const carsElementsArray: HTMLElement[] = [];
 
   objs.forEach((car) => {
     const carWrapper = elementCreater('div', 'car-view-wrapper');
-    const carContent = elementCreater('p', 'car-contet');
     const carSelectButton = elementCreater('button', 'car-select-button');
     const carRemoveButton = elementCreater('button', 'car-remove-button');
 
-    carContent.id = car.id.toString();
     carSelectButton.id = car.id.toString();
     carRemoveButton.id = car.id.toString();
     carSelectButton.innerHTML = 'Select';
@@ -59,8 +139,49 @@ export const createCarsView = (objs: Icar[]): HTMLElement[] => {
       GarageState.listenerButtonUpdater(currentPage);
     });
 
-    carContent.innerHTML = `Model: ${car.name} Color: ${car.color}`;
-    carWrapper.append(carContent, carSelectButton, carRemoveButton);
+    const carTitle = elementCreater('p', 'car-title');
+    const carStartButton = elementCreater('button', 'car-start-button');
+    const carStopButton = elementCreater('button', 'car-stop-button');
+    const carImage = createSVGImage(
+      carIconTemplate,
+      'car-image-wrapper',
+      'car-image-icon',
+      car
+    );
+    const finishImage = createSVGImage(
+      finishIconTemplate,
+      'finish-image-wrapper',
+      'finish-image-icon'
+    );
+    const carRoad = elementCreater('hr', 'car-road');
+    carTitle.innerHTML = car.name;
+    carStartButton.innerHTML = 'Start';
+    carStopButton.innerHTML = 'Stop';
+    carStopButton.setAttribute('disabled', '');
+
+    carStartButton.addEventListener('click', () => {
+      startCar(carStartButton, carStopButton, carImage, car);
+    });
+    carStopButton.addEventListener('click', async () => {
+      stopCar(carStartButton, carStopButton, carImage, car);
+    });
+    RaceState.carElementsForRace.push({
+      carStartButton,
+      carStopButton,
+      carImage,
+      car,
+    });
+
+    carWrapper.append(
+      carSelectButton,
+      carRemoveButton,
+      carTitle,
+      carStartButton,
+      carStopButton,
+      finishImage,
+      carImage,
+      carRoad
+    );
     carsElementsArray.push(carWrapper);
   });
 

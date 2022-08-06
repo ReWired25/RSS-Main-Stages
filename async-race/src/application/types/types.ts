@@ -1,3 +1,5 @@
+import { Icar } from './interfaces';
+
 export type CreateRequest = (
   carName: string,
   carColor: string
@@ -10,3 +12,10 @@ export type UpdateRequest = (
 ) => Promise<void>;
 
 export type UpdateCarsFunc = (numOfPage: number) => Promise<void>;
+
+export type StartStopCarFunc = (
+  startButton: HTMLElement,
+  stopButton: HTMLElement,
+  startingCar: HTMLElement,
+  carObj: Icar
+) => Promise<void>;

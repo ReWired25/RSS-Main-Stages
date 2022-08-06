@@ -2,7 +2,6 @@ export const getAllCars = async () => {
   const responseResult = await fetch('http://127.0.0.1:3000/garage');
   const cars = await responseResult.json();
 
-  console.log(cars);
   return cars;
 };
 
@@ -12,7 +11,6 @@ export const getCarsForPage = async (pageNum = 1) => {
   );
   const cars = await responseResult.json();
 
-  console.log(cars);
   return cars;
 };
 
@@ -28,7 +26,6 @@ export const getSpecificCar = async (idNum: number) => {
   const responseResult = await fetch(`http://127.0.0.1:3000/garage/${idNum}`);
   const car = await responseResult.json();
 
-  console.log(car);
   return car;
 };
 
@@ -75,7 +72,7 @@ export const updateCar = async (
 export const startStopCarEngine = async (
   idNum: number,
   engineAction: string
-) => {
+): Promise<{ velocity: number; distance: number }> => {
   const responseResult = await fetch(
     `http://127.0.0.1:3000/engine?id=${idNum}&status=${engineAction}`,
     {
@@ -84,21 +81,23 @@ export const startStopCarEngine = async (
   );
 
   const carCondition = await responseResult.json();
-  console.log(carCondition);
   return carCondition;
 };
 
 export const startCarDrive = async (idNum: number) => {
-  await fetch(`http://127.0.0.1:3000/engine?id=${idNum}&status=drive`, {
-    method: 'PATCH',
-  });
+  const responseResult = await fetch(
+    `http://127.0.0.1:3000/engine?id=${idNum}&status=drive`,
+    {
+      method: 'PATCH',
+    }
+  );
+  return responseResult.status;
 };
 
 export const getAllWinners = async () => {
   const responseResult = await fetch('http://127.0.0.1:3000/winners');
   const allWinners = await responseResult.json();
 
-  console.log(allWinners);
   return allWinners;
 };
 
@@ -112,7 +111,6 @@ export const getWinnersForPage = async (
   );
   const winners = await responseResult.json();
 
-  console.log(winners);
   return winners;
 };
 
@@ -120,7 +118,6 @@ export const getSpecificWinner = async (idNum: number) => {
   const responseResult = await fetch(`http://127.0.0.1:3000/winners/${idNum}`);
   const winner = await responseResult.json();
 
-  console.log(winner);
   return winner;
 };
 
