@@ -1,4 +1,7 @@
 import elementCreater from './overall-functions';
+import { updateWinnersTable } from '../winners/winners-content';
+import { updateWinnersPagination } from '../winners/pagination-winners';
+import PaginationState from '../states/pagination-state';
 
 const createSwitchPagesButtons = (
   buttonClassName: string,
@@ -9,10 +12,22 @@ const createSwitchPagesButtons = (
   const button = elementCreater('button', buttonClassName);
   button.innerHTML = buttonContent;
 
-  button.addEventListener('click', () => {
-    currentPage.classList.add('hidden');
-    targetPage.classList.remove('hidden');
-  });
+  if (buttonClassName === 'to-winners-button') {
+    button.addEventListener('click', () => {
+      const numberOfWinnersPage = Number(
+        PaginationState.winnersPageCounter.innerHTML
+      );
+      updateWinnersTable(numberOfWinnersPage);
+      updateWinnersPagination();
+      currentPage.classList.add('hidden');
+      targetPage.classList.remove('hidden');
+    });
+  } else {
+    button.addEventListener('click', () => {
+      currentPage.classList.add('hidden');
+      targetPage.classList.remove('hidden');
+    });
+  }
 
   return button;
 };

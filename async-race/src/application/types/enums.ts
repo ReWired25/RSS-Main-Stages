@@ -7,6 +7,7 @@ export enum RaceValues {
 
 export enum MaxCars {
   carsOnPage = 7,
+  winnersOnPage = 10,
 }
 
 export enum DriveStatus {

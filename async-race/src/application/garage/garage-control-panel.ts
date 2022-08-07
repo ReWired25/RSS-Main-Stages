@@ -7,6 +7,7 @@ import { updateCarsContent, startCar, stopCar } from './cars-content';
 import createHundredCars from './hundred-cars-generator';
 import RaceState from '../states/race-state';
 import createModalWindow from './modal-windows';
+import { updatePagination } from './pagination-garage';
 
 const createInputCarProp = (
   inputClassName: string,
@@ -24,7 +25,6 @@ const listenerCreateButton = (
   inputColor: HTMLInputElement,
   createRequest: CreateRequest
 ) => {
-  // if (!inputText.value) throw new Error('Enter the name of the auto!');
   if (!inputText.value) {
     createModalWindow('Enter the name of the auto!');
     return;
@@ -46,7 +46,6 @@ const listenerUpdateButton = (
   inputColor: HTMLInputElement,
   updateRequest: UpdateRequest
 ) => {
-  // if (!inputText.value) throw new Error('Enter the name of the auto!');
   if (!inputText.value) {
     createModalWindow('Enter the name of the auto!');
     return;
@@ -141,6 +140,7 @@ const createRaceStartStopButtons = (
     RaceState.startRaceTime = Date.now();
     RaceState.raceCarsStatus = [];
     RaceState.startedCars = [];
+
     const carsArr = RaceState.carElementsForRace;
     carsArr.forEach((currentCar) => {
       if (typeButton === 'race-start-button') {
@@ -179,6 +179,7 @@ const createHundredCarsButton = () => {
     createHundredCars();
     const currentPage = Number(PaginationState.pageCounter.innerHTML);
     updateCarsContent(currentPage);
+    updatePagination();
   });
   return button;
 };

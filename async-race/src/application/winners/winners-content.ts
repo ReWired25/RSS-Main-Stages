@@ -3,6 +3,20 @@ import carIconTemplate from '../utilites/car-icon-svg';
 import { IapiWinner, Icar } from '../types/interfaces';
 import { getSpecificCar, getWinnersForPage } from '../api/api';
 import WinnersState from '../states/winners-state';
+import PaginationState from '../states/pagination-state';
+
+const handlerTableButtons = (currentType: string, targetType: string) => {
+  if (WinnersState.sortState.sortType === currentType) {
+    WinnersState.sortState.sortType = targetType;
+  }
+  if (WinnersState.sortState.orderType === 'ASC') {
+    WinnersState.sortState.orderType = 'DESC';
+  } else if (WinnersState.sortState.orderType === 'DESC') {
+    WinnersState.sortState.orderType = 'ASC';
+  }
+  const currentPage = Number(PaginationState.winnersPageCounter.innerHTML);
+  WinnersState.listenerButtonUpdater(currentPage);
+};
 
 const createWinnerTableHeader = () => {
   const wrapper = elementCreater('div', 'winners-table-header');
@@ -12,11 +26,35 @@ const createWinnerTableHeader = () => {
   const winsTitle = elementCreater('button', 'winner-wins-title-button');
   const timeTitle = elementCreater('button', 'winner-time-title-button');
 
+  winsTitle.addEventListener('click', () => {
+    handlerTableButtons('time', 'wins');
+  });
+
+  timeTitle.addEventListener('click', () => {
+    handlerTableButtons('wins', 'time');
+  });
+
   numberTitle.innerHTML = 'Number';
   carTitle.innerHTML = 'Car';
   modelTitle.innerHTML = 'Model';
   winsTitle.innerHTML = 'Wins';
   timeTitle.innerHTML = 'Best time (seconds)';
+
+  const currentSort = WinnersState.sortState.sortType;
+  const currentOrder = WinnersState.sortState.orderType;
+
+  if (currentSort === 'wins' && currentOrder === 'ASC') {
+    winsTitle.innerHTML += ' ↑';
+  }
+  if (currentSort === 'wins' && currentOrder === 'DESC') {
+    winsTitle.innerHTML += ' ↓';
+  }
+  if (currentSort === 'time' && currentOrder === 'ASC') {
+    timeTitle.innerHTML += ' ↑';
+  }
+  if (currentSort === 'time' && currentOrder === 'DESC') {
+    timeTitle.innerHTML += ' ↓';
+  }
 
   wrapper.append(numberTitle, carTitle, modelTitle, winsTitle, timeTitle);
   return wrapper;
@@ -88,12 +126,22 @@ const createWinnersTableWrapper = async (winnersObjs: IapiWinner[]) => {
 };
 
 export const updateWinnersTable = async (numOfPage: number) => {
-  const winners = await getWinnersForPage(numOfPage);
+  const sort = WinnersState.sortState;
+  const winners = await getWinnersForPage(
+    numOfPage,
+    sort.sortType,
+    sort.orderType
+  );
+
   const header = createWinnerTableHeader();
   const winnersViewWrapper = await createWinnersViewsWrapper(winners);
 
   WinnersState.tableContent.innerHTML = '';
   WinnersState.tableContent.append(header, winnersViewWrapper);
+};
+
+export const forwardSortFuncToButton = () => {
+  WinnersState.listenerButtonUpdater = updateWinnersTable;
 };
 
 export default createWinnersTableWrapper;

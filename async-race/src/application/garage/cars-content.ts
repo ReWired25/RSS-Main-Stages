@@ -121,6 +121,7 @@ export const stopCar = async (
 
 export const createCarsView = (objs: Icar[]): HTMLElement[] => {
   const carsElementsArray: HTMLElement[] = [];
+  RaceState.carElementsForRace = [];
 
   objs.forEach((car) => {
     const carWrapper = elementCreater('div', 'car-view-wrapper');
