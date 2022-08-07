@@ -4,6 +4,11 @@ export interface Icar {
   id: number;
 }
 
+export interface IresponseStartCar {
+  velocity: number;
+  distance: number;
+}
+
 export interface IfinishedCars {
   carObj: Icar;
   timeStamp: number;

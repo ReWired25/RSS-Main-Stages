@@ -6,6 +6,7 @@ import PaginationState from '../states/pagination-state';
 import { updateCarsContent, startCar, stopCar } from './cars-content';
 import createHundredCars from './hundred-cars-generator';
 import RaceState from '../states/race-state';
+import createModalWindow from './modal-windows';
 
 const createInputCarProp = (
   inputClassName: string,
@@ -23,7 +24,11 @@ const listenerCreateButton = (
   inputColor: HTMLInputElement,
   createRequest: CreateRequest
 ) => {
-  if (!inputText.value) throw new Error('Enter the name of the auto!');
+  // if (!inputText.value) throw new Error('Enter the name of the auto!');
+  if (!inputText.value) {
+    createModalWindow('Enter the name of the auto!');
+    return;
+  }
 
   const carName = inputText;
   const carColor = inputColor;
@@ -41,7 +46,11 @@ const listenerUpdateButton = (
   inputColor: HTMLInputElement,
   updateRequest: UpdateRequest
 ) => {
-  if (!inputText.value) throw new Error('Enter the name of the auto!');
+  // if (!inputText.value) throw new Error('Enter the name of the auto!');
+  if (!inputText.value) {
+    createModalWindow('Enter the name of the auto!');
+    return;
+  }
 
   const carName = inputText;
   const carColor = inputColor;
@@ -56,7 +65,7 @@ const listenerUpdateButton = (
     const currentPage = Number(PaginationState.pageCounter.innerHTML);
     updateCarsContent(currentPage);
   } else {
-    throw new Error('SELECT A CAR');
+    createModalWindow('Select a car!');
   }
 };
 
@@ -129,8 +138,22 @@ const createRaceStartStopButtons = (
   raceButton.innerHTML = buttonContent;
 
   raceButton.addEventListener('click', () => {
+    RaceState.startRaceTime = Date.now();
+    RaceState.raceCarsStatus = [];
+    RaceState.startedCars = [];
     const carsArr = RaceState.carElementsForRace;
     carsArr.forEach((currentCar) => {
+      if (typeButton === 'race-start-button') {
+        currentCar.carStartButton.setAttribute('disabled', '');
+        currentCar.carStopButton.setAttribute('disabled', '');
+        raceButton.classList.add('active');
+        raceButton.setAttribute('disabled', '');
+      }
+      if (typeButton === 'race-stop-button') {
+        raceButton.setAttribute('disabled', '');
+        RaceState.startRaceButton.classList.remove('active');
+        RaceState.startRaceButton.removeAttribute('disabled');
+      }
       callback(
         currentCar.carStartButton,
         currentCar.carStopButton,
@@ -140,6 +163,12 @@ const createRaceStartStopButtons = (
     });
   });
 
+  if (typeButton === 'race-start-button') {
+    RaceState.startRaceButton = raceButton;
+  } else {
+    raceButton.setAttribute('disabled', '');
+    RaceState.stopRaceButton = raceButton;
+  }
   return raceButton;
 };
 

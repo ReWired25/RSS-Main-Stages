@@ -34,3 +34,24 @@
 .car-road {
   border-top: 2px dashed black;
 }
+
+.modal-wrapper {
+  position: absolute;
+  z-index: 10;
+  top: calc(50% - 45px);
+  left: calc(50% - 295px);
+  text-align: center;
+  width: 590px;
+  height: 90px;
+}
+
+.modal-close-button {
+  margin-left: auto;
+  padding: 10px 20px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.modal-message {
+  font-size: 35px;
+}

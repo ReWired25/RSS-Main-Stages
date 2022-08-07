@@ -1,5 +1,5 @@
 import { Icar } from '../types/interfaces';
-import RaceValues from '../types/enums';
+import { RaceValues } from '../types/enums';
 import elementCreater from '../utilites/overall-functions';
 import carIconTemplate from '../utilites/car-icon-svg';
 import finishIconTemplate from '../utilites/finish-icon-svg';
@@ -13,6 +13,7 @@ import {
 } from '../api/api';
 import PaginationState from '../states/pagination-state';
 import RaceState from '../states/race-state';
+import { getWinner, handlerRaceButtons } from './win-handler';
 
 const createContentTitle = (): HTMLElement => {
   const title = elementCreater('h2', 'garage-title');
@@ -48,6 +49,7 @@ export const startCar = async (
   startingCar: HTMLElement,
   carObj: Icar
 ) => {
+  RaceState.startedCarsCounter += 1;
   const currentCar = startingCar;
   const responseCarCondition = await startStopCarEngine(carObj.id, 'started');
   const carTime = responseCarCondition.distance / responseCarCondition.velocity;
@@ -58,13 +60,21 @@ export const startCar = async (
     currentWidth - RaceValues.carWidth - RaceValues.wrapperPadding * 2
   }px`;
   startButton.setAttribute('disabled', '');
-  stopButton.removeAttribute('disabled');
+  if (!RaceState.startRaceButton.classList.contains('active')) {
+    stopButton.removeAttribute('disabled');
+  }
+  RaceState.startRaceButton.setAttribute('disabled', '');
+  RaceState.stoppedCars.clear();
+  RaceState.finishedCars = [];
 
   if (responseCarCondition) {
+    RaceState.startedCars.push(responseCarCondition);
+    handlerRaceButtons();
     const raceCondition = await startCarDrive(carObj.id);
     if (raceCondition === 500) {
       if (RaceState.stoppedCars.has(carObj.id)) {
         RaceState.stoppedCars.delete(carObj.id);
+        return;
       }
       console.log(`Oops! engine ${carObj.name} is broken!`);
       currentCar.style.transition = RaceValues.transitionDefault;
@@ -72,6 +82,7 @@ export const startCar = async (
         currentCar.offsetLeft - RaceValues.wrapperPadding
       }px`;
       await startStopCarEngine(carObj.id, 'stopped');
+      RaceState.raceCarsStatus.push(raceCondition);
     }
     if (raceCondition === 200) {
       if (RaceState.stoppedCars.has(carObj.id)) {
@@ -79,8 +90,10 @@ export const startCar = async (
       } else {
         const timeStamp = Date.now();
         RaceState.finishedCars.push({ carObj, timeStamp });
+        RaceState.raceCarsStatus.push(raceCondition);
       }
     }
+    getWinner();
   }
 };
 
@@ -90,6 +103,7 @@ export const stopCar = async (
   startingCar: HTMLElement,
   carObj: Icar
 ) => {
+  RaceState.startedCarsCounter -= 1;
   const currentCar = startingCar;
   currentCar.style.transition = RaceValues.transitionDefault;
   currentCar.style.marginLeft = RaceValues.marginDefault;
@@ -97,6 +111,11 @@ export const stopCar = async (
   startButton.removeAttribute('disabled');
   stopButton.setAttribute('disabled', '');
   RaceState.stoppedCars.add(carObj.id);
+  RaceState.startedCars = [];
+  if (RaceState.startedCarsCounter === 0) {
+    RaceState.startRaceButton.classList.remove('active');
+    RaceState.startRaceButton.removeAttribute('disabled');
+  }
   await startStopCarEngine(carObj.id, 'stopped');
 };
 

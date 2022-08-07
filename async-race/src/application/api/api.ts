@@ -94,7 +94,13 @@ export const startCarDrive = async (idNum: number) => {
   return responseResult.status;
 };
 
-export const getAllWinners = async () => {
+export const getAllWinners = async (): Promise<
+  {
+    id: number;
+    wins: number;
+    time: number;
+  }[]
+> => {
   const responseResult = await fetch('http://127.0.0.1:3000/winners');
   const allWinners = await responseResult.json();
 
@@ -114,7 +120,13 @@ export const getWinnersForPage = async (
   return winners;
 };
 
-export const getSpecificWinner = async (idNum: number) => {
+export const getSpecificWinner = async (
+  idNum: number
+): Promise<{
+  id: number;
+  wins: number;
+  time: number;
+}> => {
   const responseResult = await fetch(`http://127.0.0.1:3000/winners/${idNum}`);
   const winner = await responseResult.json();
 

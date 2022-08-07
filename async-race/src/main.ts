@@ -12,7 +12,6 @@ import {
   // createWinner,
 } from './application/api/api';
 import garagePageBuilder from './application/garage/garage-view-builder';
-// import { createHundredCars } from './application/garage/cars-generator';
 
 getAllCars();
 getCarsForPage(1);
