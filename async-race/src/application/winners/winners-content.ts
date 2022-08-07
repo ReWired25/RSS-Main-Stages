@@ -1,9 +1,22 @@
 import elementCreater, { createSVGImage } from '../utilites/overall-functions';
 import carIconTemplate from '../utilites/car-icon-svg';
 import { IapiWinner, Icar } from '../types/interfaces';
-import { getSpecificCar, getWinnersForPage } from '../api/api';
+import { getNumOfWinners, getSpecificCar, getWinnersForPage } from '../api/api';
 import WinnersState from '../states/winners-state';
 import PaginationState from '../states/pagination-state';
+
+export const createWinnerPageTitle = async () => {
+  const titleWrapper = elementCreater('div', 'winner-title-wrapper');
+  const title = elementCreater('h2', 'winner-page-title');
+  const totalWinners = elementCreater('p', 'winners-total-number');
+  const totalWinnersNumber = await getNumOfWinners();
+  WinnersState.totalWinners = totalWinners;
+
+  title.innerHTML = 'Winners';
+  totalWinners.innerHTML = `Total ${totalWinnersNumber} winners`;
+  titleWrapper.append(title, totalWinners);
+  return titleWrapper;
+};
 
 const handlerTableButtons = (currentType: string, targetType: string) => {
   if (WinnersState.sortState.sortType === currentType) {
@@ -85,13 +98,20 @@ const createWinnerView = async (obj: IapiWinner, carPosition: number) => {
   return winnerWrapper;
 };
 
-const createWinnersViewsWrapper = async (
-  winnersObjs: IapiWinner[],
-  pagePositions?: number
-) => {
+const getCurrentPagePositions = () => {
+  let basePosition: number;
+  if (PaginationState.winnersPageCounter) {
+    const currentPage = Number(PaginationState.winnersPageCounter.innerHTML);
+    basePosition = (currentPage - 1) * 10;
+  } else {
+    basePosition = 0;
+  }
+  return basePosition;
+};
+
+const createWinnersViewsWrapper = async (winnersObjs: IapiWinner[]) => {
   const viewsWrapper = elementCreater('div', 'winners-table-views-wrapper');
-  let basePosition = 0;
-  if (pagePositions) basePosition = pagePositions;
+  const basePosition = getCurrentPagePositions();
 
   const createViewCallback = async (
     previousValue: Promise<HTMLElement[]>,
@@ -135,6 +155,9 @@ export const updateWinnersTable = async (numOfPage: number) => {
 
   const header = createWinnerTableHeader();
   const winnersViewWrapper = await createWinnersViewsWrapper(winners);
+
+  const totalWinnersNumber = await getNumOfWinners();
+  WinnersState.totalWinners.innerHTML = `Total ${totalWinnersNumber} winners`;
 
   WinnersState.tableContent.innerHTML = '';
   WinnersState.tableContent.append(header, winnersViewWrapper);

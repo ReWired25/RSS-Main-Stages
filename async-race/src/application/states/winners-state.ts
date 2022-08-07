@@ -8,6 +8,8 @@ class WinnersState {
     orderType: 'ASC',
   };
 
+  static totalWinners: HTMLElement;
+
   static listenerButtonUpdater: UpdateCarsFunc;
 }
 
