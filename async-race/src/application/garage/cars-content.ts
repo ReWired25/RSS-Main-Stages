@@ -1,6 +1,6 @@
 import { Icar } from '../types/interfaces';
-import { RaceValues } from '../types/enums';
-import elementCreater from '../utilites/overall-functions';
+import { RaceValues, DriveStatus } from '../types/enums';
+import elementCreater, { createSVGImage } from '../utilites/overall-functions';
 import carIconTemplate from '../utilites/car-icon-svg';
 import finishIconTemplate from '../utilites/finish-icon-svg';
 import GarageState from '../states/garage-state';
@@ -71,7 +71,7 @@ export const startCar = async (
     RaceState.startedCars.push(responseCarCondition);
     handlerRaceButtons();
     const raceCondition = await startCarDrive(carObj.id);
-    if (raceCondition === 500) {
+    if (raceCondition === DriveStatus.engineBroken) {
       if (RaceState.stoppedCars.has(carObj.id)) {
         RaceState.stoppedCars.delete(carObj.id);
         return;
@@ -84,7 +84,7 @@ export const startCar = async (
       await startStopCarEngine(carObj.id, 'stopped');
       RaceState.raceCarsStatus.push(raceCondition);
     }
-    if (raceCondition === 200) {
+    if (raceCondition === DriveStatus.finished) {
       if (RaceState.stoppedCars.has(carObj.id)) {
         RaceState.stoppedCars.delete(carObj.id);
       } else {
@@ -117,20 +117,6 @@ export const stopCar = async (
     RaceState.startRaceButton.removeAttribute('disabled');
   }
   await startStopCarEngine(carObj.id, 'stopped');
-};
-
-const createSVGImage = (
-  template: string,
-  wrapperClass: string,
-  iconClass: string,
-  carObj?: Icar
-) => {
-  const imageWrapper = elementCreater('div', wrapperClass);
-  imageWrapper.innerHTML = template;
-  const imageIcon = <SVGElement>imageWrapper.firstChild;
-  imageIcon.classList.add(iconClass);
-  if (carObj) imageIcon.style.fill = `${carObj.color}`;
-  return imageWrapper;
 };
 
 export const createCarsView = (objs: Icar[]): HTMLElement[] => {

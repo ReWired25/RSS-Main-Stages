@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+.hidden {
+  display: none;
+}
+
 .cars-content-wrapper {
  padding: 20px 20px;
 }
@@ -36,7 +40,7 @@
 }
 
 .modal-wrapper {
-  position: absolute;
+  position: fixed;
   z-index: 10;
   top: calc(50% - 45px);
   left: calc(50% - 295px);
@@ -54,4 +58,70 @@
 
 .modal-message {
   font-size: 35px;
+}
+
+.winners-table-wrapper {
+  margin: 20px;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+
+.winners-table-header {
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.winners-table-views-wrapper {
+  padding: 15px;
+}
+
+.winner-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.car-table-image,
+.car-table-icon {
+  width: 70px;
+  height: 35px;
+}
+
+.winner-number-title,
+.winner-table-number {
+  width: 55px;
+  text-align: center;
+}
+
+.winner-car-title {
+  width: 70px;
+  text-align: center;
+}
+
+.model-title,
+.winner-table-model {
+  width: 175px;
+  text-align: center;
+}
+
+.winner-wins-title-button {
+  padding: 5px;
+  width: 70px;
+}
+
+.winners-table-wins-count {
+  width: 70px;
+  text-align: center;
+}
+
+.winner-time-title-button {
+  padding: 5px;
+  width: 150px;
+}
+
+.winner-table-time {
+  width: 150px;
+  text-align: center;
 }

@@ -1,4 +1,5 @@
 import { getCarsForPage, getNumOfCars } from '../api/api';
+import elementCreater from '../utilites/overall-functions';
 import {
   createCarsContentWrapper,
   forwardUpdateFuncToButton,
@@ -10,12 +11,14 @@ const garagePageBuilder = async () => {
   const cars = await getCarsForPage();
   const numOfCars = await getNumOfCars();
 
+  const garagePageWrapper = elementCreater('div', 'garage-page');
   const garageControlPanel = createGarageControlWrapper();
   const garageContent = createCarsContentWrapper(cars, numOfCars);
   const pagination = createPaginationWrapper();
 
   forwardUpdateFuncToButton();
-  document.body.append(garageControlPanel, garageContent, pagination);
+  garagePageWrapper.append(garageControlPanel, garageContent, pagination);
+  return garagePageWrapper;
 };
 
 export default garagePageBuilder;

@@ -8,3 +8,8 @@ export enum RaceValues {
 export enum MaxCars {
   carsOnPage = 7,
 }
+
+export enum DriveStatus {
+  finished = 200,
+  engineBroken = 500,
+}

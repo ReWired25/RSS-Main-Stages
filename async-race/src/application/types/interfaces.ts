@@ -1,3 +1,14 @@
+export interface IapiStartCar {
+  velocity: number;
+  distance: number;
+}
+
+export interface IapiWinner {
+  id: number;
+  wins: number;
+  time: number;
+}
+
 export interface Icar {
   name: string;
   color: string;

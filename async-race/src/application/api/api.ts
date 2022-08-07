@@ -1,3 +1,5 @@
+import { IapiStartCar, IapiWinner } from '../types/interfaces';
+
 export const getAllCars = async () => {
   const responseResult = await fetch('http://127.0.0.1:3000/garage');
   const cars = await responseResult.json();
@@ -72,7 +74,7 @@ export const updateCar = async (
 export const startStopCarEngine = async (
   idNum: number,
   engineAction: string
-): Promise<{ velocity: number; distance: number }> => {
+): Promise<IapiStartCar> => {
   const responseResult = await fetch(
     `http://127.0.0.1:3000/engine?id=${idNum}&status=${engineAction}`,
     {
@@ -94,24 +96,26 @@ export const startCarDrive = async (idNum: number) => {
   return responseResult.status;
 };
 
-export const getAllWinners = async (): Promise<
-  {
-    id: number;
-    wins: number;
-    time: number;
-  }[]
-> => {
+export const getAllWinners = async (): Promise<IapiWinner[]> => {
   const responseResult = await fetch('http://127.0.0.1:3000/winners');
   const allWinners = await responseResult.json();
 
   return allWinners;
 };
 
+export const getNumOfWinners = async () => {
+  const responseResult = await fetch(
+    `http://127.0.0.1:3000/winners?_page=1&_limit=10`
+  );
+  const totalNumOfWinners = <string>responseResult.headers.get('X-Total-Count');
+  return totalNumOfWinners;
+};
+
 export const getWinnersForPage = async (
   pageNum: number,
   sortType = 'time',
   orderType = 'ASC'
-) => {
+): Promise<IapiWinner[]> => {
   const responseResult = await fetch(
     `http://127.0.0.1:3000/winners?_page=${pageNum}&_limit=10&_sort=${sortType}&_order=${orderType}`
   );
@@ -120,13 +124,7 @@ export const getWinnersForPage = async (
   return winners;
 };
 
-export const getSpecificWinner = async (
-  idNum: number
-): Promise<{
-  id: number;
-  wins: number;
-  time: number;
-}> => {
+export const getSpecificWinner = async (idNum: number): Promise<IapiWinner> => {
   const responseResult = await fetch(`http://127.0.0.1:3000/winners/${idNum}`);
   const winner = await responseResult.json();
 

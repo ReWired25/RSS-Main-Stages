@@ -1,4 +1,5 @@
 import elementCreater from '../utilites/overall-functions';
+import { MaxCars } from '../types/enums';
 import PaginationState from '../states/pagination-state';
 import { getNumOfCars } from '../api/api';
 import { updateCarsContent } from './cars-content';
@@ -24,8 +25,8 @@ const createPaginationButtons = () => {
   nextButton.innerHTML = 'Next';
   prevButton.setAttribute('disabled', '');
   if (
-    Number(GarageState.carsCounter.innerHTML) / 7 < 1 ||
-    Number(GarageState.carsCounter.innerHTML) / 7 === 1
+    Number(GarageState.carsCounter.innerHTML) / MaxCars.carsOnPage < 1 ||
+    Number(GarageState.carsCounter.innerHTML) / MaxCars.carsOnPage === 1
   ) {
     nextButton.setAttribute('disabled', '');
   }
@@ -45,8 +46,8 @@ const createPaginationButtons = () => {
     let currentPage = Number(PaginationState.pageCounter.innerHTML);
     const totalCars = Number(await getNumOfCars());
 
-    let totalPages = Math.trunc(totalCars / 7);
-    if (totalCars % 7 !== 0) totalPages += 1;
+    let totalPages = Math.trunc(totalCars / MaxCars.carsOnPage);
+    if (totalCars % MaxCars.carsOnPage !== 0) totalPages += 1;
 
     if (currentPage < totalPages) {
       prevButton.removeAttribute('disabled');
