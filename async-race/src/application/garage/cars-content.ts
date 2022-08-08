@@ -10,10 +10,13 @@ import {
   deleteCar,
   startStopCarEngine,
   startCarDrive,
+  deleteWinner,
+  getAllWinners,
 } from '../api/api';
 import PaginationState from '../states/pagination-state';
 import RaceState from '../states/race-state';
 import { getWinner, handlerRaceButtons } from './win-handler';
+import createModalWindow from './modal-windows';
 
 const createContentTitle = (): HTMLElement => {
   const title = elementCreater('h2', 'garage-title');
@@ -89,6 +92,13 @@ export const startCar = async (
         RaceState.stoppedCars.delete(carObj.id);
       } else {
         const timeStamp = Date.now();
+        if (RaceState.finishedCars.length === 0) {
+          const carWinTime = timeStamp - RaceState.startRaceTime;
+          const carTimeModal = (carWinTime / 1000).toFixed(2);
+          createModalWindow(
+            `The winner is ${carObj.name}! Time: ${carTimeModal}s`
+          );
+        }
         RaceState.finishedCars.push({ carObj, timeStamp });
         RaceState.raceCarsStatus.push(raceCondition);
       }
@@ -137,9 +147,13 @@ export const createCarsView = (objs: Icar[]): HTMLElement[] => {
       GarageState.selectedCarId = Number(carSelectButton.id);
       GarageState.updateInputElement.focus();
     });
-    carRemoveButton.addEventListener('click', () => {
+    carRemoveButton.addEventListener('click', async () => {
       const idNum = Number(carRemoveButton.id);
       deleteCar(idNum);
+      const allWinners = await getAllWinners();
+      allWinners.forEach((winner) => {
+        if (winner.id === idNum) deleteWinner(idNum);
+      });
 
       const currentPage = Number(PaginationState.pageCounter.innerHTML);
       GarageState.listenerButtonUpdater(currentPage);
