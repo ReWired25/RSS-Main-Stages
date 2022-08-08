@@ -1,4 +1,5 @@
 import elementCreater from '../utilites/overall-functions';
+import GarageState from '../states/garage-state';
 
 const createModalWindow = (messageText: string) => {
   const wrapper = elementCreater('div', 'modal-wrapper');
@@ -11,7 +12,7 @@ const createModalWindow = (messageText: string) => {
     wrapper.remove();
   });
   wrapper.append(closeButton, message);
-  document.body.append(wrapper);
+  GarageState.garagePageWrapper.append(wrapper);
 };
 
 export default createModalWindow;

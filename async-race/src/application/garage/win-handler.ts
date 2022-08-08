@@ -69,3 +69,24 @@ export const getWinner = () => {
     }
   }
 };
+
+export const addWinner = async (carObj: Icar, raceTime: number) => {
+  const carId = carObj.id;
+  const carTime = raceTime;
+
+  const winners = await getAllWinners();
+  let idInclude = false;
+  winners.forEach((winner) => {
+    if (winner.id === carId) idInclude = true;
+  });
+
+  if (idInclude) {
+    const winner = await getSpecificWinner(carId);
+    if (winner.time > carTime) winner.time = carTime;
+    winner.wins += 1;
+    await updateWinner(winner.id, winner.wins, winner.time);
+  } else {
+    const firstWin = 1;
+    createWinner(carId, firstWin, carTime);
+  }
+};

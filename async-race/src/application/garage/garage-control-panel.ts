@@ -137,7 +137,11 @@ const createRaceStartStopButtons = (
   raceButton.innerHTML = buttonContent;
 
   raceButton.addEventListener('click', () => {
-    RaceState.startRaceTime = Date.now();
+    if (typeButton === 'race-start-button') {
+      RaceState.startRaceTime = Date.now();
+    } else if (typeButton === 'race-stop-button') {
+      RaceState.startRaceTime = 0;
+    }
     RaceState.raceCarsStatus = [];
     RaceState.startedCars = [];
 

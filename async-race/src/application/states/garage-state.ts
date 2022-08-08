@@ -1,6 +1,8 @@
 import { UpdateCarsFunc } from '../types/types';
 
 class GarageState {
+  static garagePageWrapper: HTMLElement;
+
   static carsCounter: HTMLElement;
 
   static carsContentWrapper: HTMLElement;

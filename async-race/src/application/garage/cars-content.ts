@@ -15,7 +15,7 @@ import {
 } from '../api/api';
 import PaginationState from '../states/pagination-state';
 import RaceState from '../states/race-state';
-import { getWinner, handlerRaceButtons } from './win-handler';
+import { addWinner, handlerRaceButtons } from './win-handler';
 import createModalWindow from './modal-windows';
 
 const createContentTitle = (): HTMLElement => {
@@ -93,17 +93,19 @@ export const startCar = async (
       } else {
         const timeStamp = Date.now();
         if (RaceState.finishedCars.length === 0) {
-          const carWinTime = timeStamp - RaceState.startRaceTime;
-          const carTimeModal = (carWinTime / 1000).toFixed(2);
-          createModalWindow(
-            `The winner is ${carObj.name}! Time: ${carTimeModal}s`
-          );
+          if (RaceState.startRaceTime) {
+            const carWinTime = timeStamp - RaceState.startRaceTime;
+            const carTimeModal = (carWinTime / 1000).toFixed(2);
+            createModalWindow(
+              `The winner is ${carObj.name}! Time: ${carTimeModal}s`
+            );
+            addWinner(carObj, carWinTime);
+          }
         }
         RaceState.finishedCars.push({ carObj, timeStamp });
         RaceState.raceCarsStatus.push(raceCondition);
       }
     }
-    getWinner();
   }
 };
 

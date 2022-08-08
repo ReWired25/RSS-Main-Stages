@@ -1,4 +1,5 @@
 import { getCarsForPage, getNumOfCars } from '../api/api';
+import GarageState from '../states/garage-state';
 import elementCreater from '../utilites/overall-functions';
 import {
   createCarsContentWrapper,
@@ -18,6 +19,7 @@ const garagePageBuilder = async () => {
 
   forwardUpdateFuncToButton();
   garagePageWrapper.append(garageControlPanel, garageContent, pagination);
+  GarageState.garagePageWrapper = garagePageWrapper;
   return garagePageWrapper;
 };
 

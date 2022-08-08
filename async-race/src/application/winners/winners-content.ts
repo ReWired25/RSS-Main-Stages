@@ -51,7 +51,7 @@ const createWinnerTableHeader = () => {
   carTitle.innerHTML = 'Car';
   modelTitle.innerHTML = 'Model';
   winsTitle.innerHTML = 'Wins';
-  timeTitle.innerHTML = 'Best time (seconds)';
+  timeTitle.innerHTML = 'Best time';
 
   const currentSort = WinnersState.sortState.sortType;
   const currentOrder = WinnersState.sortState.orderType;
