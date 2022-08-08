@@ -2,7 +2,6 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const EslintPlugin = require('eslint-webpack-plugin');
-const CopyPlugin = require('copy-webpack-plugin');
 
 const whatMode = process.env.NODE_ENV === 'production';
 const stylesMode = whatMode ? MiniCssExtractPlugin.loader : 'style-loader';
@@ -37,8 +36,5 @@ module.exports = {
     }),
     new MiniCssExtractPlugin({ filename: 'style.css' }),
     new EslintPlugin({ extensions: 'ts' }),
-    new CopyPlugin({
-      patterns: [{ from: 'src/assets', to: 'assets' }],
-    }),
   ],
 };
