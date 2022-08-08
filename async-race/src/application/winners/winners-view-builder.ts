@@ -3,6 +3,7 @@ import { getWinnersForPage } from '../api/api';
 import createWinnersTableWrapper, {
   forwardSortFuncToButton,
   createWinnerPageTitle,
+  updateDefaultServerWinner,
 } from './winners-content';
 import createPaginationWinnerWrapper from './pagination-winners';
 
@@ -14,6 +15,7 @@ const winnersPageBuilder = async () => {
   const winnersTable = await createWinnersTableWrapper(winnersOnPage);
   const winnersPagination = await createPaginationWinnerWrapper();
 
+  updateDefaultServerWinner();
   forwardSortFuncToButton();
   winnersPageWrapper.append(winnersTitle, winnersTable, winnersPagination);
   return winnersPageWrapper;

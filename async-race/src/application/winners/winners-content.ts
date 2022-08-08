@@ -1,7 +1,13 @@
 import elementCreater, { createSVGImage } from '../utilites/overall-functions';
 import carIconTemplate from '../utilites/car-icon-svg';
 import { IapiWinner, Icar } from '../types/interfaces';
-import { getNumOfWinners, getSpecificCar, getWinnersForPage } from '../api/api';
+import {
+  getNumOfWinners,
+  getSpecificCar,
+  getWinnersForPage,
+  getSpecificWinner,
+  updateWinner,
+} from '../api/api';
 import WinnersState from '../states/winners-state';
 import PaginationState from '../states/pagination-state';
 
@@ -161,6 +167,13 @@ export const updateWinnersTable = async (numOfPage: number) => {
 
   WinnersState.tableContent.innerHTML = '';
   WinnersState.tableContent.append(header, winnersViewWrapper);
+};
+
+export const updateDefaultServerWinner = async () => {
+  const winnerState = await getSpecificWinner(1);
+  if (winnerState.time === 10) {
+    await updateWinner(winnerState.id, winnerState.wins, 10000);
+  }
 };
 
 export const forwardSortFuncToButton = () => {

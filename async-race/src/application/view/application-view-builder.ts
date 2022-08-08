@@ -28,6 +28,7 @@ const applicationPageBuilder = async () => {
   const pageButtonsWrapper = elementCreater('div', 'switch-pages-buttons');
   pageButtonsWrapper.append(toGarageButton, toWinnersButton);
 
+  console.log(pageButtonsWrapper);
   document.body.append(
     header,
     pageButtonsWrapper,
