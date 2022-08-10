@@ -6,7 +6,7 @@ import PaginationState from '../states/pagination-state';
 import { updateCarsContent, startCar, stopCar } from './cars-content';
 import createHundredCars from './hundred-cars-generator';
 import RaceState from '../states/race-state';
-import createModalWindow from './modal-windows';
+import createModalWindow from '../utilites/modal-windows';
 import { updatePagination } from './pagination-garage';
 
 const createInputCarProp = (

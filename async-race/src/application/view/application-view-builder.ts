@@ -11,31 +11,33 @@ const applicationPageBuilder = async () => {
 
   const garagePage = await garagePageBuilder();
   const winnersPage = await winnersPageBuilder();
-  winnersPage.classList.add('hidden');
 
-  const toWinnersButton = createSwitchPagesButtons(
-    'to-winners-button',
-    'To winners',
-    garagePage,
-    winnersPage
-  );
-  const toGarageButton = createSwitchPagesButtons(
-    'to-garage-button',
-    'To garage',
-    winnersPage,
-    garagePage
-  );
-  const pageButtonsWrapper = elementCreater('div', 'switch-pages-buttons');
-  pageButtonsWrapper.append(toGarageButton, toWinnersButton);
+  if (garagePage && winnersPage) {
+    winnersPage.classList.add('hidden');
 
-  console.log(pageButtonsWrapper);
-  document.body.append(
-    header,
-    pageButtonsWrapper,
-    garagePage,
-    winnersPage,
-    footer
-  );
+    const toWinnersButton = createSwitchPagesButtons(
+      'to-winners-button',
+      'To winners',
+      garagePage,
+      winnersPage
+    );
+    const toGarageButton = createSwitchPagesButtons(
+      'to-garage-button',
+      'To garage',
+      winnersPage,
+      garagePage
+    );
+    const pageButtonsWrapper = elementCreater('div', 'switch-pages-buttons');
+    pageButtonsWrapper.append(toGarageButton, toWinnersButton);
+
+    document.body.append(
+      header,
+      pageButtonsWrapper,
+      garagePage,
+      winnersPage,
+      footer
+    );
+  }
 };
 
 export default applicationPageBuilder;

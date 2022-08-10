@@ -16,7 +16,7 @@ import {
 import PaginationState from '../states/pagination-state';
 import RaceState from '../states/race-state';
 import { addWinner, handlerRaceButtons } from './win-handler';
-import createModalWindow from './modal-windows';
+import createModalWindow from '../utilites/modal-windows';
 
 const createContentTitle = (): HTMLElement => {
   const title = elementCreater('h2', 'garage-title');

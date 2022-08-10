@@ -389,6 +389,31 @@ button:disabled {
   text-align: center;
 }
 
+.modal-error-wrapper {
+  width: 700px;
+  height: 400px;
+  padding: 0 40px;
+  border-radius: 10px;
+  position: fixed;
+  top: calc(50% - 200px);
+  left: calc(50% - 350px);
+  font-size: 30px;
+  line-height: 1.5;
+  background: #303030;
+  color: #54ff3f;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 45px;
+  .modal-error-message {
+    font-size: 20px;
+  }
+  .mock-link {
+    color: #47ff30;
+    text-shadow: 0 0 10px #54ff3f;
+  }
+}
+
 @media (max-width: 800px) {
   .winner-time-title-button {
     width: 100px;

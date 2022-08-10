@@ -12,7 +12,6 @@ export const getCarsForPage = async (pageNum = 1) => {
     `http://127.0.0.1:3000/garage?_page=${pageNum}&_limit=7`
   );
   const cars = await responseResult.json();
-
   return cars;
 };
 
@@ -93,6 +92,13 @@ export const startCarDrive = async (idNum: number) => {
       method: 'PATCH',
     }
   );
+
+  if (responseResult.status === 404) {
+    console.log(
+      `The server lags again. Reload the app and don't spam the start and stop buttons. Read about problems with the server in the task's discord channel (you can find their analysis by the keywords "drive" and "drive 404").`
+    );
+  }
+
   return responseResult.status;
 };
 
