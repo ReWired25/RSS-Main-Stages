@@ -81,8 +81,6 @@ export const updatePagination = async () => {
   const pageCounter = createNumOfPageCounter(currentPage);
   const buttons = await createPaginationButtons();
 
-  console.log('oh!');
-
   PaginationState.paginationGarageWrapper.innerHTML = '';
   PaginationState.paginationGarageWrapper.append(
     buttons.prevButton,

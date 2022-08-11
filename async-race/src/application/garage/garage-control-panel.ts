@@ -39,6 +39,7 @@ const listenerCreateButton = (
 
   const currentPage = Number(PaginationState.pageCounter.innerHTML);
   updateCarsContent(currentPage);
+  updatePagination();
 };
 
 const listenerUpdateButton = (
