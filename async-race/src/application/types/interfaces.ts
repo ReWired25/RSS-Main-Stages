@@ -29,5 +29,6 @@ export interface IcarElementsForRace {
   carStartButton: HTMLElement;
   carStopButton: HTMLElement;
   carImage: HTMLElement;
+  carStatus: HTMLElement;
   car: Icar;
 }

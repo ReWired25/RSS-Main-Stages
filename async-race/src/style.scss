@@ -4,6 +4,14 @@
   box-sizing: border-box;
 }
 
+@keyframes modal-drive-error-window {
+  from {
+    opacity: 0;
+  } to {
+    opacity: 1;
+  }
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -149,6 +157,20 @@ button:disabled {
 .car-view-wrapper {
   position: relative;
   padding: 10px 0;
+}
+
+.car-engine-status {
+  position: absolute;
+  width: 350px;
+  top: 70px;
+  left: calc(50% - 175px);
+  font-size: 18px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: #54ff3f;
+  text-align: center;
+  letter-spacing: 1.1;
+  letter-spacing: 1px;
+  text-shadow: 0 0 15px #54ff3f;
 }
 
 .car-select-button,
@@ -412,6 +434,33 @@ button:disabled {
     color: #47ff30;
     text-shadow: 0 0 10px #54ff3f;
   }
+}
+
+.modal-error-drive-wrapper {
+  width: 350px;
+  height: 350px;
+  padding: 0 25px;
+  border-radius: 10px;
+  position: fixed;
+  z-index: 20;
+  top: 50px;
+  right: 20px;
+  font-size: 20px;
+  line-height: 1.5;
+  background: #303030;
+  color: #54ff3f;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 15px;
+  .modal-error-message {
+    font-size: 18px;
+  }
+  .modal-drive-error-button {
+    width: 35px;
+    height: 20px;
+  }
+  animation: modal-drive-error-window 3s;
 }
 
 @media (max-width: 800px) {

@@ -6,7 +6,7 @@ import {
   forwardUpdateFuncToButton,
 } from './cars-content';
 import createGarageControlWrapper from './garage-control-panel';
-import { createErrorModalWindow } from '../utilites/modal-windows';
+import handlerErrors from '../utilites/errors-handler';
 import createPaginationWrapper from './pagination-garage';
 
 const garagePageBuilder = async () => {
@@ -24,7 +24,7 @@ const garagePageBuilder = async () => {
     GarageState.garagePageWrapper = garagePageWrapper;
     return garagePageWrapper;
   } catch {
-    return createErrorModalWindow();
+    return handlerErrors();
   }
 };
 

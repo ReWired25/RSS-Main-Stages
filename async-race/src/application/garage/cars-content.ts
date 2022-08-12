@@ -50,10 +50,12 @@ export const startCar = async (
   startButton: HTMLElement,
   stopButton: HTMLElement,
   startingCar: HTMLElement,
+  carSatus: HTMLElement,
   carObj: Icar
 ) => {
   RaceState.startedCarsCounter += 1;
   const currentCar = startingCar;
+  const currentCarStatus = carSatus;
   const responseCarCondition = await startStopCarEngine(carObj.id, 'started');
   const carTime = responseCarCondition.distance / responseCarCondition.velocity;
   const currentWidth = document.body.clientWidth;
@@ -79,6 +81,7 @@ export const startCar = async (
         RaceState.stoppedCars.delete(carObj.id);
         return;
       }
+      currentCarStatus.innerHTML = `Oops! engine ${carObj.name} is broken!`;
       console.log(`Oops! engine ${carObj.name} is broken!`);
       currentCar.style.transition = RaceValues.transitionDefault;
       currentCar.style.marginLeft = `${
@@ -113,13 +116,16 @@ export const stopCar = async (
   startButton: HTMLElement,
   stopButton: HTMLElement,
   startingCar: HTMLElement,
+  carSatus: HTMLElement,
   carObj: Icar
 ) => {
   RaceState.startedCarsCounter -= 1;
   const currentCar = startingCar;
+  const currentCarStatus = carSatus;
   currentCar.style.transition = RaceValues.transitionDefault;
   currentCar.style.marginLeft = RaceValues.marginDefault;
 
+  currentCarStatus.innerHTML = '';
   startButton.removeAttribute('disabled');
   stopButton.setAttribute('disabled', '');
   RaceState.stoppedCars.add(carObj.id);
@@ -162,6 +168,7 @@ export const createCarsView = (objs: Icar[]): HTMLElement[] => {
     });
 
     const carTitle = elementCreater('p', 'car-title');
+    const carStatus = elementCreater('p', 'car-engine-status');
     const carStartButton = elementCreater('button', 'car-start-button');
     const carStopButton = elementCreater('button', 'car-stop-button');
     const carImage = createSVGImage(
@@ -182,21 +189,23 @@ export const createCarsView = (objs: Icar[]): HTMLElement[] => {
     carStopButton.setAttribute('disabled', '');
 
     carStartButton.addEventListener('click', () => {
-      startCar(carStartButton, carStopButton, carImage, car);
+      startCar(carStartButton, carStopButton, carImage, carStatus, car);
     });
     carStopButton.addEventListener('click', async () => {
-      stopCar(carStartButton, carStopButton, carImage, car);
+      stopCar(carStartButton, carStopButton, carImage, carStatus, car);
     });
     RaceState.carElementsForRace.push({
       carStartButton,
       carStopButton,
       carImage,
+      carStatus,
       car,
     });
 
     carWrapper.append(
       carSelectButton,
       carRemoveButton,
+      carStatus,
       carTitle,
       carStartButton,
       carStopButton,
@@ -234,6 +243,13 @@ export const updateCarsContent = async (numOfPage: number) => {
   const cars = await getCarsForPage(numOfPage);
   const numOfCars = await getNumOfCars();
   const contentHeader = createCarsContentHeader(numOfCars);
+
+  if (cars) {
+    const carsContent = createCarsViewWrapper(cars);
+
+    GarageState.carsContentWrapper.innerHTML = '';
+    GarageState.carsContentWrapper.append(contentHeader, carsContent);
+  }
   const carsContent = createCarsViewWrapper(cars);
 
   GarageState.carsContentWrapper.innerHTML = '';

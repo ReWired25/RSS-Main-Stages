@@ -6,7 +6,7 @@ import createWinnersTableWrapper, {
   updateDefaultServerWinner,
 } from './winners-content';
 import createPaginationWinnerWrapper from './pagination-winners';
-import { createErrorModalWindow } from '../utilites/modal-windows';
+import handlerErrors from '../utilites/errors-handler';
 
 const winnersPageBuilder = async () => {
   try {
@@ -22,7 +22,7 @@ const winnersPageBuilder = async () => {
     winnersPageWrapper.append(winnersTitle, winnersTable, winnersPagination);
     return winnersPageWrapper;
   } catch {
-    return createErrorModalWindow();
+    return handlerErrors();
   }
 };
 

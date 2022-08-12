@@ -17,5 +17,6 @@ export type StartStopCarFunc = (
   startButton: HTMLElement,
   stopButton: HTMLElement,
   startingCar: HTMLElement,
+  carSatus: HTMLElement,
   carObj: Icar
 ) => Promise<void>;

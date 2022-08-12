@@ -1,19 +1,23 @@
-import { IapiStartCar, IapiWinner } from '../types/interfaces';
-import { Server } from '../types/enums';
+import { Icar, IapiStartCar, IapiWinner } from '../types/interfaces';
+import { Server, DriveStatus, ErrorDataStatus } from '../types/enums';
 import { createCarData, createWinnerData } from './api-data-creaters';
+import handlerErrors from '../utilites/errors-handler';
 
-export const getAllCars = async () => {
+export const getAllCars = async (): Promise<Icar[]> => {
   const responseResult = await fetch(`${Server.URL}garage`);
   const cars = await responseResult.json();
 
   return cars;
 };
 
-export const getCarsForPage = async (pageNum = 1) => {
+export const getCarsForPage = async (pageNum = 1): Promise<Icar[]> => {
   const responseResult = await fetch(
     `${Server.URL}garage?_page=${pageNum}&_limit=7`
   );
   const cars = await responseResult.json();
+
+  if (!cars || !cars.length) handlerErrors(ErrorDataStatus.invalidContent);
+
   return cars;
 };
 
@@ -23,7 +27,7 @@ export const getNumOfCars = async () => {
   return totalNumOfCars;
 };
 
-export const getSpecificCar = async (idNum: number) => {
+export const getSpecificCar = async (idNum: number): Promise<Icar> => {
   const responseResult = await fetch(`${Server.URL}garage/${idNum}`);
   const car = await responseResult.json();
 
@@ -87,10 +91,11 @@ export const startCarDrive = async (idNum: number) => {
     }
   );
 
-  if (responseResult.status === 404) {
-    console.log(
-      `The server lags again. Reload the app and don't spam the start and stop buttons. Read about problems with the server in the task's discord channel (you can find their analysis by the keywords "drive" and "drive 404").`
-    );
+  if (
+    responseResult.status !== DriveStatus.engineBroken &&
+    responseResult.status !== DriveStatus.finished
+  ) {
+    handlerErrors(responseResult.status);
   }
 
   return responseResult.status;

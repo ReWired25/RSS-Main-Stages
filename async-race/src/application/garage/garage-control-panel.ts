@@ -163,6 +163,7 @@ const createRaceStartStopButtons = (
         currentCar.carStartButton,
         currentCar.carStopButton,
         currentCar.carImage,
+        currentCar.carStatus,
         currentCar.car
       );
     });

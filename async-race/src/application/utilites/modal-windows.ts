@@ -1,5 +1,6 @@
 import elementCreater from './overall-functions';
 import GarageState from '../states/garage-state';
+import { ErrorValues } from '../types/enums';
 
 const createModalWindow = (messageText: string) => {
   const wrapper = elementCreater('div', 'modal-wrapper');
@@ -16,7 +17,38 @@ const createModalWindow = (messageText: string) => {
   GarageState.garagePageWrapper.append(wrapper);
 };
 
-export const createErrorModalWindow = () => {
+export const createErrorWrapper = (
+  errorModalClass: string,
+  errorTitle: string,
+  errorMessage: string,
+  errorStatus?: number
+) => {
+  const wrapper = elementCreater('div', errorModalClass);
+  const messageTitle = elementCreater('p', 'modal-error-message-title');
+  const messageText = elementCreater('p', 'modal-error-message');
+
+  messageTitle.innerHTML = errorTitle;
+  messageText.innerHTML = errorMessage;
+
+  if (errorStatus) {
+    messageTitle.innerHTML += ` Error: ${errorStatus}`;
+    const closeButton = elementCreater('button', 'modal-drive-error-button');
+    closeButton.innerHTML = 'X';
+    closeButton.addEventListener('click', () => {
+      wrapper.remove();
+    });
+    wrapper.append(closeButton, messageTitle, messageText);
+  } else {
+    wrapper.append(messageTitle, messageText);
+  }
+
+  document.body.append(wrapper);
+};
+
+export const createServerErrorModalWindow = (
+  errorTitle: string,
+  errorMessage: string
+) => {
   const bodyContains = document.body.children;
   const bodyContainsArr = Array.of(...bodyContains);
   const existingModal = bodyContainsArr.find((item) =>
@@ -24,17 +56,16 @@ export const createErrorModalWindow = () => {
   );
   if (existingModal) return;
 
-  const wrapper = elementCreater('div', 'modal-error-wrapper');
-  const messageTitle = elementCreater('p', 'modal-error-message-title');
-  const messageText = elementCreater('p', 'modal-error-message');
-  const mockServerLink =
-    '<a class="mock-link" target="_blank" href="https://github.com/mikhama/async-race-api">mock server</a>';
+  createErrorWrapper('modal-error-wrapper', errorTitle, errorMessage);
+};
 
-  messageTitle.innerHTML =
-    'Something went wrong!<br>Error 404: unable to get response from server.';
-  messageText.innerHTML = `You need to raise the ${mockServerLink} attached to the task, or, if one is running, try reloading the application.`;
-  wrapper.append(messageTitle, messageText);
-  document.body.append(wrapper);
+export const createDriveErrorModalWindow = (errorStatus: number) => {
+  createErrorWrapper(
+    'modal-error-drive-wrapper',
+    ErrorValues.driveResponseErrorTitle,
+    ErrorValues.driveResponseErrorMessage,
+    errorStatus
+  );
 };
 
 export default createModalWindow;
