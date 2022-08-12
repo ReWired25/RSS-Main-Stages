@@ -1,7 +1,9 @@
 import { IapiStartCar, IapiWinner } from '../types/interfaces';
+import { Server } from '../types/enums';
+import { createCarData, createWinnerData } from './api-data-creaters';
 
 export const getAllCars = async () => {
-  const responseResult = await fetch('http://127.0.0.1:3000/garage');
+  const responseResult = await fetch(`${Server.URL}garage`);
   const cars = await responseResult.json();
 
   return cars;
@@ -9,34 +11,29 @@ export const getAllCars = async () => {
 
 export const getCarsForPage = async (pageNum = 1) => {
   const responseResult = await fetch(
-    `http://127.0.0.1:3000/garage?_page=${pageNum}&_limit=7`
+    `${Server.URL}garage?_page=${pageNum}&_limit=7`
   );
   const cars = await responseResult.json();
   return cars;
 };
 
 export const getNumOfCars = async () => {
-  const responseResult = await fetch(
-    `http://127.0.0.1:3000/garage?_page=1&_limit=7`
-  );
+  const responseResult = await fetch(`${Server.URL}garage?_page=1&_limit=7`);
   const totalNumOfCars = <string>responseResult.headers.get('X-Total-Count');
   return totalNumOfCars;
 };
 
 export const getSpecificCar = async (idNum: number) => {
-  const responseResult = await fetch(`http://127.0.0.1:3000/garage/${idNum}`);
+  const responseResult = await fetch(`${Server.URL}garage/${idNum}`);
   const car = await responseResult.json();
 
   return car;
 };
 
 export const createCar = async (carName: string, carColor: string) => {
-  const data = {
-    name: carName,
-    color: carColor,
-  };
+  const data = createCarData(carName, carColor);
 
-  await fetch(`http://127.0.0.1:3000/garage`, {
+  await fetch(`${Server.URL}garage`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -46,7 +43,7 @@ export const createCar = async (carName: string, carColor: string) => {
 };
 
 export const deleteCar = async (idNum: number) => {
-  await fetch(`http://127.0.0.1:3000/garage/${idNum}`, {
+  await fetch(`${Server.URL}garage/${idNum}`, {
     method: 'DELETE',
   });
 };
@@ -56,12 +53,9 @@ export const updateCar = async (
   carColor: string,
   idNum: number
 ) => {
-  const data = {
-    name: carName,
-    color: carColor,
-  };
+  const data = createCarData(carName, carColor);
 
-  await fetch(`http://127.0.0.1:3000/garage/${idNum}`, {
+  await fetch(`${Server.URL}garage/${idNum}`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
@@ -75,7 +69,7 @@ export const startStopCarEngine = async (
   engineAction: string
 ): Promise<IapiStartCar> => {
   const responseResult = await fetch(
-    `http://127.0.0.1:3000/engine?id=${idNum}&status=${engineAction}`,
+    `${Server.URL}engine?id=${idNum}&status=${engineAction}`,
     {
       method: 'PATCH',
     }
@@ -87,7 +81,7 @@ export const startStopCarEngine = async (
 
 export const startCarDrive = async (idNum: number) => {
   const responseResult = await fetch(
-    `http://127.0.0.1:3000/engine?id=${idNum}&status=drive`,
+    `${Server.URL}engine?id=${idNum}&status=drive`,
     {
       method: 'PATCH',
     }
@@ -103,16 +97,14 @@ export const startCarDrive = async (idNum: number) => {
 };
 
 export const getAllWinners = async (): Promise<IapiWinner[]> => {
-  const responseResult = await fetch('http://127.0.0.1:3000/winners');
+  const responseResult = await fetch(`${Server.URL}winners`);
   const allWinners = await responseResult.json();
 
   return allWinners;
 };
 
 export const getNumOfWinners = async () => {
-  const responseResult = await fetch(
-    `http://127.0.0.1:3000/winners?_page=1&_limit=10`
-  );
+  const responseResult = await fetch(`${Server.URL}winners?_page=1&_limit=10`);
   const totalNumOfWinners = <string>responseResult.headers.get('X-Total-Count');
   return totalNumOfWinners;
 };
@@ -123,7 +115,7 @@ export const getWinnersForPage = async (
   orderType = 'ASC'
 ): Promise<IapiWinner[]> => {
   const responseResult = await fetch(
-    `http://127.0.0.1:3000/winners?_page=${pageNum}&_limit=10&_sort=${sortType}&_order=${orderType}`
+    `${Server.URL}winners?_page=${pageNum}&_limit=10&_sort=${sortType}&_order=${orderType}`
   );
   const winners = await responseResult.json();
 
@@ -131,7 +123,7 @@ export const getWinnersForPage = async (
 };
 
 export const getSpecificWinner = async (idNum: number): Promise<IapiWinner> => {
-  const responseResult = await fetch(`http://127.0.0.1:3000/winners/${idNum}`);
+  const responseResult = await fetch(`${Server.URL}winners/${idNum}`);
   const winner = await responseResult.json();
 
   return winner;
@@ -142,13 +134,9 @@ export const createWinner = async (
   winsCount: number,
   bestTime: number
 ) => {
-  const data = {
-    id: idNum,
-    wins: winsCount,
-    time: bestTime,
-  };
+  const data = createWinnerData(winsCount, bestTime, idNum);
 
-  await fetch('http://127.0.0.1:3000/winners', {
+  await fetch(`${Server.URL}winners`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -158,7 +146,7 @@ export const createWinner = async (
 };
 
 export const deleteWinner = async (idNum: number) => {
-  await fetch(`http://127.0.0.1:3000/winners/${idNum}`, {
+  await fetch(`${Server.URL}winners/${idNum}`, {
     method: 'DELETE',
   });
 };
@@ -168,12 +156,9 @@ export const updateWinner = async (
   winsCount: number,
   bestTime: number
 ) => {
-  const data = {
-    wins: winsCount,
-    time: bestTime,
-  };
+  const data = createWinnerData(winsCount, bestTime);
 
-  await fetch(`http://127.0.0.1:3000/winners/${idNum}`, {
+  await fetch(`${Server.URL}winners/${idNum}`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',

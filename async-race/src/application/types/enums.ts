@@ -14,3 +14,7 @@ export enum DriveStatus {
   finished = 200,
   engineBroken = 500,
 }
+
+export enum Server {
+  URL = 'http://127.0.0.1:3000/',
+}
