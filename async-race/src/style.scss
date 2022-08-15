@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 
-@keyframes modal-drive-error-window {
+@keyframes modal-minor-error-window {
   from {
     opacity: 0;
   } to {
@@ -436,7 +436,7 @@ button:disabled {
   }
 }
 
-.modal-error-drive-wrapper {
+.modal-error-minor-wrapper {
   width: 350px;
   height: 350px;
   padding: 0 25px;
@@ -456,11 +456,11 @@ button:disabled {
   .modal-error-message {
     font-size: 18px;
   }
-  .modal-drive-error-button {
+  .modal-minor-error-button {
     width: 35px;
     height: 20px;
   }
-  animation: modal-drive-error-window 3s;
+  animation: modal-minor-error-window 3s;
 }
 
 @media (max-width: 800px) {

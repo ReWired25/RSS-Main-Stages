@@ -21,7 +21,7 @@ export const createErrorWrapper = (
   errorModalClass: string,
   errorTitle: string,
   errorMessage: string,
-  errorStatus?: number
+  errorStatus?: number | string
 ) => {
   const wrapper = elementCreater('div', errorModalClass);
   const messageTitle = elementCreater('p', 'modal-error-message-title');
@@ -32,7 +32,7 @@ export const createErrorWrapper = (
 
   if (errorStatus) {
     messageTitle.innerHTML += ` Error: ${errorStatus}`;
-    const closeButton = elementCreater('button', 'modal-drive-error-button');
+    const closeButton = elementCreater('button', 'modal-minor-error-button');
     closeButton.innerHTML = 'X';
     closeButton.addEventListener('click', () => {
       wrapper.remove();
@@ -61,10 +61,19 @@ export const createServerErrorModalWindow = (
 
 export const createDriveErrorModalWindow = (errorStatus: number) => {
   createErrorWrapper(
-    'modal-error-drive-wrapper',
+    'modal-error-minor-wrapper',
     ErrorValues.driveResponseErrorTitle,
     ErrorValues.driveResponseErrorMessage,
     errorStatus
+  );
+};
+
+export const createMinorErrorModalWindow = () => {
+  createErrorWrapper(
+    'modal-error-minor-wrapper',
+    ErrorValues.driveResponseErrorTitle,
+    ErrorValues.minorResponceErrorMessage,
+    ErrorValues.minorResponseErrorType
   );
 };
 

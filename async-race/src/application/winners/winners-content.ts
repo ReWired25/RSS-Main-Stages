@@ -1,6 +1,6 @@
 import elementCreater, { createSVGImage } from '../utilites/overall-functions';
 import carIconTemplate from '../utilites/car-icon-svg';
-import { IapiWinner, Icar } from '../types/interfaces';
+import { IapiWinner } from '../types/interfaces';
 import {
   getNumOfWinners,
   getSpecificCar,
@@ -79,8 +79,14 @@ const createWinnerTableHeader = () => {
   return wrapper;
 };
 
-const createWinnerView = async (obj: IapiWinner, carPosition: number) => {
-  const carData: Icar = await getSpecificCar(obj.id);
+const createWinnerView = async (
+  obj: IapiWinner,
+  carPosition: number
+): Promise<HTMLElement | void> => {
+  const carData = await getSpecificCar(obj.id);
+  if (!carData) {
+    return undefined;
+  }
 
   const winnerWrapper = elementCreater('div', 'winner-wrapper');
   const numberInTable = elementCreater('p', 'winner-table-number');
@@ -127,7 +133,9 @@ const createWinnersViewsWrapper = async (winnersObjs: IapiWinner[]) => {
     const currentValue = await previousValue;
     const currentWinnerPosition = basePosition + index + 1;
     const newWinnerView = await createWinnerView(winner, currentWinnerPosition);
-    currentValue.push(newWinnerView);
+    if (newWinnerView) {
+      currentValue.push(newWinnerView);
+    }
     return currentValue;
   };
 
@@ -160,17 +168,20 @@ export const updateWinnersTable = async (numOfPage: number) => {
   );
 
   const header = createWinnerTableHeader();
-  const winnersViewWrapper = await createWinnersViewsWrapper(winners);
+  if (winners) {
+    const winnersViewWrapper = await createWinnersViewsWrapper(winners);
 
-  const totalWinnersNumber = await getNumOfWinners();
-  WinnersState.totalWinners.innerHTML = `Total ${totalWinnersNumber} winners`;
+    const totalWinnersNumber = await getNumOfWinners();
+    WinnersState.totalWinners.innerHTML = `Total ${totalWinnersNumber} winners`;
 
-  WinnersState.tableContent.innerHTML = '';
-  WinnersState.tableContent.append(header, winnersViewWrapper);
+    WinnersState.tableContent.innerHTML = '';
+    WinnersState.tableContent.append(header, winnersViewWrapper);
+  }
 };
 
 export const updateDefaultServerWinner = async () => {
   const winnerState = await getSpecificWinner(1);
+  if (!winnerState) return;
   if (winnerState.time === 10) {
     await updateWinner(winnerState.id, winnerState.wins, 10000);
   }

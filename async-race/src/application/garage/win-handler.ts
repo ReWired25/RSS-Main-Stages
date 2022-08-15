@@ -40,12 +40,14 @@ const getWinnerCar = async () => {
 
   const winners = await getAllWinners();
   let idInclude = false;
-  winners.forEach((winner) => {
-    if (winner.id === carId) idInclude = true;
-  });
-
+  if (winners) {
+    winners.forEach((winner) => {
+      if (winner.id === carId) idInclude = true;
+    });
+  }
   if (idInclude) {
     const winner = await getSpecificWinner(carId);
+    if (!winner) return;
     if (winner.time > carTime) winner.time = carTime;
     winner.wins += 1;
     await updateWinner(winner.id, winner.wins, winner.time);
@@ -76,12 +78,15 @@ export const addWinner = async (carObj: Icar, raceTime: number) => {
 
   const winners = await getAllWinners();
   let idInclude = false;
-  winners.forEach((winner) => {
-    if (winner.id === carId) idInclude = true;
-  });
+  if (winners) {
+    winners.forEach((winner) => {
+      if (winner.id === carId) idInclude = true;
+    });
+  }
 
   if (idInclude) {
     const winner = await getSpecificWinner(carId);
+    if (!winner) return;
     if (winner.time > carTime) winner.time = carTime;
     winner.wins += 1;
     await updateWinner(winner.id, winner.wins, winner.time);

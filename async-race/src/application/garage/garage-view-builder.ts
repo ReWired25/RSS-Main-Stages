@@ -6,26 +6,23 @@ import {
   forwardUpdateFuncToButton,
 } from './cars-content';
 import createGarageControlWrapper from './garage-control-panel';
-import handlerErrors from '../utilites/errors-handler';
 import createPaginationWrapper from './pagination-garage';
 
 const garagePageBuilder = async () => {
-  try {
-    const cars = await getCarsForPage();
-    const numOfCars = await getNumOfCars();
+  const cars = await getCarsForPage();
+  const numOfCars = await getNumOfCars();
 
-    const garagePageWrapper = elementCreater('div', 'garage-page');
-    const garageControlPanel = createGarageControlWrapper();
-    const garageContent = createCarsContentWrapper(cars, numOfCars);
-    const pagination = await createPaginationWrapper();
+  if (!cars || !numOfCars) return undefined;
 
-    forwardUpdateFuncToButton();
-    garagePageWrapper.append(garageControlPanel, garageContent, pagination);
-    GarageState.garagePageWrapper = garagePageWrapper;
-    return garagePageWrapper;
-  } catch {
-    return handlerErrors();
-  }
+  const garagePageWrapper = elementCreater('div', 'garage-page');
+  const garageControlPanel = createGarageControlWrapper();
+  const garageContent = createCarsContentWrapper(cars, numOfCars);
+  const pagination = await createPaginationWrapper();
+
+  forwardUpdateFuncToButton();
+  garagePageWrapper.append(garageControlPanel, garageContent, pagination);
+  GarageState.garagePageWrapper = garagePageWrapper;
+  return garagePageWrapper;
 };
 
 export default garagePageBuilder;

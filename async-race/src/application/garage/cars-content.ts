@@ -57,6 +57,7 @@ export const startCar = async (
   const currentCar = startingCar;
   const currentCarStatus = carSatus;
   const responseCarCondition = await startStopCarEngine(carObj.id, 'started');
+  if (!responseCarCondition) return;
   const carTime = responseCarCondition.distance / responseCarCondition.velocity;
   const currentWidth = document.body.clientWidth;
 
@@ -159,10 +160,11 @@ export const createCarsView = (objs: Icar[]): HTMLElement[] => {
       const idNum = Number(carRemoveButton.id);
       deleteCar(idNum);
       const allWinners = await getAllWinners();
-      allWinners.forEach((winner) => {
-        if (winner.id === idNum) deleteWinner(idNum);
-      });
-
+      if (allWinners) {
+        allWinners.forEach((winner) => {
+          if (winner.id === idNum) deleteWinner(idNum);
+        });
+      }
       const currentPage = Number(PaginationState.pageCounter.innerHTML);
       GarageState.listenerButtonUpdater(currentPage);
     });
@@ -242,18 +244,18 @@ export const createCarsContentWrapper = (
 export const updateCarsContent = async (numOfPage: number) => {
   const cars = await getCarsForPage(numOfPage);
   const numOfCars = await getNumOfCars();
-  const contentHeader = createCarsContentHeader(numOfCars);
 
-  if (cars) {
+  if (numOfCars && cars) {
+    const contentHeader = createCarsContentHeader(numOfCars);
     const carsContent = createCarsViewWrapper(cars);
 
     GarageState.carsContentWrapper.innerHTML = '';
     GarageState.carsContentWrapper.append(contentHeader, carsContent);
   }
-  const carsContent = createCarsViewWrapper(cars);
+  // const carsContent = createCarsViewWrapper(cars);
 
-  GarageState.carsContentWrapper.innerHTML = '';
-  GarageState.carsContentWrapper.append(contentHeader, carsContent);
+  // GarageState.carsContentWrapper.innerHTML = '';
+  // GarageState.carsContentWrapper.append(contentHeader, carsContent);
 };
 
 export const forwardUpdateFuncToButton = () => {

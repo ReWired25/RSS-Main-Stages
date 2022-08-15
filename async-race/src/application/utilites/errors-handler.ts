@@ -1,6 +1,7 @@
 import {
   createServerErrorModalWindow,
   createDriveErrorModalWindow,
+  createMinorErrorModalWindow,
 } from './modal-windows';
 import { ErrorValues, ErrorDataStatus } from '../types/enums';
 
@@ -10,8 +11,9 @@ const handlerErrors = (errorStatus?: number) => {
       ErrorValues.serverDataErrorTitle,
       ErrorValues.serverDataErrorMessage
     );
-  }
-  if (errorStatus) {
+  } else if (errorStatus === ErrorDataStatus.unexpectedError) {
+    createMinorErrorModalWindow();
+  } else if (errorStatus) {
     createDriveErrorModalWindow(errorStatus);
   } else {
     createServerErrorModalWindow(
