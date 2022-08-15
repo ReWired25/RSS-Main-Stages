@@ -252,10 +252,6 @@ export const updateCarsContent = async (numOfPage: number) => {
     GarageState.carsContentWrapper.innerHTML = '';
     GarageState.carsContentWrapper.append(contentHeader, carsContent);
   }
-  // const carsContent = createCarsViewWrapper(cars);
-
-  // GarageState.carsContentWrapper.innerHTML = '';
-  // GarageState.carsContentWrapper.append(contentHeader, carsContent);
 };
 
 export const forwardUpdateFuncToButton = () => {
