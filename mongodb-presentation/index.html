@@ -183,10 +183,31 @@
 			.compass-collections {
 				height: 450px;
 			}
+			.crud-titles {
+				font-size: 30px;
+			}
+			.crud-shadow {
+				color: rgb(100, 100, 100);
+			}
+			.crud-method {
+				color: lime;
+			}
+			.crud-info {
+				font-size: 25px;
+			}
+			.update-methods-value .hljs-comment{
+				color: white;
+			}
 			.mongoose-title {
 				color: rgb(221, 51, 51);
 			}
 			.mongoose-title-info {
+				font-size: 30px;
+			}
+			.update-methods {
+				font-size: 30px;
+			}
+			.info-links {
 				font-size: 30px;
 			}
 		</style>
@@ -369,21 +390,89 @@
 					</section>
 				</section>
 				<section>
+					<section>
+						<p>CRUD operations</p>
+						<a href="https://www.mongodb.com/docs/drivers/node/current/fundamentals/crud/#crud-operations">CRUD in docs</a>
+						<p class="crud-titles">
+							Read
+							<pre>
+								<code data-trim data-noescape>
+									<span class="crud-shadow">database.collection</span><span class="crud-method">.find()</span>
+									<span class="crud-shadow">database.collection</span><span class="crud-method">.findOne()</span>
+								</code>
+							</pre>
+						</p>
+						<p class="crud-titles">
+							Write
+							<pre>
+								<code data-trim data-noescape>
+									<span class="crud-shadow">database.collection</span><span class="crud-method">.insertOne()</span>
+									<span class="crud-shadow">database.collection</span><span class="crud-method">.insertMany()</span>
+								</code>
+							</pre>
+							<p class="crud-info">automatically creates <span class="crud-method">_id</span></p>
+						</p>
+					</section>
+					<section>
+						<p class="crud-titles">
+							Delete
+							<pre>
+								<code data-trim data-noescape>
+									<span class="crud-shadow">database.collection</span><span class="crud-method">.deleteOne()</span>
+									<span class="crud-shadow">database.collection</span><span class="crud-method">.deleteMany()</span>
+								</code>
+							</pre>
+						</p>
+						<p class="crud-titles">
+							Update
+							<pre>
+								<code data-trim data-noescape>
+									<span class="crud-shadow">database.collection</span><span class="crud-method">.updateOne() $set</span>
+									<span class="crud-shadow">database.collection</span><span class="crud-method">.replaceOne()</span>
+								</code>
+							</pre>
+						</p>
+						<p class="crud-titles">Update methods</p>
+						<div class="update-methods">
+							<pre>
+								<code data-trim data-noescape>
+									const findDoc = { _id: 465 };
+									const updateDocument = {
+									   $set: {
+									      z: 42,
+									   },
+									};
+									await collection.updateOne(findDoc, updateDocument);
+								</code>
+							</pre>
+							<pre>
+								<code data-trim data-noescape>
+									const findDoc = <span class="update-methods-value">{ _id: 465 }</span>;
+									const replacementDocument = <span class="update-methods-value">{
+										 z: 42,
+									}</span>;
+									const result = await collection.replaceOne(findDoc, replacementDocument);
+								</code>
+							</pre>
+						</div>
+					</section>
+				</section>
+				<section>
 					<p class="mongoose-title">Mongoose</p>
 					<p class="fragment mongoose-title-info" data-fragment-index="1">Allows you to create strict data interaction schemes</p>
 					<img class="fragment" data-fragment-index="1" src="./assets/png/mongoose.png" alt="mongoose-schema-image">
 				</section>
 				<section>
 					<p>Thank you for watching!</p>
-					<a href="https://www.mongodb.com/docs/drivers/node/current/fundamentals/crud/#crud-operations">CRUD operations</a><br>
-					<a href="https://en.wikipedia.org/wiki/Relational_model">Relational model</a><br>
-					<a href="https://en.wikipedia.org/wiki/Object–relational_impedance_mismatch">Object–relational impedance mismatch</a><br>
-					<a href="https://en.wikipedia.org/wiki/Document-oriented_database">Document-oriented database</a><br>
-					<a href="https://www.youtube.com/watch?v=wAlHAQOvhb8">Relational databases and their problems (Vladimir Kuznetsov)</a><br>
-					<a href="https://www.youtube.com/watch?v=7_hcfx2VDWE">NoSQL databases (Vladimir Kuznetsov)</a><br>
-					<a href="https://www.mongodb.com/docs/">MongoDB docs</a><br>
-					<a href="https://www.mongodb.com/who-uses-mongodb">MongoDB customers</a><br>
-					<a href="https://mongoosejs.com">Mongoose</a>
+					<a class="info-links" target="_blank" href="https://en.wikipedia.org/wiki/Relational_model">Relational model</a><br>
+					<a class="info-links" target="_blank" href="https://en.wikipedia.org/wiki/Object–relational_impedance_mismatch">Object–relational impedance mismatch</a><br>
+					<a class="info-links" target="_blank" href="https://en.wikipedia.org/wiki/Document-oriented_database">Document-oriented database</a><br>
+					<a class="info-links" target="_blank" href="https://www.youtube.com/watch?v=wAlHAQOvhb8">Relational databases and their problems (Vladimir Kuznetsov)</a><br>
+					<a class="info-links" target="_blank" href="https://www.youtube.com/watch?v=7_hcfx2VDWE">NoSQL databases (Vladimir Kuznetsov)</a><br>
+					<a class="info-links" target="_blank" href="https://www.mongodb.com/docs/">MongoDB docs</a><br>
+					<a class="info-links" target="_blank" href="https://metanit.com/nosql/mongodb/1.1.php">Metanite MongoDB guide</a><br>
+					<a class="info-links" target="_blank" href="https://www.mongodb.com/who-uses-mongodb">MongoDB customers</a><br>
+					<a class="info-links" target="_blank" href="https://mongoosejs.com">Mongoose</a>
 				</section>
 			</div>
 		</div>
