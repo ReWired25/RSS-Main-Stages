@@ -1,0 +1,441 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>MongoDB</title>
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/black.css">
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+		<style>
+			.title {
+				font-size: 70px;
+			}
+			.mongo-title,
+			.mongodb-represent-title {
+				color: limegreen
+			}
+			.title-storyline {
+				font-size: 25px;
+			}
+			.storyline {
+				background-color: white;
+				color: black;
+				padding: 10px 10px;
+			}
+			.storyline p {
+				padding: 0;
+				margin: 0;
+				font-size: 20px;
+			}
+			.rdbms-problem {
+				color: rgb(124, 124, 124);
+			}
+			.problem-solutions-block {
+				display: flex;
+				padding: 20px 0;
+				justify-content: space-around;
+				align-items: center;
+			}
+			.NoSQL-title {
+				font-size: 25px;
+			}
+			.advantages-nosql {
+				font-size: 30px;
+			}
+			.advantages-nosql-title {
+				font-size: 35px;
+			}
+			.mongodb-logo {
+				margin: 0 !important;
+				width: 300px;
+				height: 85px;
+			}
+			.mongo-represent-info {
+				display: flex;
+				gap: 50px;
+			}
+			.mongo-state-and-company p {
+				margin: 0;
+				padding: 0;
+				font-size: 25px;
+				text-align: start;
+			}
+			.companies {
+				margin-top: 50px;
+    		display: flex;
+    		flex-wrap: wrap;
+    		column-gap: 40px;
+    		width: 500px;
+    		justify-content: center;
+			}
+			.forbes-logo,
+			.ea-logo {
+				height: 35px;
+			}
+			.toyota-logo,
+			.bosch-logo {
+				height: 50px;
+			}
+			.ebay-logo {
+				height: 45px;
+			}
+			.adobe-logo {
+				height: 40px;
+			}
+			.mongo-features-title {
+				color: limegreen
+			}
+			.mongo-features {
+				min-width: 440px;
+				font-size: 35px;
+			}
+			.mongo-features p {
+				text-align: start;
+				margin: 0;
+				padding: 0;
+				font-size: 25px;
+			}
+			.local-title {
+				font-size: 30px;
+			}
+			.site-community {
+				width: 500px;
+			}
+			.community-download {
+				width: 900px;
+			}
+			.server-bin-info {
+				font-size: 30px;
+			}
+			.site-shell {
+				width: 650px;
+			}
+			.download-shell {
+				width: 900px;
+			}
+			.path,
+			.operations-title {
+				color: rgb(255, 238, 2);
+			}
+			.operations-commands{
+				font-size: 30px;
+			}
+			.project-connection-title {
+				font-size: 30px;
+			}
+			.init-project {
+				margin: 0 !important;
+				font-size: 25px;
+			}
+			.node-mongo {
+				margin-bottom: 0 !important;
+    		height: 350px;
+			}
+			.node-terminal {
+				margin: 0 !important;
+    		height: 150px;
+			}
+			.mac-install {
+				font-size: 30px;
+			}
+			.mac-start {
+				font-size: 30px;
+			}
+			.atlas-start,
+			.cluster-start {
+				font-size: 30px;
+			}
+			.cluster-image {
+				height: 450px;
+			}
+			.cluster-connect {
+				margin: 0 !important;
+				height: 100px;
+			}
+			.connect-choise {
+				margin: 0 !important;
+				height: 300px;
+			}
+			.connect-path {
+				margin: 0 !important;
+				height: 150px;
+			}
+			.connect-atlas {
+				font-size: 30px;
+			}
+			.compass-title {
+				margin: 0 !important;
+				font-size: 30px;
+			}
+			.site-compass {
+				height: 200px;
+			}
+			.compass-download {
+				height: 250px;
+			}
+			.compass-workfield {
+				display: flex;
+				align-items: center;
+				gap: 50px;
+			}
+			.compass-collections {
+				height: 450px;
+			}
+			.crud-titles {
+				font-size: 30px;
+			}
+			.crud-shadow {
+				color: rgb(100, 100, 100);
+			}
+			.crud-method {
+				color: lime;
+			}
+			.crud-info {
+				font-size: 25px;
+			}
+			.update-methods-value .hljs-comment{
+				color: white;
+			}
+			.mongoose-title {
+				color: rgb(221, 51, 51);
+			}
+			.mongoose-title-info {
+				font-size: 30px;
+			}
+			.update-methods {
+				font-size: 30px;
+			}
+			.info-links {
+				font-size: 30px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section class="mongodb-represent">
+					<p><img class="mongodb-logo" src="./assets/svg/mongodb-logo.svg" alt="mongodb-logo"></p>
+					<div class="mongo-represent-info">
+						<div class="mongo-state-and-company">
+							<p class="fragment" data-fragment-index="1">&#183; <b>2009</b> 10gen</p>
+							<p class="fragment" data-fragment-index="2">&#183; <b>2013</b> MongoDB</p>
+							<p class="fragment" data-fragment-index="3">&#183; One of the most popular NoSQL systems</p>
+							<div class="fragment companies" data-fragment-index="4">
+								<img class="forbes-logo" src="./assets/svg/forbes-svg.svg" alt="forbes-logo">
+								<img class="toyota-logo" src="./assets/svg/toyota-svg.svg" alt="toyota-logo">
+								<img class="bosch-logo" src="./assets/svg/bosch-svg.svg" alt="bosch-logo">
+								<img class="ea-logo" src="./assets/svg/ea-svg.svg" alt="ea-logo">
+								<img class="ebay-logo" src="./assets/svg/ebay-svg.svg" alt="ebay-logo">
+								<img class="adobe-logo" src="./assets/svg/adobe-svg.svg" alt="adobe-logo">
+							</div>
+						</div>
+						<div class="fragment mongo-features" data-fragment-index="5">
+							<span class="mongo-features-title">Mongo</span>DB features:
+							<p class="fragment" data-fragment-index="6">&#183; Ease of deployment</p>
+							<p class="fragment" data-fragment-index="7">&#183; Unified and flexible API (3-5 faster iteration)</p>
+							<p class="fragment" data-fragment-index="8">&#183; Safety</p>
+							<p class="fragment" data-fragment-index="9">&#183; Real-Time Data Integration</p>
+							<p class="fragment" data-fragment-index="10">&#183; Improved scalability</p>
+							<p class="fragment" data-fragment-index="11">&#183; BSON: Faster search and data processing</p>
+							<p class="fragment" data-fragment-index="12">&#183; GridFS</p>
+						</div>
+					</div>
+				</section>
+				<section>
+					<section>
+						How to start?
+					<p class="fragment local-title" data-fragment-index="1">Local Server</p>
+					<p class="fragment" data-fragment-index="1"><img class="site-community" src="./assets/png/site-community.png" alt="site-community"></p>
+					<p class="fragment" data-fragment-index="2"><img class="community-download" src="./assets/png/community-server-download.png" alt="community-download"></p>
+					</section>
+					<section>
+						<p class="server-bin">mongodb/bin</p>
+						<img class="server-bin-image" src="./assets/png/mongo-server-bin.png" alt="server-bin-folder">
+						<p class="server-bin-info">mongod: database server MongoDB</p>
+						<p class="server-bin-info">mongos: routing service MongoDB</p>
+						<p class="server-bin-info">Create path for databases: C:\data\db</p>
+					</section>
+					<section>
+						<p class="shell-title">Download mongoDB shell</p>
+						<img class="site-shell" src="./assets/png/site-shell.png" alt="site-shell">
+						<img class="download-shell" src="./assets/png/shell.png" alt="shell-download">
+					</section>
+					<section>
+						<p>Start the server</p>
+						<p class="fragment" data-fragment-index="1">&#183; Start mongod in mongodb/bin</p>
+						<p class="fragment" data-fragment-index="2">&#183; Open terminal and enter path to mongod (<span class="path">C:\mongodb\bin\mongod</span>)</p>
+					</section>
+					<section>
+						<p>Open mongoDB shell</p>
+						<img src="./assets/png/mongosh-files.png" alt="mongosh-files">
+						<img src="./assets/png/local-server-start.png" alt="local-server-start">
+					</section>
+					<section>
+						<p><span class="operations-title">Create</span> and <span class="operations-title">Read</span> operations</p>
+						<p class="fragment operations-commands" data-fragment-index="1">use newDB</p>
+						<p class="fragment operations-commands" data-fragment-index="2">db.education.insertOne({ school: "Rolling-Scopes" })</p>
+						<p class="fragment operations-commands" data-fragment-index="3">db.education.find()</p>
+						<img class="fragment" data-fragment-index="3" src="./assets/png/local-server-work.png" alt="server-work">
+					</section>
+					<section>
+						<p class="project-connection-title">Connection to project</p>
+						<p class="fragment init-project" data-fragment-index="1">npm init -y</p>
+						<p class="fragment init-project" data-fragment-index="2">npm i mongodb</p>
+						<img class="fragment node-mongo" data-fragment-index="3" src="./assets/png/node-mongo.png" alt="node-mongo">
+						<img class="fragment node-terminal" data-fragment-index="4" src="./assets/png/mongo-terminal.png" alt="terminal">
+					</section>
+					<section>
+						<p>On mac</p>
+						<p class="fragment mac-install" data-fragment-index="1">Homebrew (recommended):</p>
+						<p class="fragment mac-install" data-fragment-index="2">/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"</p>
+						<p class="fragment mac-install" data-fragment-index="3">brew tap mongodb/brew</p>
+						<p class="fragment mac-install" data-fragment-index="4">brew install mongodb-community@6.0</p>
+						<p class="fragment mac-install" data-fragment-index="5">&#183; mongosh<br>&#183; mongod<br>&#183; mongos</p>
+					</section>
+					<section>
+						<p>Server start</p>
+						<p class="fragment mac-start" data-fragment-index="1">brew services start mongodb-community@6.0<br>brew services stop mongodb-community@6.0</p>
+						<p class="fragment mac-start" data-fragment-index="2">mongosh</p>
+						<img class="fragment mac-install" data-fragment-index="3" src="./assets/png/mac-server-up.png" alt="mac-server-up">
+					</section>
+				</section>
+				<section>
+					<section>
+						How to start?
+						<p class="fragment atlas-start" data-fragment-index="1">Atlas server</p>
+						<p class="fragment cluster-start" data-fragment-index="2">Create cluster</p>
+						<img class="fragment cluster-image" data-fragment-index="2" src="./assets/png/create-cluster.png" alt="create-cluster">
+					</section>
+					<section>
+						<p>Create database user</p>
+						<img src="./assets/png/member.png" alt="db-user">
+					</section>
+					<section>
+						<p class="connect-atlas">Connect to project</p>
+						<img class="fragment cluster-connect" data-fragment-index="1" src="./assets/png/cluster-connect.png" alt="cluster-connect"><br>
+						<img class="fragment connect-choise" data-fragment-index="2" src="./assets/png/connect.png" alt="connect-choise"><br>
+						<img class="fragment connect-path" data-fragment-index="3" src="./assets/png/connect-path.png" alt="connect-path">
+					</section>
+					<section>
+						<p>Enter password and project name in URL for connect</p>
+						<img src="./assets/png/project-name.png" alt="project-name">
+						<img src="./assets/png/node.png" alt="node-altas">
+					</section>
+				</section>
+				<section>
+					<section>
+						<p><span class="mongo-title">Mongo</span>DB GUI</p>
+						<p class="fragment compass-title" data-fragment-index="1">Compass</p>
+						<img class="fragment site-compass" data-fragment-index="1" src="./assets/png/site-compass.png" alt="site-compass">
+						<img class="fragment compass-download" data-fragment-index="1" src="./assets/png/compass-download.png" alt="compass-download">
+					</section>
+					<section>
+						<p>Connect</p>
+						<img src="./assets/png/compass-connect.png" alt="compass-connect">
+					</section>
+					<section>
+						<p>View the database and work with the shell</p>
+						<div class="compass-workfield">
+							<img class="compass-collections" src="./assets/png/compass-collections.png" alt="compass-collections">
+							<img src="./assets/png/compass-shell.png" alt="compass-shell">
+						</div>
+					</section>
+				</section>
+				<section>
+					<section>
+						<p>CRUD operations</p>
+						<a href="https://www.mongodb.com/docs/drivers/node/current/fundamentals/crud/#crud-operations">CRUD in docs</a>
+						<p class="crud-titles">
+							Read
+							<pre>
+								<code data-trim data-noescape>
+									<span class="crud-shadow">database.collection</span><span class="crud-method">.find()</span>
+									<span class="crud-shadow">database.collection</span><span class="crud-method">.findOne()</span>
+								</code>
+							</pre>
+						</p>
+						<p class="crud-titles">
+							Write
+							<pre>
+								<code data-trim data-noescape>
+									<span class="crud-shadow">database.collection</span><span class="crud-method">.insertOne()</span>
+									<span class="crud-shadow">database.collection</span><span class="crud-method">.insertMany()</span>
+								</code>
+							</pre>
+							<p class="crud-info">automatically creates <span class="crud-method">_id</span></p>
+						</p>
+					</section>
+					<section>
+						<p class="crud-titles">
+							Delete
+							<pre>
+								<code data-trim data-noescape>
+									<span class="crud-shadow">database.collection</span><span class="crud-method">.deleteOne()</span>
+									<span class="crud-shadow">database.collection</span><span class="crud-method">.deleteMany()</span>
+								</code>
+							</pre>
+						</p>
+						<p class="crud-titles">
+							Update
+							<pre>
+								<code data-trim data-noescape>
+									<span class="crud-shadow">database.collection</span><span class="crud-method">.updateOne() $set</span>
+									<span class="crud-shadow">database.collection</span><span class="crud-method">.replaceOne()</span>
+								</code>
+							</pre>
+						</p>
+						<p class="crud-titles">Update methods</p>
+						<div class="update-methods">
+							<pre>
+								<code data-trim data-noescape>
+									const findDoc = { _id: 465 };
+									const updateDocument = {
+									   $set: {
+									      z: 42,
+									   },
+									};
+									await collection.updateOne(findDoc, updateDocument);
+								</code>
+							</pre>
+							<pre>
+								<code data-trim data-noescape>
+									const findDoc = <span class="update-methods-value">{ _id: 465 }</span>;
+									const replacementDocument = <span class="update-methods-value">{
+										 z: 42,
+									}</span>;
+									const result = await collection.replaceOne(findDoc, replacementDocument);
+								</code>
+							</pre>
+						</div>
+					</section>
+				</section>
+				<section>
+					<p class="mongoose-title">Mongoose</p>
+					<p class="fragment mongoose-title-info" data-fragment-index="1">Allows you to create strict data interaction schemes</p>
+					<img class="fragment" data-fragment-index="1" src="./assets/png/mongoose.png" alt="mongoose-schema-image">
+				</section>
+				<section>
+					<p>Thank you for watching!</p>
+					<a class="info-links" target="_blank" href="https://www.youtube.com/watch?v=7_hcfx2VDWE">NoSQL databases (Vladimir Kuznetsov)</a><br>
+					<a class="info-links" target="_blank" href="https://www.mongodb.com/docs/">MongoDB docs</a><br>
+					<a class="info-links" target="_blank" href="https://metanit.com/nosql/mongodb/1.1.php">Metanite MongoDB guide</a><br>
+					<a class="info-links" target="_blank" href="https://www.mongodb.com/who-uses-mongodb">MongoDB customers</a><br>
+					<a class="info-links" target="_blank" href="https://mongoosejs.com">Mongoose</a>
+				</section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			Reveal.initialize({
+				hash: true,
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
