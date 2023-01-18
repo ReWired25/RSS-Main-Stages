@@ -38,4 +38,4 @@ https://rewired25.github.io/RSS-main-stages/async-race/
 Presentation with a brief history of databases and the main features of mongoDB  
 Created with [Reveal JS](https://revealjs.com)  
 Link:  
-https://rolling-scopes-school.github.io/rewired25-JSFE2022Q1/mongodb-presentation/
+https://rewired25.github.io/RSS-main-stages/mongodb-presentation/
