@@ -34,7 +34,7 @@ https://rewired25.github.io/RSS-main-stages/online-store/
 Deploy (need to raise a [mock server](https://github.com/mikhama/async-race-api)):  
 https://rewired25.github.io/RSS-main-stages/async-race/
 
-* Presentation about databases and MongoDB
+* Presentation about databases and MongoDB  
 Presentation with a brief history of databases and the main features of mongoDB  
 Created with [Reveal JS](https://revealjs.com)  
 Link:  
