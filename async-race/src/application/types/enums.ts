@@ -16,7 +16,7 @@ export enum DriveStatus {
 }
 
 export enum Server {
-  URL = 'http://127.0.0.1:3000/',
+  URL = 'https://async-race-api-95ws.onrender.com/',
 }
 
 export enum ErrorDataStatus {
@@ -26,7 +26,7 @@ export enum ErrorDataStatus {
 
 export enum ErrorValues {
   serverResponseErrorTitle = 'Something went wrong!<br>Unable to get response from server.',
-  serverResponseErrorMessage = `You need to raise the '<a class="mock-link" target="_blank" href="https://github.com/mikhama/async-race-api">mock server</a>' attached to the task, or, if one is running, try reloading the application.`,
+  serverResponseErrorMessage = `The server is located on '<a class="message-server-link" target="_blank" href="https://render.com">render.com</a>', sometimes it takes a little longer to respond. Please try again later or reloading the application.`,
   serverDataErrorTitle = 'Something went wrong!<br>Error: 204. Invalid content.',
   serverDataErrorMessage = 'The server is sending incorrect data. Please restart the app or try again later.',
   driveResponseErrorTitle = 'Something went wrong with server!',
