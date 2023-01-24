@@ -26,7 +26,7 @@ burgerMenu.addEventListener('click', () => {
 })
 
 mainMenu.addEventListener('click', (event) => {
-    if (event.target.classList.contains('menu__link')) {
+    if (event.target.classList.contains('menu__link') && mainMenu.classList.contains('open')) {
         toggleMenu();
     }
 })
