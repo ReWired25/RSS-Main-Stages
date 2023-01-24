@@ -4,13 +4,17 @@ import createSwitchPagesButtons from '../utilites/switch-pages-buttons';
 import elementCreater from '../utilites/overall-functions';
 import createAppHeader from './application-header';
 import createAppFooter from './application-footer';
+import createLoadingIndicator from '../loading-indicator/loading-indicator';
 
 const applicationPageBuilder = async () => {
   const header = createAppHeader();
   const footer = createAppFooter();
+  const loadingIndicator = createLoadingIndicator();
 
+  document.body.append(loadingIndicator);
   const garagePage = await garagePageBuilder();
   const winnersPage = await winnersPageBuilder();
+  loadingIndicator.remove();
 
   if (garagePage && winnersPage) {
     winnersPage.classList.add('hidden');
